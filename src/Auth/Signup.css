@@ -1,0 +1,48 @@
+.row {
+  width:600px;
+  padding: 20px;
+}
+.div_1{
+  margin-left: 600px;
+  
+}
+.form-control {
+  width: 500px;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+.nut{
+  color: red;
+}
+.registerbtn{
+  background-color: #7C6A46;
+  width: 500px;
+  color:white;
+  margin-left: 10px;
+  
+}
+.account{
+  width: 500px;
+  /* background-color: #7C6A46; */
+  border: 1px solid black;
+  border-radius: 0%;
+  margin-left: 45px;
+}
+h2{
+  color: #7C6A46;
+}
+.or{
+  color: #7C6A46;
+  margin-left: 270px;
+
+}
+input.form-control{
+  border-radius:3px;
+}
+.google_logo{
+  margin-left: 250px;
+}
+.link_account{
+  margin-left: 250px;
+}
