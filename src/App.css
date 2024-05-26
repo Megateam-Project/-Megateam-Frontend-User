@@ -1,4 +1,4 @@
-#root {
+  #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,115 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+/* signup */
+
+.row {
+  width:600px;
+  padding: 20px;
+}
+.div_1{
+  margin-left: 600px;
+  
+}
+.form-control {
+  width: 500px;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  margin-top: 20px;
+}
+.nut{
+  color: red;
+}
+.registerbtn{
+  background-color: #7C6A46;
+  width: 500px;
+  color:white;
+  margin-left: 10px;
+  
+}
+.account{
+  width: 500px;
+  /* background-color: #7C6A46; */
+  border: 1px solid black;
+  border-radius: 0%;
+  margin-left: 45px;
+}
+h2 , b{
+  color: #7C6A46;
+}
+.or{
+  color: #7C6A46;
+  margin-left: 270px;
+
+}
+input.form-control{
+  border-radius:3px;
+}
+.googlelogo{
+  margin-right: 10px;
+}
+.link_account{
+  margin-left: 250px;
+}
+
+
+/* Login */
+
+.row {
+  width:600px;
+  padding: 20px;
+}
+.div_1{
+  margin-right: 100px;
+ 
+  
+}
+#root{
+  margin-right: 650px;
+}
+.form-control {
+  width: 500px;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+.link-opacity-10-hover{
+  margin-left: 250px;
+  /* color: red; */
+  margin-top: 30px;
+}
+.registerbt{
+  background-color: #7C6A46;
+  width: 500px;
+  color:white;
+  margin-left: 45px;
+  
+}
+.account{
+  width: 500px;
+  /* background-color: #7C6A46; */
+  border: 1px solid black;
+  border-radius: 0%;
+  margin-left: 45px;
+}
+h2{
+  color: #7C6A46;
+}
+.or{
+  color: #7C6A46;
+  margin-right: 200px;
+
+}
+input.form-control{
+  border-radius:3px;
+}
+.google_logo{
+  margin-left: 50px;
+}
+.red_register{
+  color: red;
 }
