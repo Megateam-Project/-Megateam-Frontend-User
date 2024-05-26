@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -8,19 +9,32 @@ const Signup = () => {
     const [tel, setTel] = useState("");
     const [password, setPassword] = useState("");
     const [PasswordConfirm, setPasswordConfirm] = useState("");
-
     const navigate = useNavigate();
 
     const handleSubmit = async(e) => {
-        e.preventDefault();
-        console.log({ email, username, tel, password });
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/signup', {
+              username,
+              email,
+              tel,
+              password,
+              PasswordConfirm,
+              
+
+            });
+            console.log("Register successful");
+            history.push("/Login");
+          } catch (error) {
+            console.error("Register failed", error);
+            alert("Register failed");
+          }
+        setUsername("");
         setEmail("");
         setTel("");
         setUsername("");
         setPassword("");
         setPasswordConfirm("");
     };
-    const gotoLoginPage = () => navigate("/");
 
     return (
         <div className="div_1">
@@ -78,10 +92,10 @@ const Signup = () => {
                 required 
                 value={PasswordConfirm}
                 onChange={(e) => setPasswordConfirm(e.target.value)}/><br/>
-                <p className="link_account mt-2"> Already have an account?  <a className="nut" href="#" onClick={gotoLoginPage}>Signin</a></p>
+                <p className="link_account mt-2"> Already have an account?  <a className="nut" href="#" onClick={handleSubmit}>Signin</a></p>
             
             </div>
-            <button type="submit" className="registerbtn mt-3" onClick={gotoLoginPage} >Register</button>
+            <button type="submit" className="registerbtn mt-3" onClick={handleSubmit} >Register</button>
             
         
 

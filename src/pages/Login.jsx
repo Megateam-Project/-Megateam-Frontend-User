@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
@@ -6,15 +7,38 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log({ email, password });
-        setPassword("");
-        setEmail("");
-    };
-
-    const gotoSignUpPage = () => navigate("register");
+    const handleSubmit  = async () => {
+        try {
+          const response = await axios.post('http://127.0.0.1:8000/api/login', {
+            email,
+            password,
+          });
+          if (response.data.success) {
+            // Lưu token hoặc thông tin đăng nhập vào localStorage hoặc cookie
+            localStorage.setItem('authToken', response.data.token);
+               // Chuyển hướng đến trang chính
+               navigate("/");
+          } else {
+            // Hiển thị thông báo lỗi
+            alert(response.data.message);
+          }
+      
+          setPassword("");
+          setEmail("");
+        } catch (error) {
+            // Xử lý lỗi
+            if (error.response) {
+              // Lỗi từ phía server
+              alert(`Error: ${error.response.data.message}`);
+            } else if (error.request) {
+              // Lỗi kết nối
+              alert('Error: Unable to connect to the server');
+            } else {
+              // Lỗi khác
+              alert('An unknown error occurred');
+            }
+        }
+      };
     
 
     return (
@@ -58,9 +82,9 @@ const Login = () => {
               </div>
             </div>
             <p className="link-opacity-10-hover mt-2
-            ">Already have an account?<a href="#" className="red_register"  onClick={gotoSignUpPage}>Regiter ?</a></p>
+            ">Already have an account?<a href="#" className="red_register"  onClick={handleSubmit}>Regiter</a></p>
 
-            <button type="submit " className="registerbt mt-3 " onClick={gotoSignUpPage} >Sign in</button>
+            <button type="submit " className="registerbt mt-3 " onClick={handleSubmit} >Sign in</button>
             <h5 className="or mt-3">OR</h5>
             <button type="submit" className="account mt-3 ">
               <img src="src/assets/logo_1.jpg" alt="Google Logo" className="google " style={{ width: '30px', height: '30px', objectFit: 'cover' }} />

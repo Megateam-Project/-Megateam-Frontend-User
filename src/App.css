@@ -1,30 +1,16 @@
   #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.container-fluid {
+  width: 100vw;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -58,6 +44,7 @@
   border-bottom: 1px solid black;
   padding: 5px;
   margin-top: 20px;
+   
 }
 .nut{
   color: red;
@@ -78,6 +65,7 @@
 }
 h2 , b{
   color: #7C6A46;
+  
 }
 .or{
   color: #7C6A46;
@@ -86,12 +74,16 @@ h2 , b{
 }
 input.form-control{
   border-radius:3px;
+  
 }
 .googlelogo{
-  margin-right: 10px;
+  margin-left: 230px;
 }
 .link_account{
   margin-left: 250px;
+}
+label{
+  text-align: center;
 }
 
 
@@ -139,15 +131,16 @@ h2{
 }
 .or{
   color: #7C6A46;
-  margin-right: 200px;
+  margin-left: 280px;
 
 }
 input.form-control{
   border-radius:3px;
 }
 .google_logo{
-  margin-left: 50px;
+  margin-left: 250px;
 }
 .red_register{
   color: red;
+  margin-left: 10px;
 }
