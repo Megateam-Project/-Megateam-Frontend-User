@@ -12,5 +12,22 @@
   z-index: 1000;
   background-color: white;
 }
+.row {
+  display: flex;
+  justify-content: space-between;
+}
 
+.cl-6 {
+  width: 50%;
+}
+
+.cl-6:first-child {
+  order: 2;
+}
+
+.image {
+  max-width: 500px;
+  height: auto;
+  margin-left: 300px;
+}
 
