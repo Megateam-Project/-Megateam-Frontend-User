@@ -1,9 +1,9 @@
-#root {
-  max-width: 1280px;
+.app-container {
+  min-height: 100vh;
 }
-
-.container-fluid {
-  width: 100vw;
+.main-content {
+  flex: 1;
+  padding-top: 70px;
 }
 .navbar {
   position: fixed;
@@ -11,6 +11,9 @@
   width: 100%;
   z-index: 1000;
   background-color: white;
+}
+.footer{
+  padding: 70px;
 }
 
 

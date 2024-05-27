@@ -1,5 +1,7 @@
 export function Homepage(){
     return (
-        <div>   Homepage</div>
+        <div className="row slider ">
+            
+        </div>
     )
 }
