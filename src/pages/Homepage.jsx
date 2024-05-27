@@ -1,25 +1,33 @@
-import Rectangle from "../assets/Rectangle 5.png";
-export function Homepage() {
-  return (
-    <div>
-      <div>
-        <div className="row">
-          <div className="cl-6 ">
-            <img className="image" src={Rectangle} alt="image" />
-          </div>
-          <div className="cl-6">
-            <p>Paradise View</p>
-            <h1>Hotel for every moment rich in emotion</h1>
-            <p>Every moment feels like the first time in paradise view</p>
-            <button>Book Now</button>
-          </div>
-            
-        </div>
-        
-      </div>
-      <div></div>
-      <div></div>
-      <div></div>
+import {Our_Facilities,Facilities} from "../data.js";
+export function Homepage(){
+    return (
+    <div className="row slider">
+      <header className="header_title ">
+        <h3>Our Facilities</h3>
+        <p>We offer modern (5-star) hotel facilities for your comfort.</p>
+      </header>
+      <main>
+        <section className="places-category">
+          <ul className="places d-flex justify-content-around align-items-end">
+            {Our_Facilities.map((facility) => (
+              <li key={facility.id}>
+                <img src={facility.image.src} alt={facility.image.alt} />
+                <h3>{facility.name}</h3>
+                <p>{facility.title}</p>
+              </li>
+            ))}
+          </ul>
+          <ul className="places d-flex justify-content-around align-items-end">
+            {Facilities.map((facility) => (
+              <li key={facility.id}>
+                <img src={facility.image.src} alt={facility.image.alt} />
+                <h3>{facility.name}</h3>
+                <p>{facility.title}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
     </div>
-  );
+    )
 }

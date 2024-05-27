@@ -1,9 +1,9 @@
-#root {
-  max-width: 1280px;
+.app-container {
+  min-height: 100vh;
 }
-
-.container-fluid {
-  width: 100vw;
+.main-content {
+  flex: 1;
+  padding-top: 70px;
 }
 .navbar {
   position: fixed;
@@ -12,9 +12,8 @@
   z-index: 1000;
   background-color: white;
 }
-.row {
-  display: flex;
-  justify-content: space-between;
+.footer{
+  padding: 70px;
 }
 
 .cl-6 {
@@ -30,4 +29,5 @@
   height: auto;
   margin-left: 300px;
 }
+
 

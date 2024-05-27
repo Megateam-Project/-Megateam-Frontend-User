@@ -1,0 +1,57 @@
+header h3 p{
+    padding-left: 20%;
+  }
+  
+  .places-category {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    padding-left: 10%;
+    
+  }
+  
+  .places {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .places li {
+    width: 200px; 
+    margin-bottom: 20px; 
+    text-align: center;
+    top: 10px;
+    left: 0;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9faff;
+    color: #111;
+    height: 25vh;
+  }
+  .header_title{
+    text-align: center; 
+    padding: 20px 0;
+  }
+  .places li{
+    width: 300px; 
+    margin-bottom: 30px; 
+    margin-right: 10px; 
+    text-align: center;
+  }
+  
+  .places li img {
+    margin-top: 30px;
+    width: 20%;
+    height: auto;
+  }
+  
+  .places li h3 {
+    margin-top: 40px;
+    margin-bottom: 5px;
+    font-size: 1.2em; /* Adjust as needed */
+  }
+  
+  .places li p {
+    margin: 0;
+  }
+  
