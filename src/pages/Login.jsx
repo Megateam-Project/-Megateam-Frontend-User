@@ -54,7 +54,7 @@ const LoginForm = () => {
               <i className="fa fa-envelope-o" aria-hidden="true"></i>
             </label>
           </div>
-          <div className="col-auto">
+          <div className="in col-auto">
             <input
               type="email"
               id="inputEmail"
@@ -74,7 +74,7 @@ const LoginForm = () => {
               <i className="fa fa-lock" aria-hidden="true"></i>
             </label>
           </div>
-          <div className="col-auto">
+          <div className="in col-auto">
             <input
               type="password"
               id="inputPassword2"

@@ -41,7 +41,7 @@ const Signup = () => {
     <div className="div_1">
       <img src="src/assets/logo.jpg" alt="Google_Logo" className="googlelogo" style={{ width: '70px', height: '40px', objectFit: 'cover' }} />
       <form className="div_2" onSubmit={handleSubmit}>
-        <div className="container mt-5">
+        <div className="container mt-3">
           <label htmlFor="name"><b className="text_input">Name</b></label>
           <input
             type="text"

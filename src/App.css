@@ -1,9 +1,14 @@
-  #root {
-  max-width: 1280px;
-}
 
-.container-fluid {
-  width: 100vw;
+  /* #root {
+  max-width: 1280px;
+  } */
+.app-container {
+  min-height: 100vh;
+
+}
+.main-content {
+  flex: 1;
+  padding-top: 70px;
 }
 .navbar {
   position: fixed;
@@ -11,6 +16,9 @@
   width: 100%;
   z-index: 1000;
   background-color: white;
+}
+.footer{
+  padding: 70px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -28,6 +36,8 @@
 }
 
 
+
+
 /* signup */
 
 .row {
@@ -38,13 +48,15 @@
   margin-left: 600px;
   
 }
-.form-control {
+.div_2 input[type="text"],
+.div_2 input[type="email"],
+.div_2 input[type="tel"],
+.div_2 input[type="password"] {
   width: 500px;
   border: none;
   border-bottom: 1px solid black;
   padding: 5px;
   margin-top: 20px;
-   
 }
 .nut{
   color: red;
@@ -80,7 +92,7 @@ input.form-control{
   margin-left: 230px;
 }
 .link_account{
-  margin-left: 250px;
+  margin-left: 130px;
 }
 label{
   text-align: center;
@@ -90,25 +102,28 @@ label{
 /* Login */
 
 .row {
-  width:600px;
-  padding: 20px;
+  width:1700px;
+  
 }
 .div_1{
   margin-right: 100px;
+  margin-bottom: 200px;
  
   
 }
 #root{
   margin-right: 650px;
 }
-.form-control {
+.in input[type="email"],
+.in input[type="password"] {
   width: 500px;
   border: none;
   border-bottom: 1px solid black;
   padding: 5px;
 }
+
 .link-opacity-10-hover{
-  margin-left: 250px;
+  margin-left: 170px;
   /* color: red; */
   margin-top: 30px;
 }
@@ -143,4 +158,8 @@ input.form-control{
 .red_register{
   color: red;
   margin-left: 10px;
+}
+
+.col-auto{
+  width: 600px;
 }
