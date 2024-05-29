@@ -28,7 +28,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label
                   for="staticEmail"
-                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center"
+                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i className="icon_person fa fa-user" aria-hidden="true"></i>
                 </label>
@@ -36,11 +36,11 @@ export function Profile() {
                   <h5>Account</h5>
                   <p className="p_text">Management your account </p>
                 </div>
-              </div>
+              </div>                                                                        
               <div className="mb-3 row">
                 <label
                   for="staticEmail"
-                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center"
+                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i class="icon_person fa fa-shield" aria-hidden="true"></i>
                 </label>
@@ -52,7 +52,7 @@ export function Profile() {
               {/* <div className="mb-3 row">
                 <label
                   for="staticEmail"
-                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center"
+                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i className="icon_person fa fa-user" aria-hidden="true"></i>
                 </label>
@@ -64,7 +64,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label
                   for="staticEmail"
-                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center"
+                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i class="icon_person fa fa-heart" aria-hidden="true"></i>
                 </label>
@@ -76,7 +76,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label
                   for="staticEmail"
-                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center"
+                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i class="icon_person fa fa-list" aria-hidden="true"></i>
                 </label>
@@ -88,7 +88,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label
                   for="staticEmail"
-                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center"
+                  className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i class="icon_person fa fa-cog" aria-hidden="true"></i>
                 </label>
