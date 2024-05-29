@@ -6,6 +6,8 @@ import { Homepage } from "./pages/Homepage";
 import { Room } from "./pages/Room";
 import { Aboutus } from "./pages/Aboutus";
 import { Footer } from "./layouts/Footer";
+import  {Profile } from "./pages/Profile";
+
 
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/rooms" element={<Room />} />
             <Route path="/about-us" element={<Aboutus />} />
-            {/* <Route path="/login" element={<Login />} /> */}
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
 

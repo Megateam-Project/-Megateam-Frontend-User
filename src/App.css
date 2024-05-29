@@ -15,5 +15,38 @@
 .footer{
   padding: 70px;
 }
+/* profile */
 
+.image{
+  margin-left: 750px;
+  margin-top: 100px;
+}
+.form_profile{
+  border: 1px solid rgb(77, 64, 64);
+  border-radius:5px ;
+  height: 400px ;
+}
+.container{
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+i.icon_person {
+  transform: scale(2.5);
+  color:#7C6A46 ;
+}
+.first_col{
+  color:#7C6A46 ;
+}
+.p_text{
+  color: black;
+}
+.save{
+  width: 100px;
+  background-color: #7C6A46;
+  margin-left: 450px;
+}
+.image_person{
+width: 150px;
+height: 150px;
+}
 
