@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export function Profile() {
   return (
-    <div>
+    <div className="div_1_profile">
       <nav className="navbar bg-body-tertiary">
         <div
           className="container-fluid"
@@ -98,14 +98,14 @@ export function Profile() {
               </div>
             </ul>
           </div>
-          <div className="col">
+          <div className=" row col-6">
             <form className=" form_profile row g-3 needs-validation" novalidate>
               <a href="#" class="link-underline-primary">
                 Edit profile
               </a>
               <hr />
               {/* hình ảnh  */}
-              <div className="col-md-4">1
+              <div className="col-md-4">
                 <img
                   className="image_person rounded-circle mr-4"
                   src={Group}
