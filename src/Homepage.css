@@ -1,13 +1,13 @@
+
 header h3 p{
     padding-left: 20%;
   }
   
   .places-category {
     display: flex;
-    justify-content: space-between; 
+    justify-content: center; 
     align-items: center; 
     flex-wrap: wrap; 
-    padding-left: 10%;
     
   }
   
@@ -24,13 +24,13 @@ header h3 p{
     left: 0;
     width: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9faff;
+    background-color: #fefeff;
     color: #111;
     height: 25vh;
   }
   .header_title{
     text-align: center; 
-    padding: 20px 0;
+    padding: 110px 0;
   }
   .places li{
     width: 300px; 
@@ -54,4 +54,6 @@ header h3 p{
   .places li p {
     margin: 0;
   }
-  
+  .btn-custom {
+    background-color: rgb(129, 73, 6);
+  }
