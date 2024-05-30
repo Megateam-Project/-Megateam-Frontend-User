@@ -1,3 +1,5 @@
-export function Room(){
-    return <div>Room</div>
+export function Room() {
+    return (
+        <div>Room</div>
+    )
 }

@@ -6,7 +6,9 @@ import { Homepage } from "./pages/Homepage";
 import { Room } from "./pages/Room";
 import { Aboutus } from "./pages/Aboutus";
 import { Footer } from "./layouts/Footer";
-
+import { Booking } from "./pages/Booking";
+import { Checkout } from "./pages/Checkout";
+// import hero from "./assets/hero.png";
 function App() {
   return (
     <BrowserRouter>
@@ -14,13 +16,14 @@ function App() {
         <Header />
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<Homepage  />} />
             <Route path="/rooms" element={<Room />} />
             <Route path="/about-us" element={<Aboutus />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/checkout" element={<Checkout />} />
             {/* <Route path="/login" element={<Login />} /> */}
           </Routes>
         </main>
-
         <Footer />
       </div>
     </BrowserRouter>

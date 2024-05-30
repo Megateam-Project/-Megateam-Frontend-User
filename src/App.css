@@ -3,7 +3,7 @@
 }
 .main-content {
   flex: 1;
-  padding-top: 70px;
+  /* padding-top: 70px; */
 }
 .navbar {
   position: fixed;
