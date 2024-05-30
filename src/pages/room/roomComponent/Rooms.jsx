@@ -1,6 +1,6 @@
 
 import RoomCategory from './RoomCategory';
-import styles from '../styles/Rooms.module.css';
+import styles from '../style/Rooms.module.css';
 
 const roomData = [
   {

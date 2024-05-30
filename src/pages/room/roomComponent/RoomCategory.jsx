@@ -1,12 +1,14 @@
+
 import Room from "./Room";
-import styles from "../styles/RoomCategory.module.css";
+import styles from "../style/RoomCategory.module.css";
 
 function RoomCategory() {
   return (
     <div className={styles.roomCategory}>
       <h3>category</h3>
-
-      <Room />
+      
+        <Room/>
+  
     </div>
   );
 }

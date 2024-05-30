@@ -1,6 +1,6 @@
 
 import SearchForm from "./SearchForm";
-import styles from "../styles/Hero.module.css";
+import styles from "../style/Hero.module.css";
 
 function Hero() {
   return (

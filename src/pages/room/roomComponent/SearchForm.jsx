@@ -1,5 +1,5 @@
 
-import styles from "../styles/SearchForm.module.css";
+import styles from "../style/SearchForm.module.css";
 
 function SearchForm() {
   return (

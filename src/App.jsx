@@ -3,7 +3,7 @@ import "./App.css";
 import { Header } from "./layouts/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Homepage } from "./pages/Homepage";
-import { RoomPage } from "./pages/rooms/RoomPage";
+import { RoomPage } from "./pages/room/RoomPage";
 import { Aboutus } from "./pages/Aboutus";
 import { Footer } from "./layouts/Footer";
 import { Booking } from "./pages/Booking";
