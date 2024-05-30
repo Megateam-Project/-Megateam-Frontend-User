@@ -1,5 +1,6 @@
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import "./App.css";
-
 import { Header } from "./layouts/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Homepage } from "./pages/Homepage";
@@ -21,6 +22,8 @@ function App() {
             <Route path="/rooms" element={<Room />} />
             <Route path="/about-us" element={<Aboutus />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/register" element={<Signup />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/checkout" element={<Checkout />} />
             {/* <Route path="/login" element={<Login />} /> */}
@@ -31,5 +34,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;

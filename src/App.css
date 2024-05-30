@@ -1,5 +1,10 @@
+
+  /* #root {
+  max-width: 1280px;
+  } */
 .app-container {
   min-height: 100vh;
+
 }
 .main-content {
   flex: 1;
@@ -48,5 +53,140 @@ i.icon_person {
 .image_person{
 width: 150px;
 height: 150px;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/* signup */
+.row {
+  width:600px;
+  padding: 20px;
+}
+.div_1{
+  margin-left: 600px;
+  
+}
+.div_2 input[type="text"],
+.div_2 input[type="email"],
+.div_2 input[type="tel"],
+.div_2 input[type="password"] {
+  width: 500px;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  margin-top: 20px;
+}
+.nut{
+  color: red;
+}
+.registerbtn{
+  background-color: #7C6A46;
+  width: 500px;
+  color:white;
+  margin-left: 10px;
+  
+}
+.account{
+  width: 500px;
+  /* background-color: #7C6A46; */
+  border: 1px solid black;
+  border-radius: 0%;
+  margin-left: 45px;
+}
+h2 , b{
+  color: #7C6A46;
+  
+}
+.or{
+  color: #7C6A46;
+  margin-left: 270px;
+
+}
+input.form-control{
+  border-radius:3px;
+  
+}
+.googlelogo{
+  margin-left: 230px;
+}
+.link_account{
+  margin-left: 130px;
+}
+label{
+  text-align: center;
+}
+
+
+/* Login */
+
+.row {
+  width:1700px;
+  
+}
+.div_1{
+  margin-right: 100px;
+  margin-bottom: 200px;
+ 
+  
+}
+#root{
+  margin-right: 650px;
+}
+.in input[type="email"],
+.in input[type="password"] {
+  width: 500px;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+
+.link-opacity-10-hover{
+  margin-left: 170px;
+  /* color: red; */
+  margin-top: 30px;
+}
+.registerbt{
+  background-color: #7C6A46;
+  width: 500px;
+  color:white;
+  margin-left: 45px;
+  
+}
+.account{
+  width: 500px;
+  /* background-color: #7C6A46; */
+  border: 1px solid black;
+  border-radius: 0%;
+  margin-left: 45px;
+}
+h2{
+  color: #7C6A46;
+}
+.or{
+  color: #7C6A46;
+  margin-left: 280px;
+
+}
+input.form-control{
+  border-radius:3px;
+}
+.google_logo{
+  margin-left: 250px;
+}
+.red_register{
+  color: red;
+  margin-left: 10px;
+}
+
+.col-auto{
+  width: 600px;
+}
