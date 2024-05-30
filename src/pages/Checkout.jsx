@@ -1,4 +1,5 @@
 import qrcode from "../assets/qrcode.png";
+import { Link } from "react-router-dom";
 export function Checkout() {
   return (
     <div className="row m-5 justify-content-around">
@@ -32,6 +33,13 @@ export function Checkout() {
             type="text"
             placeholder="Booking"
           />
+        </div>
+        <div className="d-flex justify-content-center mt-3">
+          <button className="text-center me-2" type="submit">
+            <Link className="" to="/booking">
+              Back
+            </Link>
+          </button>
         </div>
       </div>
     </div>
