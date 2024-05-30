@@ -1,6 +1,9 @@
 import React from "react";
-import image from "../assets/images.jpg";
 import person from "../assets/person.jpg";
+import Ellipse from "../assets/Ellipse.png";
+import Group from "../assets/Group.png";
+
+
 
 import { Link } from "react-router-dom";
 
@@ -14,7 +17,7 @@ export function Profile() {
         >
           <img
             className="image rounded-circle mr-4"
-            src={image}
+            src={Ellipse}
             alt="Your Image"
             style={{ width: "200px", height: "200px", objectFit: "cover" }}
           />
@@ -27,7 +30,6 @@ export function Profile() {
             <ul className="list-group ">
               <div className="mb-3 row">
                 <label
-                  for="staticEmail"
                   className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i className="icon_person fa fa-user" aria-hidden="true"></i>
@@ -39,7 +41,6 @@ export function Profile() {
               </div>                                                                        
               <div className="mb-3 row">
                 <label
-                  for="staticEmail"
                   className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i class="icon_person fa fa-shield" aria-hidden="true"></i>
@@ -51,7 +52,6 @@ export function Profile() {
               </div>
               {/* <div className="mb-3 row">
                 <label
-                  for="staticEmail"
                   className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i className="icon_person fa fa-user" aria-hidden="true"></i>
@@ -63,7 +63,6 @@ export function Profile() {
               </div> */}
               <div className="mb-3 row">
                 <label
-                  for="staticEmail"
                   className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i class="icon_person fa fa-heart" aria-hidden="true"></i>
@@ -75,7 +74,6 @@ export function Profile() {
               </div>
               <div className="mb-3 row">
                 <label
-                  for="staticEmail"
                   className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i class="icon_person fa fa-list" aria-hidden="true"></i>
@@ -87,7 +85,6 @@ export function Profile() {
               </div>
               <div className="mb-3 row">
                 <label
-                  for="staticEmail"
                   className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3"
                 >
                   <i class="icon_person fa fa-cog" aria-hidden="true"></i>
@@ -108,10 +105,10 @@ export function Profile() {
               </a>
               <hr />
               {/* hình ảnh  */}
-              <div className="col-md-4">
+              <div className="col-md-4">1
                 <img
                   className="image_person rounded-circle mr-4"
-                  src={person}
+                  src={Group}
                   alt="Your Image"
                 />
               </div>
@@ -137,7 +134,7 @@ export function Profile() {
               </div>
               <div className="col-md-4">
                 <label
-                  htmlFor="staticEmail"
+                  htmlFor="inputEmail"
                   className="col-sm-2 col-form-label"
                 >
                   Phone
