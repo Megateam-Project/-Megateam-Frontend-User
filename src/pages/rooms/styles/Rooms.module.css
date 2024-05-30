@@ -1,0 +1,29 @@
+.rooms {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filterBtn {
+    background-color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.filterBtn.active {
+    background-color: #8b6b4a;
+    color: #fff;
+}
+
+.sortBy {
+    display: flex;
+    align-items: center;
+}
