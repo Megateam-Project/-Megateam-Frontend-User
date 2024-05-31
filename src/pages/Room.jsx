@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import './Detail/DetailRoom.jsx' ;
+// import './Detail/DetailRoom.jsx' ;
 export function Room() {
   return (
     <div>
