@@ -1,10 +1,10 @@
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import "./App.css";
+import "./Homepage.css";
 import { Header } from "./layouts/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Homepage } from "./pages/Homepage";
-import { Room } from "./pages/Room";
+import { Homepages } from "./pages/Homepage.jsx";
 import { Aboutus } from "./pages/Aboutus";
 import { Footer } from "./layouts/Footer";
 import  {Profile } from "./pages/Profile";
@@ -18,7 +18,7 @@ function App() {
         <Header />
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Homepage  />} />
+            <Route path="/" element={<Homepages  />} />
             <Route path="/about-us" element={<Aboutus />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/Login" element={<Login />} />

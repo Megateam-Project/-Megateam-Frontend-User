@@ -125,6 +125,20 @@ label{
   text-align: center;
 }
 
+.cl-6 {
+  width: 50%;
+}
+
+.cl-6:first-child {
+  order: 2;
+}
+
+.image {
+  max-width: 500px;
+  height: auto;
+  margin-left: 300px;
+}
+
 
 /* Login */
 

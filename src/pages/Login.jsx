@@ -21,10 +21,11 @@ const LoginForm = () => {
         password,
        
       });
-      const {token} = response.data.result;
+      const {token, user} = response.data.result;
       console.log(email, password);
-      Cookies.set('user', JSON.stringify({ email, password, token }), { expires: 7 });
+      Cookies.set('user', JSON.stringify({ ...user, token }), { expires: 30 });
       alert("success");
+      console.log();
       navigate("/");
     } catch (error) {
       if (error.response) {
