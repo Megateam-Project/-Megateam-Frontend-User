@@ -42,10 +42,9 @@ const LoginForm = () => {
         <div className=" d-flex justify-content-center">
           <img src={logo} alt="Google Logo" className="" />
         </div>
-
         <div className="row g-3 align-items-center mt-2">
           <div className="col-auto">
-            <label htmlFor="inputEmail" className="col-form-label">
+            <label htmlFor="inputEmail" className="col-form-label" >
               <i className="fa fa-envelope-o" aria-hidden="true"></i>
             </label>
           </div>
@@ -54,7 +53,7 @@ const LoginForm = () => {
               type="email"
               id="inputEmail"
               placeholder="Enter Email"
-              className="form-control border-bottom border-dark"
+              className="form-control border-bottom border-dark "
               name="email"
               required
               value={email}
@@ -83,28 +82,23 @@ const LoginForm = () => {
             />
           </div>
         </div>
-        <p className="text-center mt-3">
-          Already have an account?
-          <Link to="/register" className="red_register">
+        <p className=" mt-3 text-center small">
+          Already have an account? 
+          <Link to="/register" className="text-danger">
             Sign up
           </Link>
         </p>
         <div className=" d-flex justify-content-center align-items-center">
           <button
             type="submit"
-            className="mt-3"
-            style={{
-              backgroundColor: "#7C6A46",
-              color: "white",
-              width: "200px",
-            }}
+            className="mt-3 btn btn-dark w-100 custom-button" style={{ backgroundColor: '#7C6A46',height: '45px' }}
           >
             Sign in
           </button>
         </div>
-        <h5 className="text-center mt-3">OR</h5>
+        <h5 className="text-center mt-3 "style={{ color: '#7C6A46' }}>OR</h5>
         <div className="d-flex justify-content-center">
-          <button type="button" className="mt-3" style={{ width: "500px" }}>
+          <button type="button" className="mt-3 btn btn-dark w-100 text-black" style={{ backgroundColor: 'white'}}>
             <img
               src="src/assets/logo_1.jpg"
               alt="Google Logo"
