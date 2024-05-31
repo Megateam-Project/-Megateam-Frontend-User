@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import logo from "../assets/Logo.jpg";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,10 +20,9 @@ const LoginForm = () => {
       const response = await axios.post("http://127.0.0.1:8000/api/login", {
         email,
         password,
-       
       });
-      const {token, user} = response.data.result;
-      Cookies.set('user', JSON.stringify({ ...user, token }), { expires: 30 });
+      const { token, user } = response.data.result;
+      Cookies.set("user", JSON.stringify({ ...user, token }), { expires: 30 });
       alert("success");
       console.log();
       navigate("/");
@@ -36,32 +36,30 @@ const LoginForm = () => {
       }
     }
   };
-
   return (
-    <div className="div_1">
-      <img
-        src="src/assets/logo.jpg"
-        alt="Google Logo"
-        className="google_logo "
-        style={{ width: "70px", height: "40px", objectFit: "cover" }}
-      />
-      <form className="div_2" onSubmit={handleLoginFormSubmit}>
+    <div className=" mb-5 d-flex justify-content-center fs-4" style={{marginTop: "100px"}}>
+      <form className="" onSubmit={handleLoginFormSubmit}>
+        <div className=" d-flex justify-content-center">
+          <img src={logo} alt="Google Logo" className="" />
+        </div>
+
         <div className="row g-3 align-items-center mt-2">
           <div className="col-auto">
             <label htmlFor="inputEmail" className="col-form-label">
               <i className="fa fa-envelope-o" aria-hidden="true"></i>
             </label>
           </div>
-          <div className="in col-auto">
+          <div className="col-auto">
             <input
               type="email"
               id="inputEmail"
               placeholder="Enter Email"
-              className="form-control"
+              className="form-control border-bottom border-dark"
               name="email"
               required
               value={email}
               onChange={handleEmailChange}
+              style={{ width: "500px", border: "none" }}
             />
           </div>
         </div>
@@ -72,37 +70,50 @@ const LoginForm = () => {
               <i className="fa fa-lock" aria-hidden="true"></i>
             </label>
           </div>
-          <div className="in col-auto">
+          <div className="col-auto">
             <input
               type="password"
               id="inputPassword2"
               placeholder="Enter password"
-              className="form-control"
+              className="form-control border-bottom border-dark"
               name="password"
               value={password}
               onChange={handlePasswordChange}
+              style={{ width: "500px", border: "none" }}
             />
           </div>
         </div>
-        <p className="link-opacity-10-hover mt-2">
+        <p className="text-center mt-3">
           Already have an account?
           <Link to="/register" className="red_register">
-            Signup
+            Sign up
           </Link>
         </p>
-        <button type="submit" className="registerbt mt-3">
-          Sign in
-        </button>
-        <h5 className="or mt-3">OR</h5>
-        <button type="button" className="account mt-3">
-          <img
-            src="src/assets/logo_1.jpg"
-            alt="Google Logo"
-            className="google"
-            style={{ width: "30px", height: "30px", objectFit: "cover" }}
-          />
-          Continue with Google
-        </button>
+        <div className=" d-flex justify-content-center align-items-center">
+          <button
+            type="submit"
+            className="mt-3"
+            style={{
+              backgroundColor: "#7C6A46",
+              color: "white",
+              width: "200px",
+            }}
+          >
+            Sign in
+          </button>
+        </div>
+        <h5 className="text-center mt-3">OR</h5>
+        <div className="d-flex justify-content-center">
+          <button type="button" className="mt-3" style={{ width: "500px" }}>
+            <img
+              src="src/assets/logo_1.jpg"
+              alt="Google Logo"
+              className="google"
+              style={{ width: "30px", height: "30px", objectFit: "cover" }}
+            />
+            Continue with Google
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Signup from "./pages/Signup/Signup";
 import "./App.css";
 import "./Homepage.css";
 import { Header } from "./layouts/Header";
