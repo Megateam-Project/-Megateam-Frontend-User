@@ -1,7 +1,4 @@
 
-  /* #root {
-  max-width: 1280px;
-  } */
 .app-container {
   min-height: 100vh;
 
@@ -12,15 +9,15 @@
 }
 .navbar {
   top: 0;
-  /* width: 115%; */
-  /* z-index: 1000; */
+  width:100%;
+  z-index: 1000;
   background-color: white;
 }
 .footer{
   padding: 70px;
 }
-/* profile */
-/* .div_1_profile{
+/* profile
+.div_1_profile{
   margin-right: 200px;
 }
 .image{
@@ -96,10 +93,11 @@ height: 150px;
   color:white;
   margin-left: 10px;
   
-} */
-/* .account{
-  width: 500px;
-  border: 1px solid black;
+}
+.account{
+  width: 500px; */
+  /* background-color: #7C6A46; */
+  /* border: 1px solid black;
   border-radius: 0%;
   margin-left: 45px;
 }
@@ -138,68 +136,4 @@ label{
   max-width: 500px;
   height: auto;
   margin-left: 300px;
-}
- */
-
-/* Login */
-
-/* .row {
-  width:1700px;
-  
-}
-.div_1{
-  margin-right: 100px;
-  margin-bottom: 200px;
- 
-  
-}
-#root{
-  margin-right: 650px;
-}
-.in input[type="email"],
-.in input[type="password"] {
-  width: 500px;
-  border: none;
-  border-bottom: 1px solid black;
-  padding: 5px;
-}
-
-.link-opacity-10-hover{
-  margin-left: 170px;
-  margin-top: 30px;
-}
-.registerbt{
-  background-color: #7C6A46;
-  width: 500px;
-  color:white;
-  margin-left: 45px;
-  
-}
-.account{
-  width: 500px;
-  border: 1px solid black;
-  border-radius: 0%;
-  margin-left: 45px;
-}
-h2{
-  color: #7C6A46;
-}
-.or{
-  color: #7C6A46;
-  margin-left: 280px;
-
-}
-input.form-control{
-  border-radius:3px;
-}
-.google_logo{
-  margin-left: 250px;
-}
-.red_register{
-  color: red;
-  margin-left: 10px;
-}
-
-.col-auto{
-  width: 600px;
 } */
