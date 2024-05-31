@@ -7,7 +7,6 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [role, setRole] = useState("");
   const [create_by, setCreateBy] = useState("");
   const [password_confirmation, setPasswordConfirm] = useState("");
@@ -24,9 +23,6 @@ const Signup = () => {
   };
   const handlePhoneChange = (e) => {
     setPhone(e.target.value);
-  };
-  const handleAvatarChange = (e) => {
-    setAvatar(e.target.value);
   };
   const handlePasswordConfirmChange = (e) => {
     setPasswordConfirm(e.target.value);
@@ -50,7 +46,6 @@ const Signup = () => {
         phone,
         password,
         password_confirmation,
-        avatar,
         role,
         create_by,
       });
@@ -148,20 +143,7 @@ const Signup = () => {
             onChange={handlePasswordConfirmChange}
           />
           <br />
-          <label htmlFor="avatar">
-            <b>Avatar</b>
-          </label>
-          <input
-            type="file"
-            placeholder="Upload Avatar"
-            className="form-control"
-            name="avatar"
-            id="avatar"
-            required
-            value={avatar}
-            onChange={handleAvatarChange}
-          />
-          <br />
+          
           <label htmlFor="role">
             <b>Role</b>
           </label>
