@@ -63,7 +63,7 @@ const Signup = () => {
     }
   };
   return (
-    <div className="div_1">
+    <div className="div_1 mt-5">
       <img
         src="src/assets/logo.jpg"
         alt="Google_Logo"
@@ -152,11 +152,10 @@ const Signup = () => {
             <b>Avatar</b>
           </label>
           <input
-            type="text"
-            placeholder="Avatar"
+            type="file"
+            placeholder="Upload Avatar"
             className="form-control"
             name="avatar"
-            minLength={8}
             id="avatar"
             required
             value={avatar}
@@ -173,6 +172,7 @@ const Signup = () => {
             required
             value={role}
             onChange={handleRoleChange}
+            style={{ width: '500px' }}
           >
             <option value="">Select Role</option>
             <option value="admin">Admin</option>
@@ -190,6 +190,7 @@ const Signup = () => {
             required
             value={create_by}
             onChange={handleCreateByChange}
+            style={{ width: '500px' }}
           >
             <option value="">Select Creator</option>
             <option value="admin">Admin</option>
@@ -203,10 +204,10 @@ const Signup = () => {
               Signin
             </Link>
           </p>
+          <button type="submit" className="registerbtn mt-3">
+            Register
+          </button>
         </div>
-        <button type="submit" className="registerbtn mt-3">
-          Register
-        </button>
       </form>
     </div>
   );

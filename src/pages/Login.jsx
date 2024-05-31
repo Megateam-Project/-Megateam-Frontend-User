@@ -39,7 +39,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="div_1">
+    <div className="div_1 mt-5">
       <img
         src="src/assets/logo.jpg"
         alt="Google Logo"
