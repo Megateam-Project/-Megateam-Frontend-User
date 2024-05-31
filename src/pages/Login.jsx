@@ -22,7 +22,6 @@ const LoginForm = () => {
        
       });
       const {token, user} = response.data.result;
-      console.log(email, password);
       Cookies.set('user', JSON.stringify({ ...user, token }), { expires: 30 });
       alert("success");
       console.log();
