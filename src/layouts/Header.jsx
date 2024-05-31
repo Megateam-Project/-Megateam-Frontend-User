@@ -1,9 +1,10 @@
 import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 export function Header() {
     return (
-      <div className=" navbar mt-2 row d-flex justify-content-around">
+      <div className=" navbar p-3 row d-flex justify-content-around" style={{backgroundColor:"#f8f9fa"}} >
         <div className="col-1 d-flex justify-content-around">
           <img src={logo} alt="Logo" width="55" />
         </div>
