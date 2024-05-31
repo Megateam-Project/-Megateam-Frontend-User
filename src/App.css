@@ -77,7 +77,8 @@ height: 150px;
 .div_2 input[type="text"],
 .div_2 input[type="email"],
 .div_2 input[type="tel"],
-.div_2 input[type="password"] {
+.div_2 input[type="password"],
+.div_2 input[type="file"] {
   width: 500px;
   border: none;
   border-bottom: 1px solid black;
