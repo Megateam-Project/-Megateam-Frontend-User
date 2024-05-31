@@ -1,11 +1,11 @@
-import React from "react";
+// import React from "react";
 import { Our_Facilities, Facilities } from "../data.js";
 import { Search } from "./Search.jsx";
 import FamousRoom from "./FamousRoom.jsx";
 import Room from "../assets/Room.png";
 export function Homepages() {
   return (
-    <div className="row slider">
+    <div className="row slider mt-3">
       <div className="row main_title">
         <div>
           <Search img={Room}/>
