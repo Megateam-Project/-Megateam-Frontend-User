@@ -200,7 +200,7 @@ const Signup = () => {
           <p className="link_account mt-2">
             Already have an account?{" "}
             <Link to="/Login" className="nut">
-              Signin
+              Sign in
             </Link>
           </p>
         </div>
