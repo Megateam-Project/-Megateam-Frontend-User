@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
         <h2 className="font-script mb-3" style={{ fontSize: "30px" }}>
           Paradise view
         </h2>
-        <p style={{ fontFamily: "Raleway, sans-serif", fontSize: "12px" }}>
+        <p style={{ fontFamily: "Raleway, sans-serif", fontSize: "14px" }}>
           The service at the Hotel Monteleone was exceptional. There was
           absolutely no issue that was not addressed timely and with
           satisfactory results. We were particularly impressed with how the
@@ -28,7 +28,7 @@ export function Footer() {
             className="mb-2"
             style={{
               fontFamily: "Raleway, sans-serif",
-              fontSize: "12px",
+              fontSize: "14px",
             }}
           >
             {link}
@@ -49,7 +49,7 @@ export function Footer() {
               className="mb-2"
               style={{
                 fontFamily: "Raleway, sans-serif",
-                fontSize: "12px",
+                fontSize: "14px",
               }}
             >
               {item}
@@ -71,7 +71,7 @@ export function Footer() {
               className="mb-2"
               style={{
                 fontFamily: "Raleway, sans-serif",
-                fontSize: "12px",
+                fontSize: "14px",
               }}
             >
               {platform}
@@ -86,7 +86,7 @@ export function Footer() {
         >
           Newsletter
         </h5>
-        <p style={{ fontFamily: "Raleway, sans-serif", fontSize: "12px" }}>
+        <p style={{ fontFamily: "Raleway, sans-serif", fontSize: "14px" }}>
           Kindly subscribe to our newsletter to get latest deals on our rooms
           and vacation discount.
         </p>
@@ -99,7 +99,7 @@ export function Footer() {
               color: "rgba(0, 0, 0, 0.5)",
               fontFamily: "Raleway, sans-serif",
               fontWeight: "500",
-              fontSize: "12px",
+              fontSize: "14px",
             }}
           />
           <button
@@ -109,7 +109,7 @@ export function Footer() {
               borderRadius: "2.5px",
               fontFamily: "Raleway, sans-serif",
               fontWeight: "600",
-              fontSize: "13px",
+              fontSize: "14px",
               whiteSpace: "nowrap",
               padding: "10px 20px",
             }}
