@@ -1,21 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import Home from "../assets/Home.png";
+import Homepage from "../assets/Homepage.png";
 
 export function Search(props) {
   return (
     <div className="booking-container" style={{ position: "relative", textAlign: "center", color: "black" }}>
-      <div className="row" style={{ display: "flex", position: "relative", backgroundColor:"#f1f1f4", height:"auto" }}>
-        <div className="col-6" style={{ flex: "0 0 50%", maxWidth: "50%", padding: "10px" }}>
-          <div className="p-lg-5  text-dark rounded" style={{ maxWidth: "100%", width: "80vw", textAlign: "left" }}>
-            <h4>Paradise View</h4>
-            <h2>Hotel for every moment rich inemotion</h2>
-            <p>Every moment feels like the first time in paradise view</p>
-          </div>
-        </div>
-        <div className="col-6" style={{ flex: "0 0 50%", maxWidth: "60%", padding: "10px" }}>
-          <img src={Home} alt="Ảnh minh họa" style={{ Width: "500px", height: "600px" }} />
+      {/* <div className="row" style={{ display: "flex", position: "relative", backgroundColor:"#f1f1f4", height:"auto" }}> */}
+        <div className="mt-1" >
+          <img src={Homepage} alt="Ảnh minh họa" style={{ Width: "500px", height: "600px" }} />
         </div>
         <Form className="mt-4" style={{ position: "absolute", top: "80%", left: "50%", transform: "translate(-50%, -50%)", width: "84.2vw", backgroundColor: "rgba(255, 255, 255, 0.8)", padding: "20px" }}>
           <Row className="align-items-center justify-content-center">
@@ -79,6 +72,6 @@ export function Search(props) {
           </Row>
         </Form>
       </div>
-    </div>
+    // </div>
   );
 }
