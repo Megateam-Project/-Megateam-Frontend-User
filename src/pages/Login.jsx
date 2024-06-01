@@ -21,9 +21,9 @@ const LoginForm = () => {
         email,
         password,
       });
-      const { token, user } = response.data.result;
-      Cookies.set("user", JSON.stringify({ ...user, token }), { expires: 30 });
-      alert("success");
+      const { token } = response.data.result;
+      Cookies.set("token", JSON.stringify({token }), { expires: 7 });
+      alert("WELCOME TO HOTEL LUXURY");
       console.log();
       navigate("/");
     } catch (error) {
