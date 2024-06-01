@@ -7,55 +7,60 @@ import televison from "../assets/televison.png";
 import wifi from "../assets/wifi.png";
 import shower from "../assets/shower.png";
 import { Button, Col, Row, Card } from "react-bootstrap";
-import { Divider } from "antd";
-import Carousel from "react-elastic-carousel";
-
-import Item from "../components/Item";
-
-
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
-];
 
 const Detail = () => {
   return (
     <>
-      <h2 style={{marginTop: 80, marginLeft: 80}}>
+      <h2 style={{ marginTop: 80, marginLeft: 80 }}>
         Premium penthouse in central Barcelona with panoramic views
       </h2>
-      <div className="image-room">
-        <div className="d-flex justify-content-center align-items-center mt-5">
-          <img
-            style={{ width: "50%" }}
-            src={apollo}
-            alt="Twin room"
-          />
-        </div>
-        <div className="App mt-3" style={{
-          width: "80%",
-          marginLeft:120
-        }}>
-          <Carousel breakPoints={breakPoints}>
-            {[apollo, apollo, apollo, apollo, apollo].map((image, index) => (
-              <Item key={index}>
-                <img
-                  style={{ width: "100%" }}
-                  src={image}
-                  alt={`Twin room ${index + 1}`}
-                />
-              </Item>
-            ))}
-          </Carousel>
+      <div
+        className="image-room"
+        style={{
+          margin: "50px 90px 30px 90px"
+        }}
+      >
+        
+        <div className="container">
+          <div className="row" style={{ padding: "0px" }}>
+            <div className="col-4" style={{ padding: "0px" }}>
+              <div className="row" style={{ padding: "0px" }}>
+                <img style={{ width: "100%" }} src={apollo} alt="Twin room" />
+              </div>
+              <div className="row" style={{ padding: "0px" }}>
+                <img style={{ width: "100%" }} src={apollo} alt="Twin room" />
+              </div>
+            </div>
+            <div className="col-8" style={{ padding: "0px" }}>
+              <img
+                style={{ width: "100%", height: "auto" }}
+                src={apollo}
+                alt="Twin room"
+              />
+            </div>
+          </div>
+          <div className="row" style={{ padding: "0px" }}>
+            <div className="col" style={{ padding: "0px" }}>
+              <img style={{ width: "100%" }} src={apollo} alt="Twin room" />
+            </div>
+            <div className="col" style={{ padding: "0px" }}>
+              <img style={{ width: "100%" }} src={apollo} alt="Twin room" />
+            </div>
+            <div className="col" style={{ padding: "0px" }}>
+              <img style={{ width: "100%" }} src={apollo} alt="Twin room" />
+            </div>
+            <div className="col" style={{ padding: "0px" }}>
+              <img style={{ width: "100%" }} src={apollo} alt="Twin room" />
+            </div>
+          </div>
         </div>
       </div>
+
       <div
         className="container"
         style={{
           width: "70%",
-          marginTop: 50
+          marginTop: 50,
         }}
       >
         <div className="row">
@@ -133,14 +138,13 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <Divider orientation="left">
-        <h3 className="text-center mt-3">Convenient</h3>
-      </Divider>
+      <h3 style={{ marginTop: 50, marginLeft: 80 }}>Convenient</h3>
       <div
         className="d-flex justify-content-evenly "
         style={{
           width: "80%",
           marginLeft: 70,
+          marginTop: 30,
         }}
       >
         <p style={{ marginRight: 10 }}>Wifi</p>
@@ -151,9 +155,7 @@ const Detail = () => {
         <p style={{ marginRight: 10 }}>Parking </p>
         <p style={{ marginRight: 10 }}>Air conditioning</p>
       </div>
-      <Divider orientation="left">
-        <h3 className="text-center mt-3">Description</h3>
-      </Divider>
+      <h3 style={{ marginTop: 40, marginLeft: 80 }}>Description</h3>
       <p
         className=" text-left mt-3"
         style={{
@@ -182,12 +184,16 @@ const Detail = () => {
         </h3>
         <div className="room-interested  ">
           <div className="row01">
-            <Row gutter={16} style={{ margin: " 80px 50px 50px 50px" }}>
+            <Row gutter={8} style={{ margin: " 50px 130px 30px 130px" }}>
               <Col span={8}>
-                <Card title="The Royal Room" bordered={false} style={{
-                  width: 350,
-                  height: 450
-                }}>
+                <Card
+                  title="The Royal Room"
+                  bordered={false}
+                  style={{
+                    width: 300,
+                    height: 430,
+                  }}
+                >
                   <img src={roomSuggest} alt="The Royal Room" />
                   <div className="card-body">
                     <h5 className="card-title" style={{ color: "#7C6A46" }}>
@@ -205,17 +211,17 @@ const Detail = () => {
                       <img
                         src={televison}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={wifi}
                         alt=""
-                        style={{  marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={shower}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                     </div>
                     <div
@@ -232,7 +238,7 @@ const Detail = () => {
                           fontSize: "13px",
                           whiteSpace: "nowrap",
                           padding: "10px 20px",
-                          margin: " 10px 5px 10px ",
+                          margin: " 5px ",
                         }}
                       >
                         Book now
@@ -242,10 +248,14 @@ const Detail = () => {
                 </Card>
               </Col>
               <Col span={8}>
-              <Card title="The Royal Room" bordered={false} style={{
-                  width: 350,
-                  height: 450
-                }}>
+                <Card
+                  title="The Royal Room"
+                  bordered={false}
+                  style={{
+                    width: 300,
+                    height: 430,
+                  }}
+                >
                   <img src={roomSuggest} alt="The Royal Room" />
                   <div className="card-body">
                     <h5 className="card-title" style={{ color: "#7C6A46" }}>
@@ -263,17 +273,17 @@ const Detail = () => {
                       <img
                         src={televison}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={wifi}
                         alt=""
-                        style={{  marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={shower}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                     </div>
                     <div
@@ -290,7 +300,7 @@ const Detail = () => {
                           fontSize: "13px",
                           whiteSpace: "nowrap",
                           padding: "10px 20px",
-                          margin: " 10px 5px 10px ",
+                          margin: " 5px ",
                         }}
                       >
                         Book now
@@ -300,10 +310,14 @@ const Detail = () => {
                 </Card>
               </Col>
               <Col span={8}>
-                <Card title="The Royal Room" bordered={false} style={{
-                  width: 350,
-                  height: 450
-                }}>
+                <Card
+                  title="The Royal Room"
+                  bordered={false}
+                  style={{
+                    width: 300,
+                    height: 430,
+                  }}
+                >
                   <img src={roomSuggest} alt="The Royal Room" />
                   <div className="card-body">
                     <h5 className="card-title" style={{ color: "#7C6A46" }}>
@@ -321,17 +335,17 @@ const Detail = () => {
                       <img
                         src={televison}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={wifi}
                         alt=""
-                        style={{  marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={shower}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                     </div>
                     <div
@@ -348,7 +362,7 @@ const Detail = () => {
                           fontSize: "13px",
                           whiteSpace: "nowrap",
                           padding: "10px 20px",
-                          margin: " 10px 5px 10px ",
+                          margin: " 5px ",
                         }}
                       >
                         Book now
@@ -361,12 +375,16 @@ const Detail = () => {
           </div>
           <div className="row02">
             {" "}
-            <Row gutter={16} style={{ margin: " 50px 50px 50px 50px" }}>
+            <Row gutter={8} style={{ margin: " 10px 130px 50px 130px" }}>
               <Col span={8}>
-                <Card title="The Royal Room" bordered={false} style={{
-                  width: 350,
-                  height: 450
-                }}>
+                <Card
+                  title="The Royal Room"
+                  bordered={false}
+                  style={{
+                    width: 300,
+                    height: 430,
+                  }}
+                >
                   <img src={roomSuggest} alt="The Royal Room" />
                   <div className="card-body">
                     <h5 className="card-title" style={{ color: "#7C6A46" }}>
@@ -384,17 +402,17 @@ const Detail = () => {
                       <img
                         src={televison}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={wifi}
                         alt=""
-                        style={{  marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={shower}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                     </div>
                     <div
@@ -411,7 +429,7 @@ const Detail = () => {
                           fontSize: "13px",
                           whiteSpace: "nowrap",
                           padding: "10px 20px",
-                          margin: " 10px 5px 10px ",
+                          margin: " 5px ",
                         }}
                       >
                         Book now
@@ -421,10 +439,14 @@ const Detail = () => {
                 </Card>
               </Col>
               <Col span={8}>
-              <Card title="The Royal Room" bordered={false} style={{
-                  width: 350,
-                  height: 450
-                }}>
+                <Card
+                  title="The Royal Room"
+                  bordered={false}
+                  style={{
+                    width: 300,
+                    height: 430,
+                  }}
+                >
                   <img src={roomSuggest} alt="The Royal Room" />
                   <div className="card-body">
                     <h5 className="card-title" style={{ color: "#7C6A46" }}>
@@ -442,17 +464,17 @@ const Detail = () => {
                       <img
                         src={televison}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={wifi}
                         alt=""
-                        style={{  marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={shower}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                     </div>
                     <div
@@ -469,7 +491,7 @@ const Detail = () => {
                           fontSize: "13px",
                           whiteSpace: "nowrap",
                           padding: "10px 20px",
-                          margin: " 10px 5px 10px ",
+                          margin: " 5px ",
                         }}
                       >
                         Book now
@@ -479,10 +501,14 @@ const Detail = () => {
                 </Card>
               </Col>
               <Col span={8}>
-                <Card title="The Royal Room" bordered={false} style={{
-                  width: 350,
-                  height: 450
-                }}>
+                <Card
+                  title="The Royal Room"
+                  bordered={false}
+                  style={{
+                    width: 300,
+                    height: 430,
+                  }}
+                >
                   <img src={roomSuggest} alt="The Royal Room" />
                   <div className="card-body">
                     <h5 className="card-title" style={{ color: "#7C6A46" }}>
@@ -500,17 +526,17 @@ const Detail = () => {
                       <img
                         src={televison}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={wifi}
                         alt=""
-                        style={{  marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
                         src={shower}
                         alt=""
-                        style={{ marginTop: 20, marginRight: 20}}
+                        style={{ marginTop: 20, marginRight: 20 }}
                       />
                     </div>
                     <div
@@ -527,7 +553,7 @@ const Detail = () => {
                           fontSize: "13px",
                           whiteSpace: "nowrap",
                           padding: "10px 20px",
-                          margin: " 10px 5px 10px ",
+                          margin: " 5px ",
                         }}
                       >
                         Book now
