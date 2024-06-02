@@ -3,6 +3,7 @@ import { Our_Facilities, Facilities } from "../data.js";
 import { Search } from "./Search.jsx";
 import FamousRoom from "./FamousRoom.jsx";
 import Room from "../assets/Room.png";
+import FeedbackCard from "./Feedback.jsx";
 export function Homepages() {
   return (
     <div className="row slider mt-3">
@@ -38,6 +39,9 @@ export function Homepages() {
       <div>
         <FamousRoom/>
       </div>
+      <dir>
+        <FeedbackCard/>
+      </dir>
     </div>
   );
 }

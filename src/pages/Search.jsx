@@ -10,7 +10,7 @@ export function Search(props) {
         <div className="mt-1" >
           <img src={Homepage} alt="Ảnh minh họa" style={{ Width: "500px", height: "600px" }} />
         </div>
-        <Form className="mt-4" style={{ position: "absolute", top: "80%", left: "50%", transform: "translate(-50%, -50%)", width: "84.2vw", backgroundColor: "rgba(255, 255, 255, 0.8)", padding: "20px" }}>
+        <Form className="mt-4" style={{ position: "absolute", top: "80%", left: "50%", transform: "translate(-50%, -50%)", width: "84.2vw", backgroundColor: "rgba(255, 255, 255, 0.8)", padding: "20px", borderradius:"20px" }}>
           <Row className="align-items-center justify-content-center">
             <Col xs={6} md={2} className="mb-3 mb-md-0">
               <Form.Group controlId="formLocation">
@@ -19,8 +19,6 @@ export function Search(props) {
                 </Form.Label>
                 <Form.Control as="select" defaultValue="Son Tra - Da Nang">
                   <option>Son Tra - Da Nang</option>
-                  <option>Location 2</option>
-                  <option>Location 3</option>
                 </Form.Control>
               </Form.Group>
             </Col>
