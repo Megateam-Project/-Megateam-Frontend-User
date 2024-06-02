@@ -1,16 +1,26 @@
-import React from "react";
+//import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import Homepage from "../assets/Homepage.png";
+import { useNavigate } from "react-router-dom";
+export function Search() {
+const navigate = useNavigate(); 
 
-export function Search(props) {
+const handleSearchClick = () => {
+  navigate("/rooms"); 
+};
   return (
     <div
       className="booking-container"
       style={{ position: "relative", textAlign: "center", color: "black" }}
     >
+      {/* <div className="row" style={{ display: "flex", position: "relative", backgroundColor:"#f1f1f4", height:"auto" }}> */}
       <div className="mt-1">
-        <img src={Homepage} alt="Ảnh minh họa" style={{ width: "100%" }} />
+        <img
+          src={Homepage}
+          alt="Ảnh minh họa"
+          style={{ Width: "500px", height: "600px" }}
+        />
       </div>
       <Form
         className="mt-4"
@@ -82,6 +92,7 @@ export function Search(props) {
               variant=""
               className="w-100 mt-4 "
               style={{ backgroundColor: "rgb(129, 73, 6)", color: "white" }}
+              onClick={handleSearchClick}
             >
               Search
             </Button>
