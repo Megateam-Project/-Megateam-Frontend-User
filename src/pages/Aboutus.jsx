@@ -51,12 +51,12 @@ export function Aboutus() {
             </div>
           </div>
         </div>
-        <div className="col-7 p-5 border rounded">
-          <div className="row d-flex">
+        <div className="col-7 p-5">
+          <div className="d-flex">
             <div className="d-flex col-6 flex-column">
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="name" className="text-start">Name:</label>
               <input
-                className="border rounded mt-3"
+                className="border rounded mt-3 me-3"
                 type="text"
                 name="name"
                 id="name"
@@ -65,9 +65,9 @@ export function Aboutus() {
               />
             </div>
             <div className="d-flex col-6 flex-column">
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email" className="text-start">Email:</label>
               <input
-                className="border rounded mt-3"
+                className="border rounded mt-3 "
                 type="text"
                 name="email"
                 id="email"
@@ -76,11 +76,11 @@ export function Aboutus() {
               />
             </div>
           </div>
-          <div className="row d-flex mt-4">
+          <div className="d-flex mt-4">
             <div className="d-flex col-6 flex-column">
-              <label htmlFor="phone">Phone Number:</label>
+              <label htmlFor="phone" className="text-start">Phone Number:</label>
               <input
-                className="border rounded mt-3"
+                className="border rounded mt-3 me-3"
                 type="number"
                 name="phone"
                 id="phone"
@@ -89,7 +89,7 @@ export function Aboutus() {
               />
             </div>
             <div className="d-flex col-6 flex-column">
-              <label htmlFor="phone">Room Name:</label>
+              <label htmlFor="phone" className="text-start">Room Name:</label>
               <select
                 className="form-select form-select mt-3"
                 style={{ height: "35px" }}
@@ -102,7 +102,7 @@ export function Aboutus() {
             </div>
           </div>
           <div className="d-flex flex-column mt-3">
-            <label htmlFor="feedback">Your Feedback:</label>
+            <label htmlFor="feedback" className="text-start">Your Feedback:</label>
             <textarea
               className="border rounded mt-3"
               type="text"
