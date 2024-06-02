@@ -1,4 +1,4 @@
-import Hero from "./roomComponent/Hero"
+import { Hero } from "./roomComponent/Hero"
 import Rooms from "./roomComponent/Rooms"
 
 export function RoomPage() {

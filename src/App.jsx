@@ -4,7 +4,7 @@ import "./App.css";
 import "./Homepage.css";
 import { Header } from "./layouts/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Homepage } from "./pages/Homepage";
+import { HomePage } from "./pages/HomePage";
 import { RoomPage } from "./pages/room/RoomPage";
 import { Aboutus } from "./pages/Aboutus";
 import { Footer } from "./layouts/Footer";
@@ -19,7 +19,7 @@ function App() {
         <Header />
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/rooms" element={<RoomPage />} />
             <Route path="/about-us" element={<Aboutus />} />
             <Route path="/profile" element={<Profile />} />
