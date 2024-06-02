@@ -5,9 +5,7 @@ export function RoomPage() {
     return (
         <div>
             <Hero />
-          
-            <Rooms/>
-           
+            <Rooms/> 
         </div>
     )
 }
