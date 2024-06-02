@@ -6,8 +6,8 @@ import Room from "../assets/Room.png";
 export function HomePage() {
   return (
     <div className="row slider mt-3">
-      <div className="row main_title">
-        <div>
+      <div className="d-flex justify-content-around">
+        <div className="col-11">
           <Search img={Room}/>
         </div> 
       </div>

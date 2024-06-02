@@ -1,141 +1,14 @@
-
 .app-container {
-  min-height: 100vh;
-  overflow-x:hidden;
-
+  overflow-x: hidden;
 }
 .main-content {
   flex: 1;
-  /* padding-top: 70px; */
 }
 .navbar {
   top: 0;
-  width:100%;
   z-index: 1000;
   background-color: white;
 }
 .footer{
   padding: 70px;
 }
-/* profile
-.div_1_profile{
-  margin-right: 200px;
-}
-.image{
-  margin-left: 750px;
-  margin-top: 100px;
-}
-.form_profile{
-  border: 1px solid rgb(77, 64, 64);
-  border-radius:5px ;
-  height: 400px ;
-}
-.container{
-  margin-top: 200px;
-  margin-bottom: 200px;
-}
-i.icon_person {
-  transform: scale(3);
-  color:#7C6A46 ;
-  margin-left: 200px;
-}
-
-.first_col{
-  color:#7C6A46 ;
-}
-.p_text{
-  color: black;
-}
-.save{
-  width: 100px;
-  background-color: #7C6A46;
-  margin-left: 550px;
-} */
-/* .image_person{
-width: 150px;
-height: 150px;
-}
-
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
- */
-
-/* signup */
-/* .row {
-  width:600px;
-  padding: 20px;
-}
-.div_1{
-  margin-left: 600px;
-  
-}
-.div_2 input[type="text"],
-.div_2 input[type="email"],
-.div_2 input[type="tel"],
-.div_2 input[type="password"],
-.div_2 input[type="file"] {
-  width: 500px;
-  border: none;
-  border-bottom: 1px solid black;
-  padding: 5px;
-  margin-top: 20px;
-}
-.nut{
-  color: red;
-}
-.registerbtn{
-  background-color: #7C6A46;
-  width: 500px;
-  color:white;
-  margin-left: 10px;
-  
-}
-.account{
-  width: 500px; */
-  /* background-color: #7C6A46; */
-  /* border: 1px solid black;
-  border-radius: 0%;
-  margin-left: 45px;
-}
-h2 , b{
-  color: #7C6A46;
-  
-}
-.or{
-  color: #7C6A46;
-  margin-left: 270px;
-
-}
-input.form-control{
-  border-radius:3px;
-  
-}
-.googlelogo{
-  margin-left: 230px;
-}
-.link_account{
-  margin-left: 130px;
-}
-label{
-  text-align: center;
-}
-
-.cl-6 {
-  width: 50%;
-}
-
-.cl-6:first-child {
-  order: 2;
-}
-
-.image {
-  max-width: 500px;
-  height: auto;
-  margin-left: 300px;
-} */

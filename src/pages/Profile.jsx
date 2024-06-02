@@ -28,7 +28,7 @@ export function Profile() {
   return (
     <div
       className="div_1_profile"
-      style={{ marginRight: "px", width: "1800px" }}
+      style={{ marginRight: "px" }}
     >
       <nav className="navbar bg-body-tertiary">
         <div
