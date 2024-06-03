@@ -13,7 +13,7 @@ export function Homepages() {
         </div> 
       </div>
       <div className="header_title">
-        <h3>Our Facilities</h3>
+        <h3 style={{color:"rgb(129, 73, 6)"}}>Our Facilities</h3>
         <p>We offer modern (5-star) hotel facilities for your comfort.</p>
       </div>
       <main>

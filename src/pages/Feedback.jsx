@@ -43,7 +43,7 @@ function FeedbackRooms() {
 
   return (
     <div>
-      <h3 className="d-flex justify-content-center mt-5">Feedback Rooms</h3>
+      <h3 className="d-flex justify-content-center mt-5" style={{color:"rgb(129, 73, 6)"}}>Feedback Rooms</h3>
       {feedbacks.length > 0 ? (
         <Row>
           {feedbacks.slice(0, 3).map((feedback, index) => (

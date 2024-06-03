@@ -43,7 +43,7 @@ const FamousRoom = () => {
 
   return (
     <div className="famous-room-container">
-      <h2 className="text-center my-4">Famous Rooms</h2>
+      <h2 className="text-center my-4" style={{color:"rgb(129, 73, 6)"}}>Famous Rooms</h2>
       <p className="text-center my-4">
         All rooms are designed for your comfort
       </p>
