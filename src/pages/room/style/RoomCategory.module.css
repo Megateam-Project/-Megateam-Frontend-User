@@ -1,0 +1,32 @@
+.room {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.roomImage {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.roomInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.roomInfo h4 {
+    margin: 0 0 10px;
+}
+
+.roomInfo p {
+    margin: 5px 0;
+}
+
+.chooseRoomButton {
+    background-color: #8b6b4a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

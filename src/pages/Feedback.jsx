@@ -30,7 +30,7 @@ function FeedbackRooms() {
         );
         const usersData = {};
         usersResponse.data.forEach((user) => {
-          // usersData[user.id] = user.avatar;
+          usersData[user.id] = user.avatar;
           usersData[user.id] = user.name;
         });
         setUsers(usersData);
@@ -47,9 +47,9 @@ function FeedbackRooms() {
       {feedbacks.length > 0 ? (
         <Row>
           {feedbacks.slice(0, 3).map((feedback, index) => (
-            <Col key={index} md={4} className="mb-3 mt-5 ">
+            <Col key={index} md={4} className="mb-3 mt-5" style={{marginLeft:"150px", width:"400px",marginRight: "-135px"}}>
               <Card className="h-80">
-                <Card.Body className="d-flex flex-column">
+                <Card.Body className="d-flex flex-column ">
                   <div style={{ flexGrow: 1 }}>
                     <Card.Title className="text-2xl font-semibold d-flex justify-content-center">
                       {rooms[feedback.room_id]}
@@ -57,16 +57,18 @@ function FeedbackRooms() {
                     <Card.Text>{feedback.content}</Card.Text>
                     <Card.Subtitle className="mb-2 text-opacity-100 d-flex align-items-center">
                       <img
-                        src=""
+                        src={feedback.user.avatar}
                         alt=""
-                        className="mr-2"
+                        className="mr-2 mt-4"
                         style={{
-                          width: "40px",
-                          height: "40px",
+                          width: "45px",
+                          height: "45px",
                           borderRadius: "50%",
                         }}
                       />
+                      <div className="mt-4" style={{marginLeft:"15px"}}>
                       {users[feedback.user_id]}
+                      </div>
                     </Card.Subtitle>
                   </div>
                   <div

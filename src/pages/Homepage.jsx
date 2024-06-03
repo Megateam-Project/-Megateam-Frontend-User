@@ -7,8 +7,8 @@ import FeedbackCard from "./Feedback.jsx";
 export function Homepages() {
   return (
     <div className="row slider mt-3">
-      <div className="row main_title">
-        <div>
+      <div className="d-flex justify-content-around">
+        <div className="col-11">
           <Search img={Room}/>
         </div> 
       </div>
@@ -46,4 +46,3 @@ export function Homepages() {
   );
 }
 
-export default Homepages;
