@@ -1,28 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { Card, Spinner, Alert, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Card, Spinner, Alert, Row, Col } from "react-bootstrap";
+import axios from "axios";
 
-const FeedbackCard = () => {
+function FeedbackRooms() {
   const [feedbacks, setFeedbacks] = useState([]);
+  const [rooms, setRooms] = useState({});
+  const [users, setUsers] = useState({});
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getFeedbackData = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/feedbacks');
-        setFeedbacks(response.data);
+        const feedbacksResponse = await axios.get(
+          "http://127.0.0.1:8000/api/feedbacks"
+        );
+        setFeedbacks(feedbacksResponse.data);
+
+        const roomsResponse = await axios.get(
+          "http://127.0.0.1:8000/api/rooms"
+        );
+        const roomsData = {};
+        roomsResponse.data.forEach((room) => {
+          roomsData[room.id] = room.name;
+        });
+        setRooms(roomsData);
+
+        const usersResponse = await axios.get(
+          "http://127.0.0.1:8000/api/users"
+        );
+        const usersData = {};
+        usersResponse.data.forEach((user) => {
+          // usersData[user.id] = user.avatar;
+          usersData[user.id] = user.name;
+        });
+        setUsers(usersData);
       } catch (error) {
-        console.error('Error fetching feedback data:', error);
         setError(error.message);
       }
     };
-
-    getFeedbackData();
+    fetchData();
   }, []);
 
   return (
     <div>
-      <h3 className='d-flex justify-content-center mt-5'>Feedback Rooms</h3>
+      <h3 className="d-flex justify-content-center mt-5">Feedback Rooms</h3>
       {feedbacks.length > 0 ? (
         <Row>
           {feedbacks.slice(0, 3).map((feedback, index) => (
@@ -30,13 +51,23 @@ const FeedbackCard = () => {
               <Card className="h-80">
                 <Card.Body className="d-flex flex-column">
                   <div style={{ flexGrow: 1 }}>
-                    <Card.Title className="text-2xl font-semibold">
-                      Room {feedback.room_id}
+                    <Card.Title className="text-2xl font-semibold d-flex justify-content-center">
+                      {rooms[feedback.room_id]}
                     </Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      User {feedback.user_id}
-                    </Card.Subtitle>
                     <Card.Text>{feedback.content}</Card.Text>
+                    <Card.Subtitle className="mb-2 text-opacity-100 d-flex align-items-center">
+                      <img
+                        src=""
+                        alt=""
+                        className="mr-2"
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "50%",
+                        }}
+                      />
+                      {users[feedback.user_id]}
+                    </Card.Subtitle>
                   </div>
                   <div
                     style={{
@@ -45,8 +76,7 @@ const FeedbackCard = () => {
                       alignItems: "center",
                       marginTop: "1rem",
                     }}
-                  >
-                  </div>
+                  ></div>
                 </Card.Body>
               </Card>
             </Col>
@@ -65,6 +95,8 @@ const FeedbackCard = () => {
       )}
     </div>
   );
-};
+}
 
-export default FeedbackCard;
+export default FeedbackRooms;
+
+// export default FeedbackCard;

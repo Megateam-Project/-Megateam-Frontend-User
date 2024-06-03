@@ -18,7 +18,7 @@ function ControlledCarousel({ rooms }) {
           <Row>
             {rooms.slice(slideIndex * cardsPerSlide, (slideIndex + 1) * cardsPerSlide).map((room, index) => (
               <Col md={4} key={index}>
-                <Card className="h-100" style={{ width: "80%", marginLeft:"50px" }}>
+                <Card className="h-100" style={{ width: "80%", marginLeft:"50px"}}>
                   <Card.Img
                     variant="top"
                     className="w-full aspect-[1.49]"
