@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Card, Row, Col, Button, Spinner, Alert } from 'react-bootstrap';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Card, Button, Spinner, Alert } from "react-bootstrap";
+import ControlledCarousel from "./ControlledCarousel";
+import axios from "axios";
 
 const FamousRoom = () => {
   const [rooms, setRooms] = useState([]);
@@ -10,10 +11,10 @@ const FamousRoom = () => {
   useEffect(() => {
     const getRooms = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/rooms');
+        const res = await axios.get("http://127.0.0.1:8000/api/rooms");
         setRooms(res.data);
       } catch (error) {
-        console.error('Error fetching rooms data:', error);
+        console.error("Error fetching rooms data:", error);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -32,24 +33,21 @@ const FamousRoom = () => {
     );
   }
 
+  if (error) {
+    return (
+      <div className="text-center my-4">
+        <Alert variant="danger">{error}</Alert>
+      </div>
+    );
+  }
+
   return (
     <div className="famous-room-container">
-      <h2 className="text-center my-4">Phòng Nổi Tiếng</h2>
-      <p className="text-center my-4">Tất cả các phòng được thiết kế cho sự thoải mái của bạn</p>
-      <Row>
-        {rooms.map((room, index) => (
-          <Col key={index} md={4} className="mb-4">
-            <Card className="h-100">
-              <Card.Img variant="top" src={room.imgSrc} alt={room.title} />
-              <Card.Body>
-                <Card.Title>{room.title}</Card.Title>
-                <Card.Text>{room.description}</Card.Text>
-                <Button variant="primary">Chi Tiết</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+      <h2 className="text-center my-4" style={{color:"rgb(129, 73, 6)"}}>Famous Rooms</h2>
+      <p className="text-center my-4">
+        All rooms are designed for your comfort
+      </p>
+      <ControlledCarousel rooms={rooms.slice(0, 6)} />
     </div>
   );
 };

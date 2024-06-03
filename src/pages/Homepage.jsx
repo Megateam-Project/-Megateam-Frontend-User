@@ -3,7 +3,8 @@ import { Our_Facilities, Facilities } from "../data.js";
 import { Search } from "./Search.jsx";
 import FamousRoom from "./FamousRoom.jsx";
 import Room from "../assets/Room.png";
-function HomePages() {
+import FeedbackCard from "./Feedback.jsx";
+export function Homepages() {
   return (
     <div className="row slider mt-3">
       <div className="d-flex justify-content-around">
@@ -12,7 +13,7 @@ function HomePages() {
         </div> 
       </div>
       <div className="header_title">
-        <h3>Our Facilities</h3>
+        <h3 style={{color:"rgb(129, 73, 6)"}}>Our Facilities</h3>
         <p>We offer modern (5-star) hotel facilities for your comfort.</p>
       </div>
       <main>
@@ -38,8 +39,11 @@ function HomePages() {
       <div>
         <FamousRoom/>
       </div>
+      <dir>
+        <FeedbackCard/>
+      </dir>
     </div>
   );
 }
-export default HomePages;
+
 
