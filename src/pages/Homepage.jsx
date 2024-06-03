@@ -3,7 +3,7 @@ import { Our_Facilities, Facilities } from "../data.js";
 import { Search } from "./Search.jsx";
 import FamousRoom from "./FamousRoom.jsx";
 import Room from "../assets/Room.png";
-export function HomePage() {
+function HomePages() {
   return (
     <div className="row slider mt-3">
       <div className="d-flex justify-content-around">
@@ -41,4 +41,5 @@ export function HomePage() {
     </div>
   );
 }
+export default HomePages;
 

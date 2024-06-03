@@ -1,6 +1,6 @@
 import { BrowserRouter , Route, Routes } from "react-router-dom";
 import { Header } from "./layouts/Header";
-import {Homepages} from "./pages/Homepage";
+import  HomePages from "./pages/Homepage";
 import {Aboutus} from "./pages/Aboutus";
 import LoginForm from "./pages/Login";
 import Signup from "./pages/Signup/Signup";
@@ -17,15 +17,14 @@ function App() {
       <Header />
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Homepages  />} />
+          <Route path="/" element={< HomePages />} />
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<LoginForm  />} />
           <Route path="/register" element={<Signup />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/wishlist" element={<Homepages />} />
-          <Route path="/bookingHistory" element={<Homepages />} />
+          {/* <Route path="/bookingHistory" element={<HomePages />} /> */}
         </Routes>
       </main>
       <Footer />
