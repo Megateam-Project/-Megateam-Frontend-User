@@ -47,7 +47,7 @@ const FamousRoom = () => {
       <p className="text-center my-4">
         All rooms are designed for your comfort
       </p>
-      <ControlledCarousel rooms={rooms.slice(0, 6)} />
+      <ControlledCarousel rooms={rooms.slice(0, 20)} />
     </div>
   );
 };
