@@ -1,14 +1,13 @@
 //import React from "react";
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cookies from "js-cookie";
-
 export function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const userToken = Cookies.get("token");
 
@@ -30,6 +29,7 @@ export function Header() {
     Cookies.remove("token");
     setIsLoggedIn(false);
     setToken(null);
+    navigate("/");
   };
 
   return (

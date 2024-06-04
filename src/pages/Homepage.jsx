@@ -4,7 +4,7 @@ import { Search } from "./Search.jsx";
 import FamousRoom from "./FamousRoom.jsx";
 import Room from "../assets/Room.png";
 import FeedbackCard from "./Feedback.jsx";
-export function Homepages() {
+function Homepages() {
   return (
     <div className="row slider mt-3">
       <div className="d-flex justify-content-around">
@@ -45,5 +45,5 @@ export function Homepages() {
     </div>
   );
 }
-
+export default Homepages;
 
