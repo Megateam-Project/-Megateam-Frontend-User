@@ -1,14 +1,13 @@
 //import React from "react";
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cookies from "js-cookie";
-
 export function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const userToken = Cookies.get("token");
 
@@ -30,11 +29,12 @@ export function Header() {
     Cookies.remove("token");
     setIsLoggedIn(false);
     setToken(null);
+    navigate("/");
   };
 
   return (
     <div
-      className="navbar shadow -lg mb-2 p-3 row d-flex justify-content-around"
+      className="navbar shadow -lg mb-2 p-3 row d-flex justify-content-around fixed-top"
       style={{ backgroundColor: "#f8f9fa" }}
     >
       <div className="col-1 d-flex justify-content-around">
@@ -68,11 +68,13 @@ export function Header() {
           </>
         ) : (
           <>
-            <button className="btn" style={{ backgroundColor: "#7C6A46" }}>
-              <Link to="/wishlist" className="" style={{ color: "white" }}>
-                Wishlist
-              </Link>
-            </button>
+            <Link
+              to="/wishlist"
+              className="nav-link fs-5"
+              style={{ }}
+            >
+              Wishlist
+            </Link>
             <button className="btn" style={{ backgroundColor: "#7C6A46" }}>
               <Link
                 to="/bookingHistory"
