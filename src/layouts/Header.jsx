@@ -47,6 +47,9 @@ export function Header() {
         <Link to="/about-us" className="nav-link fs-5">
           About us
         </Link>
+        <Link to="/detail" className="nav-link fs-5">
+         detail
+        </Link>
         {!isLoggedIn ? (
           <>
             <Link to="/login" className="nav-link fs-5">
