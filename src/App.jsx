@@ -10,6 +10,8 @@ import "./Homepage.css";
 import { Footer } from "./layouts/Footer";
 import { Booking } from "./pages/Booking";
 import { Checkout } from "./pages/Checkout";
+import { NotFound } from "./pages/404/NotFound.jsx";
+
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +28,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/wishlist" element={<Homepages />} />
           <Route path="/bookingHistory" element={<Homepages />} />
+          <Route path="/notFound" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
