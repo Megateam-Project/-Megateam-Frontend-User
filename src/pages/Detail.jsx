@@ -6,7 +6,7 @@ import roomSuggest from "../assets/roomSuggest.png";
 import televison from "../assets/televison.png";
 import wifi from "../assets/wifi.png";
 import shower from "../assets/shower.png";
-import { Button, Col, Row, Card } from "react-bootstrap";
+import {Col, Row, Card } from "react-bootstrap";
 
 const Detail = () => {
   return (
@@ -14,7 +14,7 @@ const Detail = () => {
       <h2 style={{ marginTop: 80, marginLeft: 80 }}>Premium Slavija Garni</h2>
       <p style={{ marginLeft: 80 }}>
         {" "}
-        Book a stay for more than VND 1,381.59 to receive a high-quality tour !
+        Book a stay for more than $1,381.59 to receive a high-quality tour !
       </p>
       <div
         className="image-room"
