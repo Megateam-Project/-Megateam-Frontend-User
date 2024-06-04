@@ -16,6 +16,7 @@ function ControlledCarousel({ rooms }) {
       {Array.from({ length: Math.ceil(rooms.length / cardsPerSlide) }).map(
         (_, slideIndex) => (
           <Carousel.Item key={slideIndex}>
+            <Link to="/detail">
             <Row>
               {rooms
                 .slice(
@@ -91,6 +92,7 @@ function ControlledCarousel({ rooms }) {
                   </Col>
                 ))}
             </Row>
+            </Link>
           </Carousel.Item>
         )
       )}
