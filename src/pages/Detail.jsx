@@ -12,8 +12,9 @@ const Detail = () => {
   return (
     <>
       <h2 style={{ marginTop: 80, marginLeft: 80 }}>
-        Premium penthouse in central Barcelona with panoramic views
+        Premium Slavija Garni
       </h2>
+      <p style={{  marginLeft: 80 }}> Book a stay for more than VND 1,381.59 to receive a high-quality tour !</p>
       <div
         className="image-room"
         style={{
