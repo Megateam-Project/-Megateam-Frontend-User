@@ -34,7 +34,7 @@ export function Header() {
 
   return (
     <div
-      className="navbar shadow -lg mb-2 p-3 row d-flex justify-content-around"
+      className="navbar shadow -lg mb-2 p-3 row d-flex justify-content-around fixed-top"
       style={{ backgroundColor: "#f8f9fa" }}
     >
       <div className="col-1 d-flex justify-content-around">
@@ -68,11 +68,13 @@ export function Header() {
           </>
         ) : (
           <>
-            <button className="btn" style={{ backgroundColor: "#7C6A46" }}>
-              <Link to="/wishlist" className="" style={{ color: "white" }}>
-                Wishlist
-              </Link>
-            </button>
+            <Link
+              to="/wishlist"
+              className="nav-link fs-5"
+              style={{ }}
+            >
+              Wishlist
+            </Link>
             <button className="btn" style={{ backgroundColor: "#7C6A46" }}>
               <Link
                 to="/bookingHistory"
