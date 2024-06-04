@@ -10,6 +10,8 @@ import { Footer } from "./layouts/Footer";
 import  {Profile } from "./pages/Profile";
 import { Booking } from "./pages/Booking";
 import { Checkout } from "./pages/Checkout";
+import { EditProfile } from "./pages/EditProfile.jsx";
+
 // import hero from "./assets/hero.png";
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
             <Route path="/register" element={<Signup />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/editProfile" element={<EditProfile />} />
+
             {/* <Route path="/login" element={<Login />} /> */}
           </Routes>
         </main>

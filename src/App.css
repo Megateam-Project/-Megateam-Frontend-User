@@ -138,3 +138,12 @@ label{
   height: auto;
   margin-left: 300px;
 } */
+
+.form_edit{
+ border: 1px solid black;
+width: 400px;
+height: 400px;
+margin-left: 700px;
+padding: 20px;
+border-radius: 10px;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import person from "../assets/person.jpg";
 import Ellipse from "../assets/Ellipse.png";
 import Group from "../assets/Group.png";
@@ -15,7 +16,14 @@ export function Profile() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/profile");
+        const user = JSON.parse(Cookies.post("user") || "{}");
+        const token = user.token;
+
+        const response = await axios.post("http://127.0.0.1:8000/api/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setUserData(response.data);
       } catch (error) {
         console.error("Failed to fetch profile data", error);
@@ -59,7 +67,10 @@ export function Profile() {
             <ul className="list-group ">
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
-                  <i className="icon_person fa fa-user fa-3x" aria-hidden="true"></i>
+                  <i
+                    className="icon_person fa fa-user fa-3x"
+                    aria-hidden="true"
+                  ></i>
                 </label>
                 <div className="col-sm-10">
                   <h5>Account</h5>
@@ -80,7 +91,10 @@ export function Profile() {
               </div>
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
-                  <i className="icon_person fa fa-heart fa-3x" aria-hidden="true"></i>
+                  <i
+                    className="icon_person fa fa-heart fa-3x"
+                    aria-hidden="true"
+                  ></i>
                 </label>
                 <div className="col-sm-10">
                   <h5>Wishlist</h5>
@@ -89,7 +103,10 @@ export function Profile() {
               </div>
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
-                  <i className="icon_person fa fa-list fa-3x" aria-hidden="true"></i>
+                  <i
+                    className="icon_person fa fa-list fa-3x"
+                    aria-hidden="true"
+                  ></i>
                 </label>
                 <div className="col-sm-10">
                   <h5>Preference</h5>
@@ -98,7 +115,10 @@ export function Profile() {
               </div>
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
-                  <i className="icon_person fa fa-cog fa-3x" aria-hidden="true"></i>
+                  <i
+                    className="icon_person fa fa-cog fa-3x"
+                    aria-hidden="true"
+                  ></i>
                 </label>
                 <div className="col-sm-10">
                   <h5>Settings</h5>
@@ -116,11 +136,12 @@ export function Profile() {
               style={{
                 border: "1px solid rgb(77, 64, 64)",
                 borderRadius: "5px",
-                height:"400px",width:"800px"
+                height: "400px",
+                width: "800px",
               }}
             >
               <a href="#" className="link-underline-primary">
-                Edit profile
+                <Link to="/">Edit profile</Link>
               </a>
               <hr />
               <div className="col-md-4">
