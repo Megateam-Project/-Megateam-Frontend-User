@@ -16,14 +16,15 @@ export function Profile() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const user = JSON.parse(Cookies.post("user") || "{}");
+        const user = JSON.parse(Cookies.get("token") || "{}");
         const token = user.token;
-
-        const response = await axios.post("http://127.0.0.1:8000/api/profile", {
+        console.log(Cookies.get("token"));
+        const response = await axios.get("http://127.0.0.1:8000/api/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(response);
         setUserData(response.data);
       } catch (error) {
         console.error("Failed to fetch profile data", error);
@@ -141,7 +142,7 @@ export function Profile() {
               }}
             >
               <a href="#" className="link-underline-primary">
-                <Link to="/">Edit profile</Link>
+                <Link to="/editprofile">Edit profile</Link>
               </a>
               <hr />
               <div className="col-md-4">

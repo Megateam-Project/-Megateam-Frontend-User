@@ -1,21 +1,18 @@
-
 .app-container {
-  min-height: 100vh;
-
+  overflow-x: hidden;
 }
 .main-content {
   flex: 1;
-  /* padding-top: 70px; */
 }
 .navbar {
   top: 0;
-  width:100%;
   z-index: 1000;
   background-color: white;
 }
 .footer{
   padding: 70px;
 }
+
 /* profile
 .div_1_profile{
   margin-right: 200px;
@@ -139,11 +136,4 @@ label{
   margin-left: 300px;
 } */
 
-.form_edit{
- border: 1px solid black;
-width: 400px;
-height: 400px;
-margin-left: 700px;
-padding: 20px;
-border-radius: 10px;
-}
+

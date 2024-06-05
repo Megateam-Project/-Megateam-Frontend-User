@@ -49,7 +49,6 @@ const Signup = () => {
         role,
         create_by,
       });
-      // console.log(name, email, password);
       alert("Register successful");
       navigate("/login");
     } catch (error) {
