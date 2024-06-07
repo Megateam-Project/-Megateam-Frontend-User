@@ -137,7 +137,7 @@ export function Profile() {
               style={{
                 border: "1px solid rgb(77, 64, 64)",
                 borderRadius: "5px",
-                height: "400px",
+                height: "350px",
                 width: "800px",
               }}
             >
@@ -192,19 +192,7 @@ export function Profile() {
                   />
                 </div>
               </div>
-              <div>
-                <button
-                  type="submit"
-                  className="save mt-3"
-                  style={{
-                    width: "100px",
-                    backgroundColor: "#7C6A46",
-                    marginLeft: "400px",
-                  }}
-                >
-                  Save
-                </button>
-              </div>
+
             </form>
           </div>
         </div>
