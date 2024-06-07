@@ -7,7 +7,6 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [role, setRole] = useState("");
   const [create_by, setCreateBy] = useState("");
   const [password_confirmation, setPasswordConfirm] = useState("");
@@ -24,9 +23,6 @@ const Signup = () => {
   };
   const handlePhoneChange = (e) => {
     setPhone(e.target.value);
-  };
-  const handleAvatarChange = (e) => {
-    setAvatar(e.target.value);
   };
   const handlePasswordConfirmChange = (e) => {
     setPasswordConfirm(e.target.value);
@@ -50,11 +46,9 @@ const Signup = () => {
         phone,
         password,
         password_confirmation,
-        avatar,
         role,
         create_by,
       });
-      // console.log(name, email, password);
       alert("Register successful");
       navigate("/login");
     } catch (error) {
@@ -63,150 +57,145 @@ const Signup = () => {
     }
   };
   return (
-    <div className="div_1">
+    <div className="mt-5 mb-5 mx-auto" style={{ maxWidth: "600px" }}>
       <img
         src="src/assets/logo.jpg"
         alt="Google_Logo"
-        className="googlelogo"
+        className="d-block mx-auto"
         style={{ width: "70px", height: "40px", objectFit: "cover" }}
       />
-      <form className="div_2" onSubmit={handleSubmit}>
-        <div className="container mt-3">
-          <label htmlFor="name">
-            <b className="text_input">Name</b>
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Name"
-            className="form-control"
-            name="name"
-            id="name"
-            value={name}
-            required
-            onChange={handleNameChange}
-          />
-          <br />
+      <form className="  mt-4 " onSubmit={handleSubmit}>
+        <div className="container">
+          <div className="mb-3 ">
+            <label htmlFor="name" className="form-label">
+              <b style={{ color: '#7C6A46' }}> Name</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Name"
+              className=" mt-2 form-control border-0 border-bottom border-black-1 border-dark  "
+              name="name"
+              id="name"
+              value={name}
+              required
+              onChange={handleNameChange}
+            />
+          </div>
 
-          <label htmlFor="email">
-            <b>Email</b>
-          </label>
-          <input
-            type="email"
-            placeholder="Enter Email"
-            className="form-control"
-            name="email"
-            id="email"
-            value={email}
-            required
-            onChange={handleEmailChange}
-          />
-          <br />
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
+              <b style={{ color: '#7C6A46' }}>Email</b>
+            </label>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="mt-2 form-control border-0 border-bottom border-black-1 border-dark"
+              name="email"
+              id="email"
+              value={email}
+              required
+              onChange={handleEmailChange}
+            />
+          </div>
 
-          <label htmlFor="phone">
-            <b>Phone</b>
-          </label>
-          <input
-            type="tel"
-            placeholder="Enter Phone"
-            className="form-control"
-            name="phone"
-            id="phone"
-            value={phone}
-            required
-            onChange={handlePhoneChange}
-          />
-          <br />
+          <div className="mb-3">
+            <label htmlFor="phone" className="form-label">
+              <b style={{ color: '#7C6A46' }}>Phone</b>
+            </label>
+            <input
+              type="tel"
+              placeholder="Enter Phone"
+              className=" mt-2 form-control border-0 border-bottom border-black-1 border-dark"
+              name="phone"
+              id="phone"
+              value={phone}
+              required
+              onChange={handlePhoneChange}
+            />
+          </div>
 
-          <label htmlFor="password">
-            <b>Password</b>
-          </label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            className="form-control"
-            name="password"
-            minLength={8}
-            id="password"
-            required
-            value={password}
-            onChange={handlePasswordChange}
-          />
-          <br />
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              <b style={{ color: '#7C6A46' }}>Password</b>
+            </label>
+            <input
+              type="password"
+              placeholder="Enter Password "
+              className=" mt-2 form-control border-0 border-bottom border-black-1 border-dark"
+              name="password"
+              minLength={8}
+              id="password"
+              required
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
 
-          <label htmlFor="password_confirm">
-            <b>Confirm Password</b>
-          </label>
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className="form-control"
-            name="password_confirm"
-            minLength={8}
-            id="password_confirm"
-            required
-            value={password_confirmation}
-            onChange={handlePasswordConfirmChange}
-          />
-          <br />
-          <label htmlFor="avatar">
-            <b>Avatar</b>
-          </label>
-          <input
-            type="text"
-            placeholder="Avatar"
-            className="form-control"
-            name="avatar"
-            minLength={8}
-            id="avatar"
-            required
-            value={avatar}
-            onChange={handleAvatarChange}
-          />
-          <br />
-          <label htmlFor="role">
-            <b>Role</b>
-          </label>
-          <select
-            className="form-control"
-            name="role"
-            id="role"
-            required
-            value={role}
-            onChange={handleRoleChange}
-          >
-            <option value="">Select Role</option>
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
-          </select>
-          <br />
+          <div className="mb-3">
+            <label htmlFor="password_confirm" className="form-label">
+              <b style={{ color: '#7C6A46' }}>Confirm Password</b>
+            </label>
+            <input
+              type="password"
+              placeholder="Confirm Password "
+              className=" mt-2 form-control border-0 border-bottom border-black-1 border-dark"
+              name="password_confirm"
+              minLength={8}
+              id="password_confirm"
+              required
+              value={password_confirmation}
+              onChange={handlePasswordConfirmChange}
+            />
+          </div>
 
-          <label htmlFor="create_by">
-            <b>Create By</b>
-          </label>
-          <select
-            className="form-control"
-            name="create_by"
-            id="create_by"
-            required
-            value={create_by}
-            onChange={handleCreateByChange}
-          >
-            <option value="">Select Creator</option>
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
-          </select>
-          <br />
+          <div className="mb-3">
+            <label htmlFor="role" className="form-label">
+              <b style={{ color: '#7C6A46' }}>Role</b>
+            </label>
+            <select
+              className=" mt-2 form-select border-0 border-bottom border-black-1 border-dark"
+              name="role"
+              id="role"
+              required
+              value={role}
+              onChange={handleRoleChange}
+              style={{ width: '100%' }}
+            >
+              <option value="">Select Role</option>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+          </div>
 
-          <p className="link_account mt-2">
+          <div className="mb-3">
+            <label htmlFor="create_by" className="form-label">
+              <b style={{ color: '#7C6A46' }}>Create By</b>
+            </label>
+            <select
+              className=" mt-2 form-select border-0 border-bottom border-black-1 border-dark"
+              name="create_by"
+              id="create_by"
+              required
+              value={create_by}
+              onChange={handleCreateByChange}
+              style={{ width: '100%' }}
+            >
+              <option value="">Select Creator</option>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+          </div>
+
+          <p className=" mt-4 text-center">
             Already have an account?{" "}
-            <Link to="/Login" className="nut">
+            <Link to="/Login" className="text-danger">
               Sign in
             </Link>
           </p>
+          <button  type="submit" className=" mt-3 btn btn-dark w-100" style={{ backgroundColor: '#7C6A46',height:'45px'}} >
+            Register
+          </button>
         </div>
-        <button type="submit" className="registerbtn mt-3">
-          Register
-        </button>
       </form>
     </div>
   );
