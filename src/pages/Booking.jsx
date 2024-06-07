@@ -1,6 +1,42 @@
 import image_9 from "../assets/image_9.png";
-import { Link } from "react-router-dom";
-export function Booking() {
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+export const Booking = () => {
+  const [room, setRoom] = useState([]);
+  const [error, setError] = useState(null);
+  const [randomRoomId, setRandomRoomId] = useState(null);
+
+  useEffect(() => {
+    const getRoomFromBooking = async () => {
+      try {
+        const res = await axios.get("http://127.0.0.1:8000/api/rooms");
+        const roomData = res.data.map((r) => ({
+          id: r.room_id,
+          name: r.name,
+          number: r.number, 
+          price: r.price, 
+        }));
+        setRoom(roomData);
+        console.log(roomData);
+      } catch (err) {
+        console.error("Error fetching room data:", err);
+        setError(err.message);
+      }
+    };
+    getRoomFromBooking();
+  }, []);
+
+  useEffect(() => {
+    if (room.length > 0 && randomRoomId === null) {
+      const randomIndex = Math.floor(Math.random() * room.length);
+      const randomId = room[randomIndex].id;
+      setRandomRoomId(randomId);
+    }
+  }, [room,randomRoomId]);
+
+  const randomRoom = room.find((r) => r.id === randomRoomId);
+
   return (
     <>
       <form action="">
@@ -134,54 +170,61 @@ export function Booking() {
                 />
               </div>
               <hr className="m-4" />
-              <h4 className="text-center">Room Information</h4>
-              <div className="d-flex flex-column mt-3">
-                <label className="mb-3 fw-semibold" htmlFor="room_name">
-                  Room name:{" "}
-                </label>
-                <input
-                  className="border rounded p-1 ps-2"
-                  id="room_name"
-                  type="text"
-                  placeholder="room_name"
-                />
-              </div>
-              <div className="d-flex flex-column mt-3">
-                <label className="mb-3 fw-semibold" htmlFor="room_number">
-                  Room number:{" "}
-                </label>
-                <input
-                  className="border rounded p-1 ps-2"
-                  id="room_number"
-                  type="text"
-                  placeholder="room_number"
-                />
-              </div>
-              <div className="d-flex flex-column mt-3">
-                <label className="mb-3 fw-semibold" htmlFor="room_price">
-                  Room price:{" "}
-                </label>
-                <input
-                  className="border rounded p-1 ps-2"
-                  id="room_price"
-                  type="text"
-                  placeholder="room_price"
-                />
-              </div>
+              {randomRoom && (
+                <div>
+                  <h4 className="text-center">Room Information</h4>
+                  <div className="d-flex flex-column mt-3">
+                    <label className="mb-3 fw-semibold" htmlFor="room_name">
+                      Room name:{" "}
+                    </label>
+                    <input
+                      className="border rounded p-1 ps-2"
+                      id="room_name"
+                      type="text"
+                      placeholder="room_name"
+                      value={randomRoom.name}
+                    />
+                  </div>
+                  <div className="d-flex flex-column mt-3">
+                    <label className="mb-3 fw-semibold" htmlFor="room_number">
+                      Room number:{" "}
+                    </label>
+                    <input
+                      className="border rounded p-1 ps-2"
+                      id="room_number"
+                      type="text"
+                      placeholder="room_number"
+                      value={randomRoom.number}
+                    />
+                  </div>
+                  <div className="d-flex flex-column mt-3">
+                    <label className="mb-3 fw-semibold" htmlFor="room_price">
+                      Room price:{" "}
+                    </label>
+                    <input
+                      className="border rounded p-1 ps-2"
+                      id="room_price"
+                      type="text"
+                      placeholder="room_price"
+                      value={randomRoom.price}
+                    />
+                  </div>
+                </div>
+              )}
               <div className="d-flex justify-content-center mt-4">
                 <button className="text-center me-2" type="submit">
-                  <Link className="" to="/rooms">
+                  {/* <Link className="" to="/rooms">
                     Back
-                  </Link>
+                  </Link> */}
                 </button>
                 <button
                   className="text-center "
                   style={{ backgroundColor: "#7C6A46" }}
                   type="submit"
                 >
-                  <Link className="text-white" to="/checkout">
+                  {/* <Link className="text-white" to="/checkout">
                     Check out
-                  </Link>
+                  </Link> */}
                 </button>
               </div>
             </div>
@@ -190,4 +233,6 @@ export function Booking() {
       </form>
     </>
   );
-}
+};
+
+export default Booking;

@@ -4,7 +4,8 @@ import axios from "axios";
 
 function FeedbackRooms() {
   const [feedbacks, setFeedbacks] = useState([]);
-  const [rooms, setRooms] = useState({});
+  const [
+    , setRooms] = useState({});
   const [users, setUsers] = useState({});
   const [error, setError] = useState(null);
 
