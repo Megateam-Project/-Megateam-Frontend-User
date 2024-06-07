@@ -2,7 +2,7 @@ import "./App.css";
 import "./Homepage.css";
 import { Header } from "./layouts/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Homepages } from "./pages/Homepage";
+import  Homepages  from "./pages/Homepages";
 import { Aboutus } from "./pages/Aboutus";
 import { Footer } from "./layouts/Footer";
 import { Profile } from "./pages/Profile";
@@ -11,7 +11,7 @@ import { Checkout } from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup/Signup";
 import Detail from "./pages/Detail";
-import { NotFound } from "./pages/404/NotFound.jsx";
+import { NotFound } from "./pages/404/NotFound";
 // import hero from "./assets/hero.png";
 function App() {
   return (

@@ -4,16 +4,17 @@ import company from "../assets/company.png";
 import location from "../assets/location.png";
 import roomSuggest from "../assets/roomSuggest.png";
 import televison from "../assets/televison.png";
-import wifi from "../assets/wifi.png";
+import N_wifi from "../assets/N_wifi.png";
 import shower from "../assets/shower.png";
 import { Button, Col, Row, Card } from "react-bootstrap";
 
 const Detail = () => {
   return (
     <>
-      <h2 style={{ marginTop: 80, marginLeft: 80 }}>
+      <h2 style={{ marginTop: 130, marginLeft: 80 }}>
         Premium penthouse in central Barcelona with panoramic views
       </h2>
+      <p style={{ marginTop: 10, marginLeft: 80 }}>Book with Ease, Enjoy with Delight! </p>
       <div
         className="image-room"
         style={{
@@ -214,7 +215,7 @@ const Detail = () => {
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
-                        src={wifi}
+                        src={N_wifi}
                         alt=""
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
@@ -276,7 +277,7 @@ const Detail = () => {
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
-                        src={wifi}
+                        src={N_wifi}
                         alt=""
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
@@ -338,7 +339,7 @@ const Detail = () => {
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
-                        src={wifi}
+                        src={N_wifi}
                         alt=""
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
@@ -405,7 +406,7 @@ const Detail = () => {
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
-                        src={wifi}
+                        src={N_wifi}
                         alt=""
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
@@ -467,7 +468,7 @@ const Detail = () => {
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
-                        src={wifi}
+                        src={N_wifi}
                         alt=""
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
@@ -529,7 +530,7 @@ const Detail = () => {
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
                       <img
-                        src={wifi}
+                        src={N_wifi}
                         alt=""
                         style={{ marginTop: 20, marginRight: 20 }}
                       />
