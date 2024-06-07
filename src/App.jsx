@@ -12,7 +12,6 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup/Signup";
 import Detail from "./pages/Detail";
 import { NotFound } from "./pages/404/NotFound";
-// import hero from "./assets/hero.png";
 function App() {
   return (
     <BrowserRouter>
