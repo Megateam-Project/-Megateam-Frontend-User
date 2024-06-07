@@ -29,7 +29,7 @@ const handleSearchClick = () => {
           top: "80%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "84.2vw",
+          width: "60.2vw",
           backgroundColor: "rgba(255, 255, 255, 0.8)",
           padding: "20px",
         }}
@@ -42,8 +42,6 @@ const handleSearchClick = () => {
               </Form.Label>
               <Form.Control as="select" defaultValue="Son Tra - Da Nang">
                 <option>Son Tra - Da Nang</option>
-                <option>Location 2</option>
-                <option>Location 3</option>
               </Form.Control>
             </Form.Group>
           </Col>
@@ -53,24 +51,13 @@ const handleSearchClick = () => {
                 <i className="bi bi-house"></i> Room type
               </Form.Label>
               <Form.Control as="select" defaultValue="Standard">
-                <option>Standard</option>
-                <option>Deluxe</option>
-                <option>Suite</option>
+                <option>Single</option>
+                <option>Double</option>
+                <option>Family's</option>
               </Form.Control>
             </Form.Group>
           </Col>
-          <Col xs={6} md={1} className="mb-3 mb-md-0">
-            <Form.Group controlId="formPerson">
-              <Form.Label>
-                <i className="bi bi-person"></i> Person
-              </Form.Label>
-              <Form.Control as="select" defaultValue="01">
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </Form.Control>
-            </Form.Group>
-          </Col>
+        
           <Col xs={6} md={2} className="mb-3 mb-md-0">
             <Form.Group controlId="formCheckIn">
               <Form.Label>
@@ -90,7 +77,7 @@ const handleSearchClick = () => {
           <Col xs={6} md={1}>
             <Button
               variant=""
-              className="w-100 mt-4 "
+              className="w-180 mt-4 "
               style={{ backgroundColor: "rgb(129, 73, 6)", color: "white" }}
               onClick={handleSearchClick}
             >
