@@ -1,6 +1,25 @@
 import image_9 from "../assets/image_9.png";
 import { Link } from "react-router-dom";
+
 export function Booking() {
+  const [rooms, setRooms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getRooms = async () => {
+      try {
+        const res = await axios.get("http://127.0.0.1:8000/api/rooms{id}");
+        setRooms(res.data);
+      } catch (error) {
+        console.error("Error fetching rooms data:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getRoomsData();
+  }, []);
   return (
     <>
       <form action="">
@@ -135,39 +154,43 @@ export function Booking() {
               </div>
               <hr className="m-4" />
               <h4 className="text-center">Room Information</h4>
-              <div className="d-flex flex-column mt-3">
-                <label className="mb-3 fw-semibold" htmlFor="room_name">
-                  Room name:{" "}
-                </label>
-                <input
-                  className="border rounded p-1 ps-2"
-                  id="room_name"
-                  type="text"
-                  placeholder="room_name"
-                />
-              </div>
-              <div className="d-flex flex-column mt-3">
-                <label className="mb-3 fw-semibold" htmlFor="room_number">
-                  Room number:{" "}
-                </label>
-                <input
-                  className="border rounded p-1 ps-2"
-                  id="room_number"
-                  type="text"
-                  placeholder="room_number"
-                />
-              </div>
-              <div className="d-flex flex-column mt-3">
-                <label className="mb-3 fw-semibold" htmlFor="room_price">
-                  Room price:{" "}
-                </label>
-                <input
-                  className="border rounded p-1 ps-2"
-                  id="room_price"
-                  type="text"
-                  placeholder="room_price"
-                />
-              </div>
+              {rooms.map((room) => (
+                <div key={room.id}>
+                  <div className="d-flex flex-column mt-3">
+                    <label className="mb-3 fw-semibold" htmlFor="room_name">
+                      Room name:{" "}
+                    </label>
+                    <input
+                      className="border rounded p-1 ps-2"
+                      id="room_name"
+                      type="text"
+                      placeholder={room.name}
+                    />
+                  </div>
+                  <div className="d-flex flex-column mt-3">
+                    <label className="mb-3 fw-semibold" htmlFor="room_number">
+                      Room number:{" "}
+                    </label>
+                    <input
+                      className="border rounded p-1 ps-2"
+                      id="room_number"
+                      type="text"
+                      placeholder={room.number}
+                    />
+                  </div>
+                  <div className="d-flex flex-column mt-3">
+                    <label className="mb-3 fw-semibold" htmlFor="room_price">
+                      Room price:{" "}
+                    </label>
+                    <input
+                      className="border rounded p-1 ps-2"
+                      id="room_price"
+                      type="text"
+                      placeholder={room.price}
+                    />
+                  </div>
+                </div>
+              ))}
               <div className="d-flex justify-content-center mt-4">
                 <button className="text-center me-2" type="submit">
                   <Link className="" to="/rooms">
