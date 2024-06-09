@@ -21,8 +21,9 @@ const LoginForm = () => {
         email,
         password,
       });
-      const { token } = response.data.result;
-      Cookies.set("token", JSON.stringify({token }), { expires: 7 });
+      const { token, user } = response.data.result;
+      const tokenData = { token, userId: user.id }; 
+      Cookies.set("token", JSON.stringify(tokenData), { expires: 7 });
       alert("WELCOME TO HOTEL LUXURY");
       console.log();
       navigate("/");
@@ -37,14 +38,17 @@ const LoginForm = () => {
     }
   };
   return (
-    <div className=" mb-5 d-flex justify-content-center fs-4" style={{marginTop: "100px"}}>
+    <div
+      className=" mb-5 d-flex justify-content-center fs-4"
+      style={{ marginTop: "100px" }}
+    >
       <form className="" onSubmit={handleLoginFormSubmit}>
         <div className=" d-flex justify-content-center">
           <img src={logo} alt="Google Logo" className="" />
         </div>
         <div className="row g-3 align-items-center mt-2">
           <div className="col-auto">
-            <label htmlFor="inputEmail" className="col-form-label" >
+            <label htmlFor="inputEmail" className="col-form-label">
               <i className="fa fa-envelope-o" aria-hidden="true"></i>
             </label>
           </div>
@@ -83,7 +87,7 @@ const LoginForm = () => {
           </div>
         </div>
         <p className=" mt-3 text-center small">
-          Already have an account? 
+          Already have an account?
           <Link to="/register" className="text-danger">
             Sign up
           </Link>
@@ -91,14 +95,21 @@ const LoginForm = () => {
         <div className=" d-flex justify-content-center align-items-center">
           <button
             type="submit"
-            className="mt-3 btn btn-dark w-100 custom-button" style={{ backgroundColor: '#7C6A46',height: '45px' }}
+            className="mt-3 btn btn-dark w-100 custom-button"
+            style={{ backgroundColor: "#7C6A46", height: "45px" }}
           >
             Sign in
           </button>
         </div>
-        <h5 className="text-center mt-3 "style={{ color: '#7C6A46' }}>OR</h5>
+        <h5 className="text-center mt-3 " style={{ color: "#7C6A46" }}>
+          OR
+        </h5>
         <div className="d-flex justify-content-center">
-          <button type="button" className="mt-3 btn btn-dark w-100 text-black" style={{ backgroundColor: 'white'}}>
+          <button
+            type="button"
+            className="mt-3 btn btn-dark w-100 text-black"
+            style={{ backgroundColor: "white" }}
+          >
             <img
               src="src/assets/logo_1.jpg"
               alt="Google Logo"
