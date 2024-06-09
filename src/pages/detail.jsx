@@ -11,7 +11,7 @@ import { Button, Col, Row, Card } from "react-bootstrap";
 const Detail = () => {
   return (
     <>
-      <h2 style={{ marginTop: 130, marginLeft: 80 }}>
+      <h2 style={{ marginTop: 50, marginLeft: 80 }}>
         Premium penthouse in central Barcelona with panoramic views
       </h2>
       <p style={{ marginTop: 10, marginLeft: 80 }}>Book with Ease, Enjoy with Delight! </p>
