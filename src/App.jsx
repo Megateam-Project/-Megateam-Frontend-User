@@ -10,6 +10,8 @@ import "./Homepage.css";
 import { Footer } from "./layouts/Footer";
 import { Booking } from "./pages/Booking";
 import { Checkout } from "./pages/Checkout";
+import { Wishlist } from "./pages/Wishlist";
+import { RoomPage } from "./pages/room/RoomPage";
 function App() {
   return (
     <BrowserRouter>
@@ -21,9 +23,11 @@ function App() {
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<LoginForm  />} />
+          <Route path="/rooms" element={< RoomPage />} />
           <Route path="/register" element={<Signup />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           {/* <Route path="/bookingHistory" element={<HomePages />} /> */}
         </Routes>
       </main>
