@@ -11,6 +11,8 @@ import { Checkout } from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup/Signup";
 import Detail from "./pages/Detail";
+import { Wishlist } from "./pages/Wishlist";
+import { RoomPage } from "./pages/room/RoomPage";
 import { NotFound } from "./pages/404/NotFound";
 function App() {
   return (
