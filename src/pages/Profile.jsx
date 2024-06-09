@@ -3,7 +3,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import person from "../assets/person.jpg";
 import Ellipse from "../assets/Ellipse.png";
-import Group from "../assets/Group.png";
 import { Link } from "react-router-dom";
 
 export function Profile() {
@@ -37,27 +36,24 @@ export function Profile() {
   return (
     <div
       className="div_1_profile"
-      style={{ marginRight: "px", width: "1800px" }}
+      style={{ marginRight: "px", width: "1700px" }}
     >
-      <nav className="navbar bg-body-tertiary">
+      <div className="picture-section">
         <div
-          className="container-fluid"
+          className="row mb-5"
           style={{ height: "200px", backgroundColor: "#7C6A46" }}
+        ></div>
+        <div
+          className="position-relative text-center mb-5"
+          style={{ marginTop: "-100px" }}
         >
           <img
-            className="image rounded-circle"
             src={Ellipse}
-            alt="Your Image"
-            style={{
-              width: "200px",
-              height: "200px",
-              objectFit: "cover",
-              marginLeft: "750px",
-              marginTop: "100px",
-            }}
+            alt=""
+            style={{ width: "200px", height: "200px" }}
           />
         </div>
-      </nav>
+      </div>
 
       <div
         className="container"
@@ -148,7 +144,7 @@ export function Profile() {
               <div className="col-md-4">
                 <img
                   className="image_person rounded-circle"
-                  src={Group}
+                  src={person}
                   alt="Your Image"
                   style={{ width: "150px", height: "150px" }}
                 />
@@ -192,7 +188,6 @@ export function Profile() {
                   />
                 </div>
               </div>
-
             </form>
           </div>
         </div>

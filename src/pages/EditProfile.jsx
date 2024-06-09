@@ -53,8 +53,8 @@ export function EditProfile() {
       const token = JSON.parse(tokenData).token;
       const decodedToken = jwtDecode(token); // Decode the JWT token
       const userId = decodedToken.sub; // Extract the user ID from the decoded token
-      // console.log(token);
-      // console.log(userId);
+      console.log(token);
+      console.log(userId);
 
       const { name, phone, email } = editData;
       const updateData = { name, phone, email };
