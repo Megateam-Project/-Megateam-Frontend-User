@@ -12,6 +12,8 @@ import { Booking } from "./pages/Booking";
 import { Checkout } from "./pages/Checkout";
 import { Wishlist } from "./pages/Wishlist";
 import { RoomPage } from "./pages/room/RoomPage";
+import { NotFound } from "./pages/404/NotFound.jsx";
+
 function App() {
   return (
     <BrowserRouter>
@@ -28,7 +30,7 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          {/* <Route path="/bookingHistory" element={<HomePages />} /> */}
+          <Route path="/notFound" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
