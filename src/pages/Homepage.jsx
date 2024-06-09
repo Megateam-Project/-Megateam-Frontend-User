@@ -20,7 +20,7 @@ function Homepages() {
         <section className="places-category">
           <ul className="places d-flex justify-content-around align-items-end">
             {Our_Facilities.map((facility) => (
-              <li key={facility.id}>
+              <li key={facility.id} >
                 <img src={facility.image.src} alt={facility.image.alt} />
                 <h3>{facility.name}</h3>
               </li>

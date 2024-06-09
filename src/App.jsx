@@ -10,8 +10,12 @@ import "./Homepage.css";
 import { Footer } from "./layouts/Footer";
 import { Booking } from "./pages/Booking";
 import { Checkout } from "./pages/Checkout";
+<<<<<<< HEAD
 import { EditProfile } from "./pages/EditProfile.jsx";
 
+=======
+import { NotFound } from "./pages/404/NotFound.jsx";
+>>>>>>> 69f36bb077beb8336bd033b4d215fd135fce26fa
 
 function App() {
   return (
@@ -27,8 +31,14 @@ function App() {
           <Route path="/register" element={<Signup />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/checkout" element={<Checkout />} />
+<<<<<<< HEADgit
           <Route path="/editProfile" element={<EditProfile />} />
           {/* <Route path="/bookingHistory" element={<HomePages />} /> */}
+=======
+          <Route path="/wishlist" element={<Homepages />} />
+          <Route path="/bookingHistory" element={<Homepages />} />
+          <Route path="/notFound" element={<NotFound />} />
+>>>>>>> 69f36bb077beb8336bd033b4d215fd135fce26fa
         </Routes>
       </main>
       <Footer />
