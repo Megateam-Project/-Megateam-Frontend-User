@@ -60,6 +60,7 @@ export function Search() {
             objectFit: "cover",
             borderRadius: "10px",
           }}
+
         />
       </div>
       <Form
@@ -67,6 +68,7 @@ export function Search() {
         style={{
           position: "absolute",
           top: "70%",
+
           left: "50%",
           transform: "translate(-50%, -50%)",
           width: "75vw",
@@ -84,6 +86,8 @@ export function Search() {
               </Form.Label>
               <Form.Control as="select" defaultValue="Son Tra - Da Nang">
                 <option>Son Tra - Da Nang</option>
+                <option>Hai Chau - Da Nang</option>
+                <option>Thanh Khe - Da Nang</option>
               </Form.Control>
             </Form.Group>
           </Col>
@@ -131,6 +135,7 @@ export function Search() {
                 backgroundColor: "rgb(129, 73, 6)",
                 color: "white",
               }}
+
               onClick={handleSearchClick}
             >
               Search

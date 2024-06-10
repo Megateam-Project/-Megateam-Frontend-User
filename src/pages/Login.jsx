@@ -28,6 +28,7 @@ const LoginForm = () => {
       const { token, user } = response.data.result;
       const tokenData = {token, useId: user.id};
       Cookies.set("token",  JSON.stringify(tokenData), { expires: 7 });
+
       alert("WELCOME TO HOTEL LUXURY");
       window.location.href = "/"
     } catch (error) {
@@ -46,6 +47,7 @@ const LoginForm = () => {
       <form onSubmit={handleLoginFormSubmit}>
         <div className="d-flex justify-content-center">
           <img src={logo} alt="Logo" />
+
         </div>
         <div className="row g-3 align-items-center mt-2">
           <div className="col-auto">
@@ -89,6 +91,8 @@ const LoginForm = () => {
         </div>
         <p className="mt-3 text-center small">
           Don't have an account? 
+
+      
           <Link to="/register" className="text-danger">
             Sign up
           </Link>
@@ -101,6 +105,7 @@ const LoginForm = () => {
         <h5 className="text-center mt-3" style={{ color: '#7C6A46' }}>OR</h5>
         <div className="d-flex justify-content-center">
           <button type="button" className="mt-3 btn btn-dark w-100 text-black" style={{ backgroundColor: 'white' }}>
+
             <img
               src="src/assets/logo_1.jpg"
               alt="Google Logo"

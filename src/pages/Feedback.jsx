@@ -1,10 +1,11 @@
-import{ useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Card, Spinner, Alert, Row, Col } from "react-bootstrap";
 import axios from "axios";
 
 function FeedbackRooms() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [room , setRooms] = useState({});
+
   const [users, setUsers] = useState({});
   const [error, setError] = useState(null);
 
@@ -43,11 +44,25 @@ function FeedbackRooms() {
 
   return (
     <div>
-      <h3 className="d-flex justify-content-center mt-5" style={{color:"rgb(129, 73, 6)"}}>Feedback Rooms</h3>
+      <h3
+        className="d-flex justify-content-center mt-5"
+        style={{ color: "rgb(129, 73, 6)" }}
+      >
+        Feedback Rooms
+      </h3>
       {feedbacks.length > 0 ? (
         <Row>
           {feedbacks.slice(0, 3).map((feedback, index) => (
-            <Col key={index} md={4} className="mb-3 mt-5" style={{marginLeft:"150px", width:"400px",marginRight: "-135px"}}>
+            <Col
+              key={index}
+              md={4}
+              className="mb-3 mt-5"
+              style={{
+                marginLeft: "150px",
+                width: "400px",
+                marginRight: "-135px",
+              }}
+            >
               <Card className="h-80">
                 <Card.Body className="d-flex flex-column ">
                   <div style={{ flexGrow: 1 }}>
@@ -66,8 +81,8 @@ function FeedbackRooms() {
                           borderRadius: "50%",
                         }}
                       />
-                      <div className="mt-4" style={{marginLeft:"15px"}}>
-                      {users[feedback.user_id]}
+                      <div className="mt-4" style={{ marginLeft: "15px" }}>
+                        {users[feedback.user_id]}
                       </div>
                     </Card.Subtitle>
                   </div>
