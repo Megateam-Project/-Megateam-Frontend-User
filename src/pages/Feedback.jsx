@@ -53,16 +53,7 @@ function FeedbackRooms() {
       {feedbacks.length > 0 ? (
         <Row>
           {feedbacks.slice(0, 3).map((feedback, index) => (
-            <Col
-              key={index}
-              md={4}
-              className="mb-3 mt-5"
-              style={{
-                marginLeft: "150px",
-                width: "400px",
-                marginRight: "-135px",
-              }}
-            >
+            <Col key={index} md={4} className="mb-3 mt-5" style={{marginLeft:"150px", width:"480px",marginRight: "-115px"}}>
               <Card className="h-80">
                 <Card.Body className="d-flex flex-column ">
                   <div style={{ flexGrow: 1 }}>

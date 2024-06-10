@@ -59,7 +59,7 @@ function Room() {
               <span className={styles['room-price']}>
               {room.price}/ night
               </span>
-              <button className={styles['choose-room']}>Choose room</button>
+              <button style={{marginLeft:"520px",backgroundColor: "rgb(129, 73, 6)",color:"white"}}>Choose room</button>
             </div>
           </div>
         </div>
