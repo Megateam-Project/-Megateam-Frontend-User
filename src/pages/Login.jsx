@@ -1,13 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/Logo.jpg";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -25,8 +25,8 @@ const LoginForm = () => {
       const tokenData = { token, userId: user.id }; 
       Cookies.set("token", JSON.stringify(tokenData), { expires: 7 });
       alert("WELCOME TO HOTEL LUXURY");
-      console.log();
-      navigate("/");
+      window.location.href = '/'
+      //navigate("/");
     } catch (error) {
       if (error.response) {
         alert(`Error: ${error.response.data.message}`);
