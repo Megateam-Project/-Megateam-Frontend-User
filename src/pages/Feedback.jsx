@@ -4,7 +4,7 @@ import axios from "axios";
 
 function FeedbackRooms() {
   const [feedbacks, setFeedbacks] = useState([]);
-  const [rooms, setRooms] = useState({});
+  const [room , setRooms] = useState({});
   const [users, setUsers] = useState({});
   const [error, setError] = useState(null);
 
@@ -52,7 +52,7 @@ function FeedbackRooms() {
                 <Card.Body className="d-flex flex-column ">
                   <div style={{ flexGrow: 1 }}>
                     <Card.Title className="text-2xl font-semibold d-flex justify-content-center">
-                      {rooms[feedback.room_id]}
+                      {room[feedback.room_id]}
                     </Card.Title>
                     <Card.Text>{feedback.content}</Card.Text>
                     <Card.Subtitle className="mb-2 text-opacity-100 d-flex align-items-center">
@@ -101,4 +101,3 @@ function FeedbackRooms() {
 
 export default FeedbackRooms;
 
-// export default FeedbackCard;

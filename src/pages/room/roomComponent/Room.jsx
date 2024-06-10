@@ -1,44 +1,69 @@
-// Room.js
-
-import styles from "../style/Room.module.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import styles from '../style/Room.module.css';
 
 function Room() {
+  const [rooms, setRooms] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchRooms = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/rooms', {});
+        setRooms(response.data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+    fetchRooms();
+  }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div className={styles["room-card"]}>
-      <img
-        src="https://cf.bstatic.com/xdata/images/city/600x600/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o="
-        alt="Room"
-        className={styles["room-card-img"]}
-      />
-      <div className={styles["room-details"]}>
-        <div className={styles["room-header"]}>
-          <h2 className={styles["room-header-title"]}>The Royal Room</h2>
-          <span className={styles["availability"]}>
-            Available: Yes <i style={{ color: "#ff6b6b" }}>&#9829;</i>
-          </span>
+    <div>
+      {rooms.map((room) => (
+        <div key={room.id} className={styles['room-card']}>
+          <img
+            src={room.image}
+            alt={room.name}
+            className={styles['room-card-img']}
+          />
+          <div className={styles['room-details']}>
+            <div className={styles['room-header']}>
+              <h2 className={styles['room-header-title']}>{room.name} <br/> Room: {room.number}</h2>
+              
+              <span
+                className={styles.availability}
+                style={{
+                  color: room.available ? '#4CAF50' : '#ff6b6b',
+                }}
+              >
+                Available: {room.available ? 'Yes' : 'No'}{' '}
+                <i style={{ color: room.available ? '#4CAF50' : '#ff6b6b' }}>
+                  &#9829;
+                </i>
+              </span>
+            </div>
+            <div className={styles['room-info']}>
+              <div>
+                <i>&#128716;</i> {room.type}
+              </div>
+              <div>
+                {/* <i>&#128206;</i> {room.size}m<sup>2</sup> */}
+              </div>
+            </div>
+            <div className={styles['room-footer']}>
+              <span className={styles['room-price']}>
+              {room.price}/ night
+              </span>
+              <button className={styles['choose-room']}>Choose room</button>
+            </div>
+          </div>
         </div>
-        <div className={styles["room-info"]}>
-          <div>
-            <i>&#128716;</i> 1 - double bed
-          </div>
-          <div>
-            <i>&#128206;</i> 224m<sup>2</sup>
-          </div>
-          <div>
-            <i>&#128187;</i> TV
-          </div>
-          <div>
-            <i>&#128246;</i> Satellite
-          </div>
-          <div>
-            <i>&#128225;</i> Wi-Fi
-          </div>
-        </div>
-        <div className={styles["room-footer"]}>
-          <span className={styles["room-price"]}>$132,54 / night</span>
-          <button className={styles["choose-room"]}>Choose room</button>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

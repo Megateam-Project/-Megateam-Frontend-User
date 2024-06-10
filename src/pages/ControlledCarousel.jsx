@@ -1,9 +1,16 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { Card, Button, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+
+const isLoggedIn = () => {
+  return Cookies.get("token") !== undefined;
+};
+
 function ControlledCarousel({ rooms }) {
   const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -11,12 +18,21 @@ function ControlledCarousel({ rooms }) {
 
   const cardsPerSlide = 3;
 
+  const handleBookNow = (roomId) => {
+    if (isLoggedIn()) {
+      const user = JSON.parse(Cookies.get("user"));
+      navigate(`/booking/${roomId}`, { state: { user } });
+    } else {
+      alert('You must Login before you want to booking!')
+      navigate('/login'); 
+    }
+  };
+
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel activeIndex={index} onSelect={handleSelect} style={{ height: "500px" }}>
       {Array.from({ length: Math.ceil(rooms.length / cardsPerSlide) }).map(
         (_, slideIndex) => (
           <Carousel.Item key={slideIndex}>
-            <Link to="/detail">
             <Row>
               {rooms
                 .slice(
@@ -54,8 +70,12 @@ function ControlledCarousel({ rooms }) {
                           <Card.Title className="text-2xl font-semibold">
                             {room.name}
                           </Card.Title>
-                          <Card.Text className="mt-4 text-xl font-medium">
-                            {room.price}
+                          <Card.Title>Room {room.number}</Card.Title>
+                          <Card.Text
+                            className="mt-4"
+                            style={{ color: "rgb(129, 73, 6" }}
+                          >
+                            {room.price} VND
                           </Card.Text>
                         </div>
                         <div
@@ -72,27 +92,25 @@ function ControlledCarousel({ rooms }) {
                             style={{ maxWidth: "140px", height: "auto" }}
                             alt=""
                           />
-                          <Link to="/booking">
-                            <Button
-                              style={{
-                                display: "inline-block",
-                                backgroundColor: "rgb(129, 73, 6)",
-                                border: "none",
-                                padding: "0.5rem 1.5rem",
-                                borderRadius: "1rem",
-                              }}
-                              className="justify-center px-9 rounded-xl bg-stone-100"
-                            >
-                              Book Now
-                            </Button>
-                          </Link>
+                          <Button
+                            onClick={() => handleBookNow(room.id)}
+                            style={{
+                              display: "inline-block",
+                              backgroundColor: "rgb(129, 73, 6)",
+                              border: "none",
+                              padding: "0.5rem 1.5rem",
+                              borderRadius: "1rem",
+                            }}
+                            className="justify-center px-9 rounded-xl bg-stone-100"
+                          >
+                            Book Now
+                          </Button>
                         </div>
                       </Card.Body>
                     </Card>
                   </Col>
                 ))}
             </Row>
-            </Link>
           </Carousel.Item>
         )
       )}
