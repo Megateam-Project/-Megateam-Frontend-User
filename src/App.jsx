@@ -26,13 +26,14 @@ function App() {
           <Route path="/" element={< HomePages />} />
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<LoginForm  />} />
+         <Route path="/Login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
           <Route path="/booking/:roomId" element={<Booking />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/rooms" element={<RoomPage />} />
           {/* <Route path="/wishlist" element={<HomePages />} />
           <Route path="/bookingHistory" element={<HomePages />} /> */}
+          <Route path="/detail" element={<Detail />} />
           <Route path="/notFound" element={<NotFound />} />
         </Routes>
       </main>
