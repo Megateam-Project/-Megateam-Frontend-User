@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import apollo from "../assets/apollo.png";
 import area from "../assets/area.png";
 import company from "../assets/company.png";
 import location from "../assets/location.png";
