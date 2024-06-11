@@ -36,7 +36,7 @@ export function Checkout() {
         </div>
         <div className="d-flex justify-content-center mt-3">
           <button className="text-center me-2" type="submit">
-            <Link className="" to="/booking">
+            <Link className="" to="/">
               Back
             </Link>
           </button>
