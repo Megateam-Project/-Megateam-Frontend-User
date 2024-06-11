@@ -15,11 +15,14 @@ export function Search() {
 
   const fetchRooms = async () => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/rooms/search", {
-        searchTerm,
-        check_in_date: checkInDate,
-        check_out_date: checkOutDate,
-      });
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/rooms/search",
+        {
+          searchTerm,
+          check_in_date: checkInDate,
+          check_out_date: checkOutDate,
+        }
+      );
 
       if (response.data.message) {
         setRooms([]);
@@ -33,8 +36,14 @@ export function Search() {
   console.log(rooms);
 
   const handleSearchClick = () => {
-    fetchRooms();
-    navigate(`/rooms?searchTerm=${searchTerm}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}`);
+    if (checkInDate && checkOutDate) {
+      fetchRooms();
+      navigate(
+        `/rooms?searchTerm=${searchTerm}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}`
+      );
+    } else {
+      alert("Please select both check-in and check-out dates.");
+    }
   };
 
   const handleInputChange = (setter) => (e) => {
@@ -60,7 +69,6 @@ export function Search() {
             objectFit: "cover",
             borderRadius: "10px",
           }}
-
         />
       </div>
       <Form
@@ -68,7 +76,6 @@ export function Search() {
         style={{
           position: "absolute",
           top: "70%",
-
           left: "50%",
           transform: "translate(-50%, -50%)",
           width: "75vw",
@@ -86,8 +93,6 @@ export function Search() {
               </Form.Label>
               <Form.Control as="select" defaultValue="Son Tra - Da Nang">
                 <option>Son Tra - Da Nang</option>
-                <option>Hai Chau - Da Nang</option>
-                <option>Thanh Khe - Da Nang</option>
               </Form.Control>
             </Form.Group>
           </Col>
@@ -96,7 +101,11 @@ export function Search() {
               <Form.Label>
                 <i className="bi bi-house"></i> Room type
               </Form.Label>
-              <Form.Control as="select" defaultValue="Standard" onChange={handleInputChange(setSearchTerm)}>
+              <Form.Control
+                as="select"
+                defaultValue="Standard"
+                onChange={handleInputChange(setSearchTerm)}
+              >
                 <option>Single</option>
                 <option>Double</option>
                 <option>Family</option>
@@ -109,7 +118,7 @@ export function Search() {
                 <i className="bi bi-calendar"></i> Check in
               </Form.Label>
               <Form.Control
-                type="date"
+                type="datetime-local"
                 value={checkInDate}
                 onChange={handleInputChange(setCheckInDate)}
               />
@@ -121,13 +130,14 @@ export function Search() {
                 <i className="bi bi-calendar"></i> Check out
               </Form.Label>
               <Form.Control
-                type="date"
+                type="datetime-local"
                 value={checkOutDate}
                 onChange={handleInputChange(setCheckOutDate)}
               />
             </Form.Group>
           </Col>
-          <Col xs={12} md={2} className=" d-flex align-items-end">
+
+          <Col xs={12} md={2} className="d-flex align-items-end">
             <Button
               variant=""
               className="w-100 mt-4"
@@ -135,7 +145,6 @@ export function Search() {
                 backgroundColor: "rgb(129, 73, 6)",
                 color: "white",
               }}
-
               onClick={handleSearchClick}
             >
               Search
