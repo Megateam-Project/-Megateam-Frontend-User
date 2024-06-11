@@ -11,6 +11,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 export function Aboutus() {
   const [rooms, setRooms] = useState([]);
   const [name, setRoomName] = useState("");
@@ -65,7 +66,7 @@ export function Aboutus() {
       const response = await axios.post("http://127.0.0.1:8000/api/feedbacks", feedbackData);
       setRoomName("");
       setContent("");
-      alert("Create Successful");
+      message.s("Create Successful");
       navigate("/");
     } catch (error) {
       console.error("Error submitting feedback:", error);

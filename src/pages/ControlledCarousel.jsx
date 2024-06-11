@@ -20,16 +20,16 @@ function ControlledCarousel({ rooms }) {
 
   const handleBookNow = (roomId) => {
     if (isLoggedIn()) {
-      const user = JSON.parse(Cookies.get("user"));
+      const user = JSON.parse(Cookies.get("token"));
       navigate(`/booking/${roomId}`, { state: { user } });
     } else {
-      alert('You must Login before you want to booking!')
+      alert('You must Login before you want to booking');
       navigate('/login'); 
     }
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} style={{ height: "500px" }}>
+    <Carousel activeIndex={index} onSelect={handleSelect} style={{ height: "550px" }}>
       {Array.from({ length: Math.ceil(rooms.length / cardsPerSlide) }).map(
         (_, slideIndex) => (
           <Carousel.Item key={slideIndex}>

@@ -27,7 +27,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/register" element={<Signup />} />
-            <Route path="/booking" element={<Booking />} />
+            <Route path="/booking/:roomId" element={<Booking />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/bookingHistory" element={<Homepages />} />

@@ -1,43 +1,56 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import image_9 from "../assets/image_9.png";
+import Cookies from "js-cookie";
+import { message } from "antd";
+import moment from "moment";
 const Booking = () => {
   const { roomId } = useParams();
-  const location = useLocation();
-  const { user } = location.state;
   const [room, setRoom] = useState(null);
   const [error, setError] = useState(null);
   const [payments, setPayments] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState("");
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
-
+  const [user, setUser] = useState("");
+  const appCookieRaw = Cookies.get("token");
+  const appCookie = JSON.parse(appCookieRaw ?? "");
+  const user_id_cookie = appCookie?.userId;
   useEffect(() => {
-    const fetchRoomData = async () => {
-      try {
-        const res = await axios.get(`http://127.0.0.1:8000/api/rooms/${roomId}`);
-        setRoom(res.data);
-      } catch (err) {
-        console.error("Error fetching room data:", err);
-        setError(err.message);
-      }
-    };
-
-    const getPaymentMethods = async () => {
-      try {
-        const res = await axios.get("http://127.0.0.1:8000/api/payments");
-        setPayments(res.data);
-      } catch (err) {
-        console.error("Error fetching payment methods:", err);
-        setError(err.message);
-      }
-    };
-
     fetchRoomData();
     getPaymentMethods();
+    getUserDetail();
   }, [roomId]);
-
+  const fetchRoomData = async () => {
+    try {
+      const res = await axios.get(`http://127.0.0.1:8000/api/rooms/${roomId}`);
+      setRoom(res.data);
+    } catch (err) {
+      console.error("Error fetching room data:", err);
+      setError(err.message);
+    }
+  };
+  const getUserDetail = async () => {
+    try {
+      const response = await axios.get(
+        `http://127.0.0.1:8000/api/users/${user_id_cookie}`
+      );
+      setUser(response.data);
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+    }
+  };
+  const getPaymentMethods = async () => {
+    try {
+      const res = await axios.get("http://127.0.0.1:8000/api/payments");
+      setPayments(res.data);
+    } catch (err) {
+      console.error("Error fetching payment methods:", err);
+      setError(err.message);
+    }
+  };
+  const navigate = useNavigate();
   const handleCreateBooking = async (e) => {
     e.preventDefault();
     try {
@@ -47,10 +60,10 @@ const Booking = () => {
         payment_id: paymentMethod,
         check_in_date: checkInDate,
         check_out_date: checkOutDate,
+        create_by: "User",
       });
-      console.log(user_id, room_id, payment_id);
-      console.log("Booking created successfully:", res.data);
-      // Optionally, redirect to a success page or show a success message
+      message.success("Booking created successfully!");
+      navigate("/checkout");
     } catch (err) {
       console.error("Error creating booking:", err);
       setError("Error creating booking: " + err.message);
@@ -166,9 +179,10 @@ const Booking = () => {
                 <input
                   className="border rounded p-1 ps-2"
                   id="check_in_date"
-                  type="date"
+                  type="datetime-local"
                   value={checkInDate}
                   onChange={(e) => setCheckInDate(e.target.value)}
+                  min={moment().format("YYYY-MM-DDTHH:mm")}
                 />
               </div>
               <div className="d-flex flex-column mt-3">
@@ -178,9 +192,10 @@ const Booking = () => {
                 <input
                   className="border rounded p-1 ps-2"
                   id="check_out_date"
-                  type="date"
+                  type="datetime-local"
                   value={checkOutDate}
                   onChange={(e) => setCheckOutDate(e.target.value)}
+                  min={checkInDate || moment().format("YYYY-MM-DDTHH:mm")}
                 />
               </div>
             </div>
