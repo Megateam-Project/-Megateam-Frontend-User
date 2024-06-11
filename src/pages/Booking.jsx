@@ -63,6 +63,7 @@ const Booking = () => {
         create_by: "User",
       });
       message.success("Booking created successfully!");
+      console.log(res.data.idBooking);
       navigate("/checkout");
     } catch (err) {
       console.error("Error creating booking:", err);
