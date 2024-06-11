@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/logo.png";
 import { message } from "antd";
 import nen from "../assets/nen.jpg";
-const LoginForm = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleEmailChange = (e) => {
@@ -27,9 +27,8 @@ const LoginForm = () => {
       const { token, user } = response.data.result;
       const tokenData = {token, userId: user.id};
       Cookies.set("token",  JSON.stringify(tokenData), { expires: 7 });
-
       message.success("WELCOME TO HOTEL LUXURY");
-      window.location.href = "/"
+      window.location.href = "/";
     } catch (error) {
       if (error.response) {
         message.error("Error login");
@@ -40,7 +39,6 @@ const LoginForm = () => {
       }
     }
   };
-
   return (
     <div className=" d-flex justify-content-center fs-4" style={{ backgroundImage:`url(${nen})` }}>
       <form onSubmit={handleLoginFormSubmit} className="border rounded p-4 mb-5" style={{backgroundColor:"white", marginTop: "100px"}}>
@@ -115,4 +113,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default Login;

@@ -58,8 +58,15 @@ const Signup = () => {
     }
   };
   return (
-    <div className=" d-flex justify-content-center fs-4" style={{backgroundImage: `url(${register})`}}>
-      <form className="border rounded p-4 mb-5 " onSubmit={handleSubmit}  style={{backgroundColor:"white", marginTop: "80px"}}>
+    <div
+      className=" d-flex justify-content-center fs-6"
+      style={{ backgroundImage: `url(${register})` }}
+    >
+      <form
+        className="border rounded p-4 mb-5 "
+        onSubmit={handleSubmit}
+        style={{ backgroundColor: "white", marginTop: "70px" }}
+      >
         <img
           src="src/assets/logo.jpg"
           alt="Google_Logo"
@@ -67,31 +74,31 @@ const Signup = () => {
           style={{ width: "70px", height: "40px", objectFit: "cover" }}
         />
         <div className="container">
-          <div className="mb-3 ">
+          <div className="mb-2">
             <label htmlFor="name" className="form-label">
               <b style={{ color: "#7C6A46" }}> Name</b>
             </label>
             <input
               type="text"
               placeholder="Enter Name"
-              className=" mt-2 form-control border-0 border-bottom border-black-1 border-dark  "
+              className=" form-control border-0 border-bottom border-black-1 border-dark  "
               name="name"
               id="name"
               value={name}
               required
               onChange={handleNameChange}
-              style={{ width: "500px", border: "none" }}
+              style={{ width: "400px", border: "none" }}
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-2">
             <label htmlFor="email" className="form-label">
               <b style={{ color: "#7C6A46" }}>Email</b>
             </label>
             <input
               type="email"
               placeholder="Enter Email"
-              className="mt-2 form-control border-0 border-bottom border-black-1 border-dark"
+              className="form-control border-0 border-bottom border-black-1 border-dark"
               name="email"
               id="email"
               value={email}
@@ -100,14 +107,14 @@ const Signup = () => {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-2">
             <label htmlFor="phone" className="form-label">
               <b style={{ color: "#7C6A46" }}>Phone</b>
             </label>
             <input
               type="tel"
               placeholder="Enter Phone"
-              className=" mt-2 form-control border-0 border-bottom border-black-1 border-dark"
+              className=" form-control border-0 border-bottom border-black-1 border-dark"
               name="phone"
               id="phone"
               value={phone}
@@ -116,14 +123,14 @@ const Signup = () => {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-2">
             <label htmlFor="password" className="form-label">
               <b style={{ color: "#7C6A46" }}>Password</b>
             </label>
             <input
               type="password"
               placeholder="Enter Password "
-              className=" mt-2 form-control border-0 border-bottom border-black-1 border-dark"
+              className="form-control border-0 border-bottom border-black-1 border-dark"
               name="password"
               minLength={8}
               id="password"
@@ -133,14 +140,14 @@ const Signup = () => {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-2">
             <label htmlFor="password_confirm" className="form-label">
               <b style={{ color: "#7C6A46" }}>Confirm Password</b>
             </label>
             <input
               type="password"
               placeholder="Confirm Password "
-              className=" mt-2 form-control border-0 border-bottom border-black-1 border-dark"
+              className="form-control border-0 border-bottom border-black-1 border-dark"
               name="password_confirm"
               minLength={8}
               id="password_confirm"
@@ -150,12 +157,12 @@ const Signup = () => {
             />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-2">
             <label htmlFor="role" className="form-label">
               <b style={{ color: "#7C6A46" }}>Role</b>
             </label>
             <select
-              className=" mt-2 form-select border-0 border-bottom border-black-1 border-dark"
+              className="form-select border-0 border-bottom border-black-1 border-dark"
               name="role"
               id="role"
               required
@@ -169,12 +176,12 @@ const Signup = () => {
             </select>
           </div>
 
-          <div className="mb-3">
+          <div className="mb-1">
             <label htmlFor="create_by" className="form-label">
               <b style={{ color: "#7C6A46" }}>Create By</b>
             </label>
             <select
-              className=" mt-2 form-select border-0 border-bottom border-black-1 border-dark"
+              className="form-select border-0 border-bottom border-black-1 border-dark"
               name="create_by"
               id="create_by"
               required
@@ -188,17 +195,21 @@ const Signup = () => {
             </select>
           </div>
 
-          <p className=" mt-4 text-center">
+          <p className="text-center">
             Already have an account?{" "}
             <Link to="/Login" className="text-danger">
               Sign in
             </Link>
           </p>
           <div className="d-flex justify-content-center align-items-center">
-          <button type="submit" className="mt-3 btn btn-dark w-75 custom-button mb-3" style={{ backgroundColor: '#7C6A46', height: '45px' }}>
-            Sign Up
-          </button>
-        </div>
+            <button
+              type="submit"
+              className="mt-2 btn btn-dark w-75 custom-button mb-2"
+              style={{ backgroundColor: "#7C6A46", height: "45px" }}
+            >
+              Sign Up
+            </button>
+          </div>
         </div>
       </form>
     </div>
