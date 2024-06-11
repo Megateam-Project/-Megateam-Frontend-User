@@ -59,7 +59,7 @@ function ControlledCarousel({ rooms }) {
                       <Card.Img
                         variant="top"
                         className="w-full aspect-[1.49]"
-                        src={room.image}
+                        src={`http://127.0.0.1:8000/${room.image}`}
                         alt=""
                       />
                       <Card.Body

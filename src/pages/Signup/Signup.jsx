@@ -2,7 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import validator from 'validator';
 import register from "../../assets/nenregister.jpg";
+import { message } from "antd";
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -11,6 +13,7 @@ const Signup = () => {
   const [role, setRole] = useState("");
   const [create_by, setCreateBy] = useState("");
   const [password_confirmation, setPasswordConfirm] = useState("");
+  const [errors,setError] = useState(null);
   const navigate = useNavigate();
 
   const handleNameChange = (e) => {
@@ -52,9 +55,13 @@ const Signup = () => {
       });
       alert("Register successful");
       navigate("/login");
+      console.log(response);
+      // setError(response.data);
     } catch (error) {
       console.error("Register failed", error);
-      alert("Register failed");
+      message.error("Register failed");
+      setError(error.response.data);
+      console.log(errors.error[0]);
     }
   };
   return (
@@ -105,6 +112,7 @@ const Signup = () => {
               required
               onChange={handleEmailChange}
             />
+            {validator.isEmail(email)}
           </div>
 
           <div className="mb-2">
