@@ -12,7 +12,7 @@ import Booking from "./pages/Booking";
 import { Profile } from "./pages/Profile";
 
 import { Checkout } from "./pages/Checkout";
-import Login from "./pages/Login";
+//import Login from "./pages/Login";
 import Detail from "./pages/Detail";
 import { Wishlist } from "./pages/Wishlist";
 import { NotFound } from "./pages/404/NotFound";
