@@ -34,7 +34,7 @@ function Room() {
 
           <div key={room.id} className={styles["room-card"]}>
             <img
-              src={room.image}
+              src={`http://127.0.0.1:8000/${room.image}`}
               alt={room.name}
               className={styles["room-card-img"]}
             />

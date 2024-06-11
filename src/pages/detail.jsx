@@ -18,7 +18,9 @@ const Detail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/rooms/${roomId}`);
+        const response = await axios.get(
+          `http://127.0.0.1:8000/api/rooms/${roomId}`
+        );
         setRoomData(response.data);
       } catch (error) {
         console.error(error);
@@ -34,14 +36,11 @@ const Detail = () => {
 
   return (
     <div>
-      <h2 style={{ marginTop: 80, marginLeft: 80 }}>
-         {roomData.name}
-      </h2>
+      <h2 style={{ marginTop: 80, marginLeft: 80 }}>{roomData.name}</h2>
       <p style={{ marginLeft: 80 }}>
-        Book a stay for more than  
+        Book a stay for more than
         <b> ${roomData.price} </b>
-         to receive a high-quality
-        tour!
+        to receive a high-quality tour!
       </p>
       <div
         className="image-room"
@@ -55,14 +54,14 @@ const Detail = () => {
               <div className="row" style={{ padding: "0px" }}>
                 <img
                   style={{ width: "100%" }}
-                  src={roomData.image}
+                  src={`http://127.0.0.1:8000/${roomData.image}`}
                   alt={roomData.name}
                 />
               </div>
               <div className="row" style={{ padding: "0px" }}>
                 <img
                   style={{ width: "100%" }}
-                  src={roomData.image}
+                  src={`http://127.0.0.1:8000/${roomData.image}`}
                   alt={roomData.name}
                 />
               </div>
@@ -70,7 +69,7 @@ const Detail = () => {
             <div className="col-8" style={{ padding: "0px" }}>
               <img
                 style={{ width: "100%", height: "auto" }}
-                src={roomData.image}
+                src={`http://127.0.0.1:8000/${roomData.image}`}
                 alt={roomData.name}
               />
             </div>
@@ -79,28 +78,28 @@ const Detail = () => {
             <div className="col" style={{ padding: "0px" }}>
               <img
                 style={{ width: "100%" }}
-                src={roomData.image}
+                src={`http://127.0.0.1:8000/${roomData.image}`}
                 alt={roomData.name}
               />
             </div>
             <div className="col" style={{ padding: "0px" }}>
               <img
                 style={{ width: "100%" }}
-                src={roomData.image}
+                src={`http://127.0.0.1:8000/${roomData.image}`}
                 alt={roomData.name}
               />
             </div>
             <div className="col" style={{ padding: "0px" }}>
               <img
                 style={{ width: "100%" }}
-                src={roomData.image}
+                src={`http://127.0.0.1:8000/${roomData.image}`}
                 alt={roomData.name}
               />
             </div>
             <div className="col" style={{ padding: "0px" }}>
               <img
                 style={{ width: "100%" }}
-                src={roomData.image}
+                src={`http://127.0.0.1:8000/${roomData.image}`}
                 alt={roomData.name}
               />
             </div>
@@ -194,16 +193,42 @@ const Detail = () => {
               Book now
             </button>
           </div>
+          
         </div>
       </div>
-      <div className="container" style={{ marginLeft: 80 }}>
-        <h4 style={{ margin: "0px 0px 10px 10px" }}> Description</h4>
-        <p style={{ marginLeft: 10 }}>
-          Comfortable and refined, our rooms include contemporary furnishings
-          and urban, stylish designs. At Premium Slavija, we have the right
-          room for every guest and their unique needs, including ours.
+      <div className="row" style={{ marginLeft: 80 }}>
+        <h3 style={{ marginTop: 40, marginLeft: 80 }}>Description</h3>
+        <p
+          className=" text-left mt-3"
+          style={{
+            width: "80%",
+            marginLeft: "auto",
+            marginRight: "auto",
+            textAlign: "justify",
+          }}
+        >
+          {roomData.description}
         </p>
       </div>
+      <div className="row">
+            <h3 style={{ marginTop: 50, marginLeft: 80 }}>Convenient</h3>
+            <div
+              className="d-flex justify-content-evenly"
+              style={{
+                width: "80%",
+                marginLeft: 70,
+                marginTop: 30,
+              }}
+            >
+              <p style={{ marginRight: 10 }}>Wifi</p>
+              <p style={{ marginRight: 10 }}>Television</p>
+              <p style={{ marginRight: 10 }}>Mini bar</p>
+              <p style={{ marginRight: 10 }}>Dryer</p>
+              <p style={{ marginRight: 10 }}>Air conditioning</p>
+              <p style={{ marginRight: 10 }}>Parking</p>
+              <p style={{ marginRight: 10 }}>Air conditioning</p>
+            </div>
+          </div>
       <div
         className="container"
         style={{ marginLeft: 80, marginTop: 40, marginBottom: 40 }}
