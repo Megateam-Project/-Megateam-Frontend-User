@@ -23,7 +23,7 @@ function App() {
       <Header />
       <main className="main-content">
         <Routes>
-          <Route path="/" element={< HomePages />} />
+          <Route path="/" element={< Homepages />} />
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/profile" element={<Profile />} />
          <Route path="/Login" element={<Login />} />
@@ -31,9 +31,9 @@ function App() {
           <Route path="/booking/:roomId" element={<Booking />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/rooms" element={<RoomPage />} />
-          {/* <Route path="/wishlist" element={<HomePages />} />
-          <Route path="/bookingHistory" element={<HomePages />} /> */}
-          <Route path="/detail" element={<Detail />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/bookingHistory" element={<Homepages />} />
+
           <Route path="/notFound" element={<NotFound />} />
         </Routes>
       </main>
