@@ -4,7 +4,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import Homepage from "../assets/Homepage.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import moment from "moment";
 export function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [checkInDate, setCheckInDate] = useState("");
@@ -121,6 +121,7 @@ export function Search() {
                 type="datetime-local"
                 value={checkInDate}
                 onChange={handleInputChange(setCheckInDate)}
+                min={moment().format("YYYY-MM-DDTHH:mm")}
               />
             </Form.Group>
           </Col>
@@ -133,6 +134,7 @@ export function Search() {
                 type="datetime-local"
                 value={checkOutDate}
                 onChange={handleInputChange(setCheckOutDate)}
+                min={checkInDate || moment().format("YYYY-MM-DDTHH:mm")}
               />
             </Form.Group>
           </Col>

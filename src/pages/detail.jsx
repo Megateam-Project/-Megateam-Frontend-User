@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
-// import apollo from "../assets/apollo.png";
 import area from "../assets/area.png";
 import company from "../assets/company.png";
 import location from "../assets/location.png";
@@ -51,14 +51,14 @@ const Detail = () => {
         <div className="container">
           <div className="row" style={{ padding: "0px" }}>
             <div className="col-4" style={{ padding: "0px" }}>
-              <div className="row" style={{ padding: "0px" }}>
+              <div className="row" style={{ padding: "5px" }}>
                 <img
                   style={{ width: "100%" }}
                   src={`http://127.0.0.1:8000/${roomData.image}`}
                   alt={roomData.name}
                 />
               </div>
-              <div className="row" style={{ padding: "0px" }}>
+              <div className="row" style={{ padding: "5px" }}>
                 <img
                   style={{ width: "100%" }}
                   src={`http://127.0.0.1:8000/${roomData.image}`}
@@ -66,7 +66,7 @@ const Detail = () => {
                 />
               </div>
             </div>
-            <div className="col-8" style={{ padding: "0px" }}>
+            <div className="col-8" style={{ padding: "3px" }}>
               <img
                 style={{ width: "100%", height: "auto" }}
                 src={`http://127.0.0.1:8000/${roomData.image}`}
@@ -74,29 +74,29 @@ const Detail = () => {
               />
             </div>
           </div>
-          <div className="row" style={{ padding: "0px" }}>
-            <div className="col" style={{ padding: "0px" }}>
+          <div className="row" style={{ padding: "2px" }}>
+            <div className="col" style={{ padding: "5px" }}>
               <img
                 style={{ width: "100%" }}
                 src={`http://127.0.0.1:8000/${roomData.image}`}
                 alt={roomData.name}
               />
             </div>
-            <div className="col" style={{ padding: "0px" }}>
+            <div className="col" style={{ padding: "5px" }}>
               <img
                 style={{ width: "100%" }}
                 src={`http://127.0.0.1:8000/${roomData.image}`}
                 alt={roomData.name}
               />
             </div>
-            <div className="col" style={{ padding: "0px" }}>
+            <div className="col" style={{ padding: "5px" }}>
               <img
                 style={{ width: "100%" }}
                 src={`http://127.0.0.1:8000/${roomData.image}`}
                 alt={roomData.name}
               />
             </div>
-            <div className="col" style={{ padding: "0px" }}>
+            <div className="col" style={{ padding: "5px" }}>
               <img
                 style={{ width: "100%" }}
                 src={`http://127.0.0.1:8000/${roomData.image}`}
@@ -177,21 +177,23 @@ const Detail = () => {
             </div>
           </div>
           <div className="col">
-            <button
-              className="btn text-white"
-              style={{
-                margin: "40px 50px 70px 150px",
-                backgroundColor: "#7C6A46",
-                borderRadius: "2.5px",
-                fontFamily: "Raleway, sans-serif",
-                fontWeight: "600",
-                fontSize: "13px",
-                whiteSpace: "nowrap",
-                padding: "10px 20px",
-              }}
-            >
-              Book now
-            </button>
+            <Link to={`/booking/${roomId}`} style={{ textDecoration: "none" }}>
+              <button
+                className="btn text-white"
+                style={{
+                  margin: "40px 50px 70px 150px",
+                  backgroundColor: "#7C6A46",
+                  borderRadius: "2.5px",
+                  fontFamily: "Raleway, sans-serif",
+                  fontWeight: "600",
+                  fontSize: "13px",
+                  whiteSpace: "nowrap",
+                  padding: "10px 20px",
+                }}
+              >
+                Book now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -413,7 +415,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 

@@ -15,7 +15,6 @@ export function Wishlist() {
     const appCookieRaw = Cookies.get("token");
     const appCookie = JSON.parse(appCookieRaw ?? "");
     const user_id_cookie = appCookie?.userId;
-    console.log(appCookie);
     const getFavorites = async () => {
       try {
         const res = await axios.get(

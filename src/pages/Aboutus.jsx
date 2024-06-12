@@ -12,6 +12,9 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
+const isLoggedIn = () => {
+  return Cookies.get("token") !== undefined;
+};
 export function Aboutus() {
   const [rooms, setRooms] = useState([]);
   const [name, setRoomName] = useState("");
@@ -57,6 +60,11 @@ export function Aboutus() {
 
   const handleCreateFeedback = async (e) => {
     e.preventDefault();
+    if (!isLoggedIn()) {
+      alert('You must login to submit feedback');
+      navigate('/login');
+      return;
+    }
     try {
       const feedbackData = {
         user_id: user_id_cookie,

@@ -65,7 +65,7 @@ const Booking = () => {
         create_by: "User",
       });
       message.success("Booking created successfully!");
-  Cookies.set("idBooking",  JSON.stringify(res.data.idBooking), { expires: 1});
+      Cookies.set("idBooking",  JSON.stringify(res.data.idBooking), { expires: 1});
       navigate("/checkout");
     } catch (err) {
       console.error("Error creating booking:", err);
