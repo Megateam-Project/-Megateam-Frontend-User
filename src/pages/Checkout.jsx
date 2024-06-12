@@ -40,6 +40,7 @@ export function Checkout() {
               Back
             </Link>
           </button>
+          <button>Checkout</button>
         </div>
       </div>
     </div>

@@ -5,8 +5,7 @@ import styles from "../style/RoomCategory.module.css";
 function RoomCategory() {
   return (
     <div className={styles.roomCategory}>
-      <h3>category</h3>
-      
+      <h3>Category</h3>
         <Room/>
   
     </div>
