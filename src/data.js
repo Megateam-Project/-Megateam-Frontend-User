@@ -1,6 +1,6 @@
 /* Your data here */
 import Swimming_Pool from "../src/assets/makiSwimming0.png";
-import Wifi from "../src/assets/Wifi.png";
+import Wifi from "../src/assets/wifi.png";
 import Breakfast from "../src/assets/Breakfast.png";
 import Gym from "../src/assets/Gym.png";
 import Game from "../src/assets/Game.png";

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 // import person from "../assets/person.jpg";
-import Ellipse from "../assets/Ellipse.png";
 import { Link } from "react-router-dom";
 
 export function Profile() {
@@ -10,9 +9,9 @@ export function Profile() {
     name: "",
     email: "",
     phone: "",
-    avatar: null, 
+    avatar: null,
   });
-  
+
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
@@ -24,26 +23,22 @@ export function Profile() {
           },
         });
 
-        
         setUserData({
           name: response.data.name,
           email: response.data.email,
           phone: response.data.phone,
-          avatar: response.data.avatar
+          avatar: response.data.avatar,
         });
 
-        
+        console.log(response.data.avatar);
+      } catch (error) {
+        console.error("Failed to fetch profile data", error);
+      }
+    };
 
-          console.log(response.data.avatar);
-          } catch (error) {
-            console.error("Failed to fetch profile data", error);
-            }
-            };
-            
-            fetchProfileData();
-
+    fetchProfileData();
   }, []);
-// console.log("usser data,",userData);
+  // console.log("usser data,",userData);
   return (
     <div
       className="div_1_profile"
@@ -59,7 +54,8 @@ export function Profile() {
           style={{ marginTop: "-100px" }}
         >
           <img
-            src={Ellipse}
+            className="image_person rounded-circle"
+            src={"http://127.0.0.1:8000/" + userData.avatar}
             alt=""
             style={{ width: "200px", height: "200px" }}
           />
@@ -99,14 +95,33 @@ export function Profile() {
               </div>
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
-                  <i
-                    className="icon_person fa fa-heart fa-2x"
-                    aria-hidden="true"
-                  ></i>
+                  <a href="#" className="link-underline-primary">
+                    <Link to="/wishlist">
+                      <i style={{ color: "#7C6A46" }}
+                        className="icon_person fa fa-heart fa-2x"
+                        aria-hidden="true"
+                      ></i>
+                    </Link>
+                  </a>
                 </label>
-                <div className="col-sm-10"><a></a>
+                <div className="col-sm-10">
+                  <a></a>
                   <h5>Wishlist</h5>
                   <p className="text-dark">The room you love</p>
+                </div>
+              </div>
+              <div className="mb-3 row">
+                <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
+                  <a href="#" className="link-underline-primary">
+                    <Link to="/bookingHistory">
+                    <i style={{ color: "#7C6A46" }} className="fa fa-bed fa-2x" aria-hidden="true"></i>
+                    </Link>
+                  </a>
+                </label>
+                <div className="col-sm-10">
+                  <a></a>
+                  <h5>Bookings</h5>
+                  <p className="text-dark">Manage all your bookings</p>
                 </div>
               </div>
               <div className="mb-3 row">
@@ -149,20 +164,24 @@ export function Profile() {
               }}
             >
               <a href="#" className="link-underline-primary">
-                <Link to="/editprofile">Edit profile</Link>
+                {" "}
+                <Link to="/editprofile">
+                  Edit profile{" "}
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </Link>{" "}
               </a>
               <hr />
               <div className="col-md-4">
                 <img
                   className="image_person rounded-circle"
-                  src={"http://127.0.0.1:8000/"+userData.avatar }
+                  src={"http://127.0.0.1:8000/" + userData.avatar}
                   alt="Your Image"
                   style={{ width: "150px", height: "150px" }}
                 />
               </div>
               <div className="col-md-4">
                 <label htmlFor="inputName" className="col-sm-2 col-form-label">
-                  Name
+                  <b style={{ color: "#7C6A46" }}>Name</b>
                 </label>
                 <input
                   type="text"
@@ -172,8 +191,11 @@ export function Profile() {
                   value={userData.name}
                   readOnly
                 />
-                <label htmlFor="inputEmail" className="col-sm-2 col-form-label">
-                  Email
+                <label
+                  htmlFor="inputEmail"
+                  className=" mt-2 col-sm-2 col-form-label"
+                >
+                  <b style={{ color: "#7C6A46" }}>Email</b>
                 </label>
                 <input
                   type="text"
@@ -186,7 +208,7 @@ export function Profile() {
               </div>
               <div className="col-md-4">
                 <label htmlFor="inputPhone" className="col-sm-2 col-form-label">
-                  Phone
+                  <b style={{ color: "#7C6A46" }}>Phone</b>
                 </label>
                 <div className="col-sm-10">
                   <input

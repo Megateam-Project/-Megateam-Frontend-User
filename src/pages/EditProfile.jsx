@@ -40,6 +40,7 @@ export function EditProfile() {
     fetchProfileData();
   }, []);
 
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "avatar" && files.length > 0) {
@@ -115,7 +116,7 @@ export function EditProfile() {
       >
         <div className="mb-3">
           <label htmlFor="inputName" className="form-label">
-            Name
+          <b style={{ color: "#7C6A46" }}>Name</b> 
           </label>
           <input
             type="text"
@@ -129,7 +130,7 @@ export function EditProfile() {
         </div>
         <div className="mb-3">
           <label htmlFor="inputPhone" className="form-label">
-            Phone
+          <b style={{ color: "#7C6A46" }}>Phone</b> 
           </label>
           <input
             type="text"
@@ -143,7 +144,7 @@ export function EditProfile() {
         </div>
         <div className="mb-3">
           <label htmlFor="inputEmail" className="form-label">
-            Email
+          <b style={{ color: "#7C6A46" }}>Email</b> 
           </label>
           <input
             type="email"
@@ -157,7 +158,7 @@ export function EditProfile() {
         </div>
         <div className="mb-3">
           <label htmlFor="inputAvatar" className="form-label">
-            Avatar
+          <b style={{ color: "#7C6A46" }}>Avatar</b> 
           </label>
           <input
             type="file"
@@ -170,10 +171,17 @@ export function EditProfile() {
         </div>
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary mt-3"
           style={{ background: "#7C6A46" }}
         >
-          Save
+          Back
+        </button>
+        <button
+          type="submit"
+          className="btn btn-primary mt-3 "
+          style={{ background: "#7C6A46", marginLeft: "300px"}}
+        >
+           Save 
         </button>
       </form>
     </div>

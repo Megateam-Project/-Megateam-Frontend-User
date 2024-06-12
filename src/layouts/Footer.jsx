@@ -1,10 +1,10 @@
-//import React from "react";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 export function Footer() {
   return (
     <div className="footer row text-white" style={{ backgroundColor: "#7C6A46" }}>
-      <div className="col-3 mb-4 text-justify">
-        <h2 className="font-script mb-3" style={{ fontSize: "30px" }}>
+      <div className="col-3 mb-3 text-justify">
+        <h2 className="font-script mb-2" style={{ fontSize: "30px" }}>
           Paradise view
         </h2>
         <p style={{ fontFamily: "Raleway, sans-serif", fontSize: "14px" }}>
@@ -15,7 +15,7 @@ export function Footer() {
           Room to check with us)
         </p>
       </div>
-      <div className="col-2 mb-4">
+      <div className="col-2 mb-3">
         <h5
           className="mb-3"
           style={{ fontFamily: "Raleway, sans-serif", fontWeight: "700" }}
@@ -35,7 +35,7 @@ export function Footer() {
           </p>
         ))}
       </div>
-      <div className="col-2 mb-4">
+      <div className="col-2 mb-3">
         <h5
           className="mb-3"
           style={{ fontFamily: "Raleway, sans-serif", fontWeight: "700" }}
@@ -57,7 +57,7 @@ export function Footer() {
           )
         )}
       </div>
-      <div className="col-2 mb-4">
+      <div className="col-2 mb-3">
         <h5
           className="mb-3"
           style={{ fontFamily: "Raleway, sans-serif", fontWeight: "700" }}
@@ -79,7 +79,7 @@ export function Footer() {
           )
         )}
       </div>
-      <div className="col-3 mb-4">
+      <div className="col-3 mb-3">
         <h5
           className="mb-3"
           style={{ fontFamily: "Raleway, sans-serif", fontWeight: "700" }}
@@ -118,14 +118,11 @@ export function Footer() {
           </button>
         </div>
       </div>
-      <hr className="mt-3" />
+      <hr className="mt-2" />
       <div
         className="mt-5 text-center"
         style={{
           fontFamily: "Raleway, sans-serif",
-          fontWeight: "600",
-          fontSize: "15px",
-          marginTop: "141px",
         }}
       >
         Paradise view 2023

@@ -1,24 +1,24 @@
 
 import RoomCategory from './RoomCategory';
 import styles from '../style/Rooms.module.css';
-
+import { useSearchParams } from 'react-router-dom';
 const roomData = [
   {
-    category: "Family's room",
+    category: "Family",
     rooms: [
       { name: "The Royal Room", price: 132.54, size: 224, bed: "1 - double bed" },
       // Add more room objects as needed
     ],
   },
   {
-    category: "Double room",
+    category: "Double",
     rooms: [
       { name: "The Royal Room", price: 132.54, size: 224, bed: "1 - double bed" },
       // Add more room objects as needed
     ],
   },
   {
-    category: "Single room",
+    category: "Single",
     rooms: [
       { name: "The Royal Room", price: 132.54, size: 224, bed: "1 - double bed" },
       // Add more room objects as needed
@@ -26,37 +26,29 @@ const roomData = [
   },
 ];
 
-function Rooms() {
+
+export function Rooms() {
+  const [searchParams] = useSearchParams();
+  const searchTerm = searchParams.get('searchTerm');
+  const checkInDate = searchParams.get('checkInDate');
+  const checkOutDate = searchParams.get('checkOutDate');
+  const rooms = roomData;
+
   return (
     <section className={styles.rooms}>
       <h2>Hotel in Da Nang</h2>
-      <p>1253 results Jul 14-24</p>
       <div className={styles.filters}>
-        <button className={`${styles.filterBtn} ${styles.active}`}>
-          Our top picks
-        </button>
-        <button className={styles.filterBtn}>Price</button>
-        <button className={styles.filterBtn}>Type</button>
-        <button className={styles.filterBtn}>More</button>
-        <div className={styles.sortBy}>
-          <label htmlFor="sort-by">Sort by:</label>
-          <select id="sort-by">
-            <option value="price">Price</option>
-            {/* Add other sorting options if needed */}
-          </select>
-        </div>
       </div>
 
-      {roomData.map((category, index) => (
+      {rooms.map((room, index) => (
         <RoomCategory
           key={index}
-          category={category.category}
-          rooms={category.rooms}
+          category={room.category}
+          rooms={room.rooms}
         />
       ))}
     </section>
   );
 }
-
 export default Rooms;
 
