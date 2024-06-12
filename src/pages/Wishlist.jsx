@@ -47,8 +47,8 @@ export function Wishlist() {
     }
     return text.substring(0, length) + "...";
   };
-  const uniqueRooms = rooms.filter((room, index, self) =>
-    index === self.findIndex((r) => r.id === room.id)
+  const uniqueRooms = rooms.filter(
+    (room, index, self) => index === self.findIndex((r) => r.id === room.id)
   );
   if (error) {
     return (
@@ -83,16 +83,22 @@ export function Wishlist() {
       </div>
 
       <div className="container mb-5">
-      <Row>
+        <Row>
           {uniqueRooms.map((room, index) => (
             <Col key={index} xs={12} md={4} className="mb-4">
               <Card>
-                <Card.Img variant="top" src={room.image} alt={room.name} />
+                <Card.Img
+                  variant="top"
+                  src={`http://127.0.0.1:8000/${room.image}`}
+                  alt={room.name}
+                />
                 <Card.Body>
                   <Card.Title>{room.name}</Card.Title>
                   <Card.Text>{truncateText(room.description, 100)}</Card.Text>
                   <div className="d-flex justify-content-end">
-                    <Button style={{ backgroundColor: "#7C6A46" }}>View Details</Button>
+                    <Button style={{ backgroundColor: "#7C6A46" }}>
+                      View Details
+                    </Button>
                   </div>
                 </Card.Body>
               </Card>

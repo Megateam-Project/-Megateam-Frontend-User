@@ -66,7 +66,7 @@ export function Aboutus() {
       const response = await axios.post("http://127.0.0.1:8000/api/feedbacks", feedbackData);
       setRoomName("");
       setContent("");
-      message.s("Create Successful");
+      message.success("Create Successful");
       navigate("/");
     } catch (error) {
       console.error("Error submitting feedback:", error);

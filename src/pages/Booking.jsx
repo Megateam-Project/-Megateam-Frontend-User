@@ -21,11 +21,13 @@ const Booking = () => {
     fetchRoomData();
     getPaymentMethods();
     getUserDetail();
-  }, [roomId]);
+  }, []);
   const fetchRoomData = async () => {
     try {
       const res = await axios.get(`http://127.0.0.1:8000/api/rooms/${roomId}`);
       setRoom(res.data);
+      const price= room?.price;
+      Cookies.set("price",  JSON.stringify(price), { expires: 1});
     } catch (err) {
       console.error("Error fetching room data:", err);
       setError(err.message);
@@ -63,7 +65,7 @@ const Booking = () => {
         create_by: "User",
       });
       message.success("Booking created successfully!");
-      console.log(res.data.idBooking);
+  Cookies.set("idBooking",  JSON.stringify(res.data.idBooking), { expires: 1});
       navigate("/checkout");
     } catch (err) {
       console.error("Error creating booking:", err);
@@ -71,6 +73,19 @@ const Booking = () => {
     }
   };
 
+
+  // const handleApiPayment = async () => {
+  //   try {
+  //     const res = await axios.post("http://127.0.0.1:8000/api/user/payment", {
+  //       total: "100",
+  //     });
+  
+  //     console.log("Payment Response:", res);
+
+  //   } catch (err) {
+  //     console.error("Error processing payment:", err);
+  //   }
+  // };
   return (
     <>
       <form onSubmit={handleCreateBooking}>
@@ -252,6 +267,7 @@ const Booking = () => {
                 className="text-center"
                 style={{ backgroundColor: "#7C6A46" }}
                 type="submit"
+                // onClick={handleApiPayment}
               >
                 <span className="text-white">Check out</span>
               </button>
