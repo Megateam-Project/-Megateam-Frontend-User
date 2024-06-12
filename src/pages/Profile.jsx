@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import person from "../assets/person.jpg";
+// import person from "../assets/person.jpg";
 import Ellipse from "../assets/Ellipse.png";
 import { Link } from "react-router-dom";
 
@@ -10,29 +10,40 @@ export function Profile() {
     name: "",
     email: "",
     phone: "",
+    avatar: null, 
   });
-
+  
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
         const user = JSON.parse(Cookies.get("token") || "{}");
         const token = user.token;
-        console.log(Cookies.get("token"));
         const response = await axios.get("http://127.0.0.1:8000/api/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(response);
-        setUserData(response.data);
-      } catch (error) {
-        console.error("Failed to fetch profile data", error);
-      }
-    };
 
-    fetchProfileData();
+        
+        setUserData({
+          name: response.data.name,
+          email: response.data.email,
+          phone: response.data.phone,
+          avatar: response.data.avatar
+        });
+
+        
+
+          console.log(response.data.avatar);
+          } catch (error) {
+            console.error("Failed to fetch profile data", error);
+            }
+            };
+            
+            fetchProfileData();
+
   }, []);
-
+// console.log("usser data,",userData);
   return (
     <div
       className="div_1_profile"
@@ -57,7 +68,7 @@ export function Profile() {
 
       <div
         className="container"
-        style={{ marginTop: "200px", marginBottom: "200px" }}
+        style={{ marginTop: "100px", marginBottom: "200px" }}
       >
         <div className="row">
           <div className="first_col col-5" style={{ color: "#7C6A46" }}>
@@ -93,7 +104,7 @@ export function Profile() {
                     aria-hidden="true"
                   ></i>
                 </label>
-                <div className="col-sm-10">
+                <div className="col-sm-10"><a></a>
                   <h5>Wishlist</h5>
                   <p className="text-dark">The room you love</p>
                 </div>
@@ -144,7 +155,7 @@ export function Profile() {
               <div className="col-md-4">
                 <img
                   className="image_person rounded-circle"
-                  src={person}
+                  src={"http://127.0.0.1:8000/"+userData.avatar }
                   alt="Your Image"
                   style={{ width: "150px", height: "150px" }}
                 />

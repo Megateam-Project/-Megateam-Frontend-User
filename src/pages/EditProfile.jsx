@@ -9,6 +9,7 @@ export function EditProfile() {
     name: "",
     email: "",
     phone: "",
+    avatar: null,
   });
 
   const navigate = useNavigate();
@@ -27,7 +28,10 @@ export function EditProfile() {
           },
         });
 
-        setEditData(response.data);
+        setEditData({
+          ...response.data,
+          avatar:response.data.avatar,
+        });
       } catch (error) {
         console.error("Failed to fetch profile data", error);
       }
@@ -37,50 +41,82 @@ export function EditProfile() {
   }, []);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setEditData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+    const { name, value, files } = e.target;
+    if (name === "avatar" && files.length > 0) {
+      setEditData((prevData) => ({
+        ...prevData,
+        avatar: files[0],
+      }));
+    } else {
+      setEditData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }}
+
+  console.log(editData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const tokenData = Cookies.get("token");
       if (!tokenData) throw new Error("Token not found");
-
+  
       const token = JSON.parse(tokenData).token;
       const decodedToken = jwtDecode(token); // Decode the JWT token
       const userId = decodedToken.sub; // Extract the user ID from the decoded token
       console.log(token);
       console.log(userId);
-
-      const { name, phone, email } = editData;
-      const updateData = { name, phone, email };
-
-      const response = await axios.put(
+  
+      const { name, phone, email, avatar } = editData;
+  
+      const formData = new FormData();
+      if (name) formData.append("name", name);
+      if (phone) formData.append("phone", phone);
+      if (email) formData.append("email", email);
+      if (avatar) formData.append("avatar", avatar);
+  
+      // Add a method override to simulate PUT if needed
+      formData.append("_method", "PUT");
+  
+      for (let pair of formData.entries()) {
+        console.log(`${pair[0]}: ${pair[1]}`);
+      }
+  
+      const response = await axios.post(
         `http://127.0.0.1:8000/api/users/${userId}`,
-        updateData,
+        formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+            "Authorization": `Bearer ${token}` // Ensure the token is sent with the request
           },
         }
       );
-
-      console.log("Profile updated successfully", response.data);
-      navigate("/profile");
+  
+      if (response.status === 200) {
+        console.log("Profile updated successfully", response.data);
+        navigate("/profile");
+      } 
     } catch (error) {
       console.error("Failed to update profile data", error);
-    }
+    } 
   };
+  
 
   return (
-    <div className="mt-5 container justify-content-center" style={{ width: "30vw" }}>
-      <form onSubmit={handleSubmit} className="form bg-white shadow p-4 rounded w-400 mt-5 mb-5">
+    <div
+      className="mt-5 container justify-content-center"
+      style={{ width: "30vw" }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="form bg-white shadow p-4 rounded w-400 mt-5 mb-5"
+      >
         <div className="mb-3">
-          <label htmlFor="inputName" className="form-label">Name</label>
+          <label htmlFor="inputName" className="form-label">
+            Name
+          </label>
           <input
             type="text"
             className="form-control"
@@ -92,7 +128,9 @@ export function EditProfile() {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="inputPhone" className="form-label">Phone</label>
+          <label htmlFor="inputPhone" className="form-label">
+            Phone
+          </label>
           <input
             type="text"
             className="form-control"
@@ -104,7 +142,9 @@ export function EditProfile() {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="inputEmail" className="form-label">Email</label>
+          <label htmlFor="inputEmail" className="form-label">
+            Email
+          </label>
           <input
             type="email"
             className="form-control"
@@ -115,7 +155,24 @@ export function EditProfile() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary" style={{ background: "#7C6A46" }}>
+        <div className="mb-3">
+          <label htmlFor="inputAvatar" className="form-label">
+            Avatar
+          </label>
+          <input
+            type="file"
+            className="form-control"
+            id="inputAvatar"
+            name="avatar"
+            // value={editData.avatar}
+            onChange={handleChange}
+          />
+        </div>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          style={{ background: "#7C6A46" }}
+        >
           Save
         </button>
       </form>
