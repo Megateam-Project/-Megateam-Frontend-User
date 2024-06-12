@@ -5,7 +5,6 @@ import axios from "axios";
 function FeedbackRooms() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [room , setRooms] = useState({});
-
   const [users, setUsers] = useState({});
   const [error, setError] = useState(null);
 
@@ -51,11 +50,16 @@ function FeedbackRooms() {
         Feedback Rooms
       </h3>
       {feedbacks.length > 0 ? (
-        <Row>
+        <Row className="d-flex flex-wrap justify-content-center">
           {feedbacks.slice(0, 3).map((feedback, index) => (
-            <Col key={index} md={4} className="mb-3 mt-5" style={{marginLeft:"150px", width:"480px",marginRight: "-115px"}}>
-              <Card className="h-80">
-                <Card.Body className="d-flex flex-column ">
+            <Col
+              key={index}
+              md={4}
+              className="mb-3 mt-5 d-flex justify-content-center "
+              style={{ width: "430px" }}
+            >
+              <Card className="h-100"  style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}>
+                <Card.Body className="d-flex flex-column">
                   <div style={{ flexGrow: 1 }}>
                     <Card.Title className="text-2xl font-semibold d-flex justify-content-center">
                       {room[feedback.room_id]}
@@ -77,14 +81,6 @@ function FeedbackRooms() {
                       </div>
                     </Card.Subtitle>
                   </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginTop: "1rem",
-                    }}
-                  ></div>
                 </Card.Body>
               </Card>
             </Col>
