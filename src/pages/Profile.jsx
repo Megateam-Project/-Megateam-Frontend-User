@@ -76,7 +76,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
                   <i
-                    className="icon_person fa fa-user fa-3x"
+                    className="icon_person fa fa-user fa-2x"
                     aria-hidden="true"
                   ></i>
                 </label>
@@ -88,7 +88,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
                   <i
-                    className="icon_person fa fa-shield fa-3x"
+                    className="icon_person fa fa-shield fa-2x"
                     aria-hidden="true"
                   ></i>
                 </label>
@@ -100,7 +100,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
                   <i
-                    className="icon_person fa fa-heart fa-3x"
+                    className="icon_person fa fa-heart fa-2x"
                     aria-hidden="true"
                   ></i>
                 </label>
@@ -112,7 +112,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
                   <i
-                    className="icon_person fa fa-list fa-3x"
+                    className="icon_person fa fa-list fa-2x"
                     aria-hidden="true"
                   ></i>
                 </label>
@@ -124,7 +124,7 @@ export function Profile() {
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
                   <i
-                    className="icon_person fa fa-cog fa-3x"
+                    className="icon_person fa fa-cog fa-2x"
                     aria-hidden="true"
                   ></i>
                 </label>
