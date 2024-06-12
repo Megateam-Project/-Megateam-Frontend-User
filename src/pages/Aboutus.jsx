@@ -7,16 +7,84 @@ import {
   InstagramFilled,
   FacebookFilled,
 } from "@ant-design/icons";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import { message } from "antd";
+const isLoggedIn = () => {
+  return Cookies.get("token") !== undefined;
+};
 export function Aboutus() {
+  const [rooms, setRooms] = useState([]);
+  const [name, setRoomName] = useState("");
+  const [users, setUser] = useState(null);
+  const [content, setContent] = useState("");
+  const navigate = useNavigate();
+  const appCookieRaw = Cookies.get("token");
+  const appCookie = JSON.parse(appCookieRaw ?? "{}");
+  const user_id_cookie = appCookie?.userId;
+
+  useEffect(() => {
+    if (user_id_cookie) {
+      getUserDetail();
+    }
+    getRooms();
+  }, [user_id_cookie]);
+
+  const getUserDetail = async () => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/api/users/${user_id_cookie}`);
+      setUser(response.data);
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+    }
+  };
+
+  const getRooms = async () => {
+    try {
+      const response = await axios.get("http://127.0.0.1:8000/api/rooms");
+      setRooms(response.data);
+    } catch (error) {
+      console.error("Error fetching rooms:", error);
+    }
+  };
+
+  const handleRoomChange = (e) => {
+    setRoomName(e.target.value);
+  };
+
+  const handleContentChange = (e) => {
+    setContent(e.target.value);
+  };
+
+  const handleCreateFeedback = async (e) => {
+    e.preventDefault();
+    if (!isLoggedIn()) {
+      alert('You must login to submit feedback');
+      navigate('/login');
+      return;
+    }
+    try {
+      const feedbackData = {
+        user_id: user_id_cookie,
+        room_id: name,
+        content,
+      };
+      const response = await axios.post("http://127.0.0.1:8000/api/feedbacks", feedbackData);
+      setRoomName("");
+      setContent("");
+      message.success("Create Successful");
+      navigate("/");
+    } catch (error) {
+      console.error("Error submitting feedback:", error);
+    }
+  };
+
   return (
     <div className="row d-flex justify-content-around">
       <div className="col-11">
-        <img
-          src={heroAboutus}
-          className="mt-4"
-          alt=""
-          style={{ width: "100%" }}
-        />
+        <img src={heroAboutus} className="mt-4" alt="" style={{ width: "100%" }} />
       </div>
       <div className="text-center mt-5">
         <h3 className="fw-bold" style={{ color: "#7C6A46" }}>
@@ -25,10 +93,7 @@ export function Aboutus() {
         <p>Any question or remarks? Just write us a message!</p>
       </div>
       <div className="row border rounded col-11 m-4 p-3">
-        <div
-          className="col-5 border rounded p-5 text-white"
-          style={{ backgroundColor: "#7C6A46" }}
-        >
+        <div className="col-5 border rounded p-5 text-white" style={{ backgroundColor: "#7C6A46" }}>
           <h4 className="text-center mb-4">Contact Information</h4>
           <p>Say something to start a live chat!</p>
           <div className="mt-5">
@@ -52,69 +117,102 @@ export function Aboutus() {
           </div>
         </div>
         <div className="col-7 p-5">
-          <div className="d-flex">
-            <div className="d-flex col-6 flex-column">
-              <label htmlFor="name" className="text-start">Name:</label>
-              <input
-                className="border rounded mt-3 me-3"
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Name"
-                style={{ height: "35px" }}
+          <form onSubmit={handleCreateFeedback}>
+            <div className="d-flex">
+              <div className="d-flex col-6 flex-column">
+                <label htmlFor="name" className="text-start">
+                  Name:
+                </label>
+                <input
+                  className="border rounded mt-3 me-3"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  style={{ height: "35px" }}
+                  value={users?.name ?? ""}
+                  readOnly
+                />
+              </div>
+              <div className="d-flex col-6 flex-column">
+                <label htmlFor="email" className="text-start">
+                  Email:
+                </label>
+                <input
+                  className="border rounded mt-3"
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  style={{ height: "35px" }}
+                  value={users?.email ?? ""}
+                  readOnly
+                />
+              </div>
+            </div>
+            <div className="d-flex mt-4">
+              <div className="d-flex col-6 flex-column">
+                <label htmlFor="phone" className="text-start">
+                  Phone Number:
+                </label>
+                <input
+                  className="border rounded mt-3 me-3"
+                  type="number"
+                  name="phone"
+                  id="phone"
+                  style={{ height: "35px" }}
+                  placeholder="Phone"
+                  value={users?.phone ?? ""}
+                  readOnly
+                />
+              </div>
+              <div className="d-flex col-6 flex-column">
+                <div className="form-item">
+                  <label htmlFor="room_id" className="label">
+                    Room Name
+                  </label>
+                  <div className="wrapper">
+                    <select
+                      className="border rounded mt-3 me-3"
+                      id="room_id"
+                      name="room_id"
+                      onChange={handleRoomChange}
+                      style={{ height: "35px" }}
+                      value={name}
+                    >
+                      <option value="" disabled>
+                        Select room
+                      </option>
+                      {rooms.map((room) => (
+                        <option key={room.id} value={room.id}>
+                          {room.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="d-flex flex-column mt-3">
+              <label htmlFor="feedback" className="text-start">
+                Your Feedback:
+              </label>
+              <textarea
+                className="border rounded mt-3"
+                name="feedback"
+                id="feedback"
+                style={{ height: "100px" }}
+                placeholder="Feedback"
+                value={content}
+                onChange={handleContentChange}
               />
             </div>
-            <div className="d-flex col-6 flex-column">
-              <label htmlFor="email" className="text-start">Email:</label>
-              <input
-                className="border rounded mt-3 "
-                type="text"
-                name="email"
-                id="email"
-                placeholder="Email"
-                style={{ height: "35px" }}
-              />
+            <div className="d-flex justify-content-end m-5">
+              <button onClick={handleCreateFeedback} type="submit" style={{ backgroundColor: "#7C6A46", color: "white" }}>
+                Send Message
+              </button>
             </div>
-          </div>
-          <div className="d-flex mt-4">
-            <div className="d-flex col-6 flex-column">
-              <label htmlFor="phone" className="text-start">Phone Number:</label>
-              <input
-                className="border rounded mt-3 me-3"
-                type="number"
-                name="phone"
-                id="phone"
-                style={{ height: "35px" }}
-                placeholder="phone"
-              />
-            </div>
-            <div className="d-flex col-6 flex-column">
-              <label htmlFor="phone" className="text-start">Room Name:</label>
-              <select
-                className="form-select form-select mt-3"
-                style={{ height: "35px" }}
-              >
-                <option defaultValue>Choose Room</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            </div>
-          </div>
-          <div className="d-flex flex-column mt-3">
-            <label htmlFor="feedback" className="text-start">Your Feedback:</label>
-            <textarea
-              className="border rounded mt-3"
-              type="text"
-              name="feedback"
-              id="feedback"
-              style={{ height: "35px" }}
-              placeholder="feedback"
-            />
-          </div>
-          <div className="d-flex justify-content-end m-5">
-            <button style={{ backgroundColor: "#7C6A46", color:"white" }} >Send Message</button>
-          </div>
+          </form>
         </div>
       </div>
       <div className="col-11">

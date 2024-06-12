@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, Spinner, Alert } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Spinner, Alert } from "react-bootstrap";
 import ControlledCarousel from "./ControlledCarousel";
 import axios from "axios";
 
