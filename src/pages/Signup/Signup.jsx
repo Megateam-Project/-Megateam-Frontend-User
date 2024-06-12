@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import validator from 'validator';
+// import validator from 'validator';
 import register from "../../assets/nenregister.jpg";
 import { message } from "antd";
 const Signup = () => {
@@ -112,7 +112,7 @@ const Signup = () => {
               required
               onChange={handleEmailChange}
             />
-            {validator.isEmail(email)}
+            {/* {validator.isEmail(email)} */}
           </div>
 
           <div className="mb-2">

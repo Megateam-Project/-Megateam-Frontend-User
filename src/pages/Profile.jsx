@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-// import person from "../assets/person.jpg";
 import { Link } from "react-router-dom";
 
 export function Profile() {
@@ -38,7 +37,7 @@ export function Profile() {
 
     fetchProfileData();
   }, []);
-  // console.log("usser data,",userData);
+
   return (
     <div
       className="div_1_profile"
@@ -78,7 +77,7 @@ export function Profile() {
                 </label>
                 <div className="col-sm-10">
                   <h5>Account</h5>
-                  <p className="text-dark">Management your account</p>
+                  <p className="text-dark">Manage your account</p>
                 </div>
               </div>
               <div className="mb-3 row">
@@ -95,31 +94,30 @@ export function Profile() {
               </div>
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
-                  <a href="#" className="link-underline-primary">
-                    <Link to="/wishlist">
-                      <i style={{ color: "#7C6A46" }}
-                        className="icon_person fa fa-heart fa-2x"
-                        aria-hidden="true"
-                      ></i>
-                    </Link>
-                  </a>
+                  <Link to="/wishlist">
+                    <i
+                      style={{ color: "#7C6A46" }}
+                      className="icon_person fa fa-heart fa-2x"
+                      aria-hidden="true"
+                    ></i>
+                  </Link>
                 </label>
                 <div className="col-sm-10">
-                  <a></a>
                   <h5>Wishlist</h5>
                   <p className="text-dark">The room you love</p>
                 </div>
               </div>
               <div className="mb-3 row">
                 <label className="col-sm-2 col-form-label d-flex justify-content-between align-items-center mb-3">
-                  <a href="#" className="link-underline-primary">
-                    <Link to="/bookingHistory">
-                    <i style={{ color: "#7C6A46" }} className="fa fa-bed fa-2x" aria-hidden="true"></i>
-                    </Link>
-                  </a>
+                  <Link to="/bookingHistory">
+                    <i
+                      style={{ color: "#7C6A46" }}
+                      className="fa fa-bed fa-2x"
+                      aria-hidden="true"
+                    ></i>
+                  </Link>
                 </label>
                 <div className="col-sm-10">
-                  <a></a>
                   <h5>Bookings</h5>
                   <p className="text-dark">Manage all your bookings</p>
                 </div>
@@ -163,13 +161,10 @@ export function Profile() {
                 width: "800px",
               }}
             >
-              <a href="#" className="link-underline-primary">
-                {" "}
-                <Link to="/editprofile">
-                  Edit profile{" "}
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                </Link>{" "}
-              </a>
+              <Link to="/editprofile" className="link-underline-primary">
+                Edit profile{" "}
+                <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </Link>
               <hr />
               <div className="col-md-4">
                 <img
@@ -188,7 +183,7 @@ export function Profile() {
                   className="form-control"
                   id="inputName"
                   placeholder="name"
-                  value={userData.name}
+                  value={userData.name || ""}
                   readOnly
                 />
                 <label
@@ -202,7 +197,7 @@ export function Profile() {
                   className="form-control"
                   id="inputEmail"
                   placeholder="Email"
-                  value={userData.email}
+                  value={userData.email || ""}
                   readOnly
                 />
               </div>
@@ -216,7 +211,7 @@ export function Profile() {
                     className="form-control"
                     id="inputPhone"
                     placeholder="Phone"
-                    value={userData.phone}
+                    value={userData.phone || ""}
                     readOnly
                   />
                 </div>

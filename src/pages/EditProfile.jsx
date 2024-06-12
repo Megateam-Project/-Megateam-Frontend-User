@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
@@ -165,7 +165,6 @@ export function EditProfile() {
             className="form-control"
             id="inputAvatar"
             name="avatar"
-            // value={editData.avatar}
             onChange={handleChange}
           />
         </div>
