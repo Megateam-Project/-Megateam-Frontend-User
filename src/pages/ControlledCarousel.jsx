@@ -68,7 +68,7 @@ function ControlledCarousel({ rooms }) {
                       >
                         <div style={{ flexGrow: 1 }}>
                           <Card.Title className="text-2xl font-semibold">
-                            {room.name}
+                            {room.name}  
                           </Card.Title>
                           <Card.Title>Room {room.number}</Card.Title>
                           <Card.Text
