@@ -26,7 +26,7 @@ const LoginForm = () => {
         password,
       });
       const { token, user } = response.data.result;
-      const tokenData = {token, useId: user.id};
+      const tokenData = {token, userId: user.id};
       Cookies.set("token",  JSON.stringify(tokenData), { expires: 7 });
 
       alert("WELCOME TO HOTEL LUXURY");

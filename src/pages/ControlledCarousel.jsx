@@ -20,7 +20,7 @@ function ControlledCarousel({ rooms }) {
 
   const handleBookNow = (roomId) => {
     if (isLoggedIn()) {
-      const user = JSON.parse(Cookies.get("user"));
+      const user = JSON.parse(Cookies.get("token"));
       navigate(`/booking/${roomId}`, { state: { user } });
     } else {
       alert('You must Login before you want to booking');
@@ -59,7 +59,7 @@ function ControlledCarousel({ rooms }) {
                       <Card.Img
                         variant="top"
                         className="w-full aspect-[1.49]"
-                        src={room.image}
+                        src={`http://127.0.0.1:8000/${room.image}`}
                         alt=""
                       />
                       <Card.Body
@@ -82,7 +82,7 @@ function ControlledCarousel({ rooms }) {
                           style={{
                             display: "flex",
                             justifyContent: "space-between",
-                            alignItems: "center",
+alignItems: "center",
                             marginTop: "1rem",
                           }}
                         >

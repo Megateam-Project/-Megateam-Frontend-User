@@ -47,8 +47,8 @@ const Booking = () => {
         payment_id: paymentMethod,
         check_in_date: checkInDate,
         check_out_date: checkOutDate,
+        create_by: "user",
       });
-      console.log(user_id, room_id, payment_id);
       console.log("Booking created successfully:", res.data);
       // Optionally, redirect to a success page or show a success message
     } catch (err) {
