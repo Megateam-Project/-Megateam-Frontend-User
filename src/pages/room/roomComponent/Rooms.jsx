@@ -40,13 +40,7 @@ export function Rooms() {
       <div className={styles.filters}>
       </div>
 
-      {rooms.map((room, index) => (
-        <RoomCategory
-          key={index}
-          category={room.category}
-          rooms={room.rooms}
-        />
-      ))}
+        <RoomCategory/>
     </section>
   );
 }

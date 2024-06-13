@@ -225,7 +225,6 @@ const Detail = () => {
           <p style={{ marginRight: 10 }}>Dryer</p>
           <p style={{ marginRight: 10 }}>Air conditioning</p>
           <p style={{ marginRight: 10 }}>Parking</p>
-          <p style={{ marginRight: 10 }}>Air conditioning</p>
         </div>
       </div>
       <div className="suggest">
