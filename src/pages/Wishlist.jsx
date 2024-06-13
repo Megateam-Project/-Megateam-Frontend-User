@@ -10,7 +10,7 @@ export function Wishlist() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { userId } = useParams();
-
+  const [users, setUser] = useState([]);
   useEffect(() => {
     const appCookieRaw = Cookies.get("token");
     const appCookie = JSON.parse(appCookieRaw ?? "");
@@ -29,8 +29,19 @@ export function Wishlist() {
       }
     };
     getFavorites();
+    const getUserDetail = async () => {
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:8000/api/users/${user_id_cookie}`
+        );
+        setUser(response.data);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+    getUserDetail();
   }, [userId]);
-
+  
   if (loading) {
     return (
       <div className="text-center my-4">
@@ -69,8 +80,9 @@ export function Wishlist() {
           style={{ marginTop: "-80px" }}
         >
           <img
-            src={Ellipse}
+            src={`http://127.0.0.1:8000/${users.avatar}`}
             alt=""
+            className="border rounded-circle"
             style={{ width: "200px", height: "200px" }}
           />
         </div>

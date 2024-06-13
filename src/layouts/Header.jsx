@@ -74,15 +74,15 @@ export function Header() {
             >
               Wishlist
             </Link>
-            <button className="btn" style={{ backgroundColor: "#7C6A46" }}>
+            <>
               <Link
                 to="/bookingHistory"
-                className=""
-                style={{ color: "white" }}
+                className="nav-link fs-5"
+                style={{ color: "black" }}
               >
                 Booking History
               </Link>
-            </button>
+            </>
             <button className="btn" style={{ backgroundColor: "#7C6A46" }}>
               <Link to="/profile" className="" style={{ color: "white" }}>
                 Profile
