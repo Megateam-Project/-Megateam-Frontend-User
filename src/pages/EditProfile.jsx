@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
@@ -64,33 +64,27 @@ export function EditProfile() {
       if (!tokenData) throw new Error("Token not found");
   
       const token = JSON.parse(tokenData).token;
-      const decodedToken = jwtDecode(token); // Decode the JWT token
-      const userId = decodedToken.sub; // Extract the user ID from the decoded token
-      console.log(token);
-      console.log(userId);
-  
-      const { name, phone, email, avatar } = editData;
-  
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken.sub; 
+      const { name, phone, email, avatar} = editData;
       const formData = new FormData();
       if (name) formData.append("name", name);
       if (phone) formData.append("phone", phone);
       if (email) formData.append("email", email);
       if (avatar) formData.append("avatar", avatar);
-  
-      // Add a method override to simulate PUT if needed
       formData.append("_method", "PUT");
   
       for (let pair of formData.entries()) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
   
-      const response = await axios.post(
+      const response = await axios.put(
         `http://127.0.0.1:8000/api/users/${userId}`,
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            "Authorization": `Bearer ${token}` // Ensure the token is sent with the request
+            "Authorization": `Bearer ${token}` 
           },
         }
       );
@@ -124,7 +118,7 @@ export function EditProfile() {
             id="inputName"
             name="name"
             placeholder="Name"
-            value={editData.name}
+            value={editData?.name}
             onChange={handleChange}
           />
         </div>
@@ -138,7 +132,7 @@ export function EditProfile() {
             id="inputPhone"
             name="phone"
             placeholder="Phone"
-            value={editData.phone}
+            value={editData?.phone}
             onChange={handleChange}
           />
         </div>
@@ -152,7 +146,7 @@ export function EditProfile() {
             id="inputEmail"
             name="email"
             placeholder="Email"
-            value={editData.email}
+            value={editData?.email}
             onChange={handleChange}
           />
         </div>

@@ -9,7 +9,6 @@ export function Header() {
   const navigate = useNavigate();
   useEffect(() => {
     const userToken = Cookies.get("token");
-
     if (userToken) {
       try {
         const userObject = JSON.parse(userToken);
@@ -19,8 +18,6 @@ export function Header() {
       } catch (error) {
         console.error("Error parsing user data:", error);
       }
-    } else {
-      alert("No user cookie found.");
     }
   }, []);
 
@@ -37,7 +34,7 @@ export function Header() {
       style={{ backgroundColor: "#f8f9fa" }}
     >
       <div className="col-1 d-flex justify-content-around">
-        <img src={logo} alt="Logo" width="55" />
+        <Link to="/"><img src={logo} alt="Logo" width="55" /></Link>
       </div>
       <div className="col-7 d-flex justify-content-between align-items-end">
         <Link to="/" className="nav-link fs-5">

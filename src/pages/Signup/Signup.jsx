@@ -31,12 +31,6 @@ const Signup = () => {
   const handlePasswordConfirmChange = (e) => {
     setPasswordConfirm(e.target.value);
   };
-  const handleRoleChange = (e) => {
-    setRole(e.target.value);
-  };
-  const handleCreateByChange = (e) => {
-    setCreateBy(e.target.value);
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== password_confirmation) {
@@ -50,8 +44,8 @@ const Signup = () => {
         phone,
         password,
         password_confirmation,
-        role,
-        create_by,
+        role: "User",
+        create_by: "User",
       });
       alert("Register successful");
       navigate("/login");
@@ -164,45 +158,6 @@ const Signup = () => {
               onChange={handlePasswordConfirmChange}
             />
           </div>
-
-          <div className="mb-2">
-            <label htmlFor="role" className="form-label">
-              <b style={{ color: "#7C6A46" }}>Role</b>
-            </label>
-            <select
-              className="form-select border-0 border-bottom border-black-1 border-dark"
-              name="role"
-              id="role"
-              required
-              value={role}
-              onChange={handleRoleChange}
-              style={{ width: "100%" }}
-            >
-              <option value="">Select Role</option>
-              <option value="admin">Admin</option>
-              <option value="user">User</option>
-            </select>
-          </div>
-
-          <div className="mb-1">
-            <label htmlFor="create_by" className="form-label">
-              <b style={{ color: "#7C6A46" }}>Create By</b>
-            </label>
-            <select
-              className="form-select border-0 border-bottom border-black-1 border-dark"
-              name="create_by"
-              id="create_by"
-              required
-              value={create_by}
-              onChange={handleCreateByChange}
-              style={{ width: "100%" }}
-            >
-              <option value="">Select Creator</option>
-              <option value="admin">Admin</option>
-              <option value="user">User</option>
-            </select>
-          </div>
-
           <p className="text-center">
             Already have an account?{" "}
             <Link to="/Login" className="text-danger">
