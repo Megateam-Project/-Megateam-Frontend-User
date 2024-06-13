@@ -26,8 +26,6 @@ const Booking = () => {
     try {
       const res = await axios.get(`http://127.0.0.1:8000/api/rooms/${roomId}`);
       setRoom(res.data);
-      const price= room?.price;
-      Cookies.set("price",  JSON.stringify(price), { expires: 1});
     } catch (err) {
       console.error("Error fetching room data:", err);
       setError(err.message);
@@ -64,32 +62,27 @@ const Booking = () => {
         check_out_date: checkOutDate,
         create_by: "User",
       });
+      const {idBooking, room} = res.data;
       message.success("Booking created successfully!");
-      Cookies.set("idBooking",  JSON.stringify(res.data.idBooking), { expires: 1});
+      const billResponse = await axios.post("http://127.0.0.1:8000/api/bills", {
+        booking_id: idBooking,
+        total_price: room.price * 100,
+        date: checkInDate,
+        create_by: "User",
+      });
+      const idBills = billResponse.data.idBill;
+      Cookies.set("idBills",  JSON.stringify(idBills), { expires: 7 });
+      message.success("Bill created successfully!");
       navigate("/checkout");
     } catch (err) {
       console.error("Error creating booking:", err);
       setError("Error creating booking: " + err.message);
     }
   };
-
-
-  // const handleApiPayment = async () => {
-  //   try {
-  //     const res = await axios.post("http://127.0.0.1:8000/api/user/payment", {
-  //       total: "100",
-  //     });
-  
-  //     console.log("Payment Response:", res);
-
-  //   } catch (err) {
-  //     console.error("Error processing payment:", err);
-  //   }
-  // };
   return (
     <>
       <form onSubmit={handleCreateBooking}>
-        <h1 className="text-center mt-3">Booking Information</h1>
+        <h1 className="text-center mt-5">Booking Information</h1>
         <div className="row m-5 justify-content-around">
           <div className="col-8 d-flex flex-column">
             <div className="border border-warning p-3">

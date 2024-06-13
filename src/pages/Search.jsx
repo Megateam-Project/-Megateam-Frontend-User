@@ -33,8 +33,6 @@ export function Search() {
       console.error("Error fetching rooms:", error);
     }
   };
-  console.log(rooms);
-
   const handleSearchClick = () => {
     if (checkInDate && checkOutDate) {
       fetchRooms();

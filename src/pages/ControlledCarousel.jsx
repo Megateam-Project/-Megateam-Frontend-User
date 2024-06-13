@@ -17,6 +17,10 @@ function ControlledCarousel({ rooms }) {
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
   
+  useEffect(() => {
+    getFavorites();
+  }, []);
+
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
@@ -36,13 +40,19 @@ function ControlledCarousel({ rooms }) {
   const getFavorites = async () => {
     try {
       const response = await axios.get("http://127.0.0.1:8000/api/favorites");
-      setFavorites(response.data);
+      setFavorites(response.data.map(favorite => favorite.room_id));
     } catch (error) {
-      console.error("Error fetching rooms:", error);
+      console.error("Error fetching favorites:", error);
     }
   };
+
   const handleFavoriteToggle = async (roomId) => {
     if (isLoggedIn()) {
+      if (favorites.includes(roomId)) {
+        message.warning("This room is already in your favorites");
+        return;
+      }
+
       const user = JSON.parse(Cookies.get("token"));
       try {
         const response = await axios.post('http://127.0.0.1:8000/api/favorites', {
@@ -51,12 +61,8 @@ function ControlledCarousel({ rooms }) {
           create_by: "user",
         });
         if (response.status === 200) {
-          setFavorites((prevFavorites) =>
-            prevFavorites.includes(roomId)
-              ? prevFavorites.filter((id) => id !== roomId)
-              : [...prevFavorites, roomId]
-          );
-          message.success("Add wishlist room successfull");
+          setFavorites((prevFavorites) => [...prevFavorites, roomId]);
+          message.success("Added to wishlist successfully");
           navigate("/wishlist");
         } else {
           console.error('Failed to add to favorites:', response.data.message);
@@ -106,15 +112,15 @@ function ControlledCarousel({ rooms }) {
                         alt=""
                       />
                       <FontAwesomeIcon
-                        icon={faSolidHeart}
+                        icon={faSolidHeart }
                         onClick={() => handleFavoriteToggle(room.id)}
                         style={{
                           position: "absolute",
                           top: "10px",
                           right: "10px",
-                          color:  "red",
+                          color: favorites.includes(room.id) ? "grey" : "red",
                           fontSize: "24px",
-                          cursor: "pointer",
+                          cursor: favorites.includes(room.id) ? "not-allowed" : "pointer",
                         }}
                       />
                       <Card.Body
