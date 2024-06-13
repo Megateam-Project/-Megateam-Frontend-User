@@ -6,7 +6,6 @@ function RoomCategory() {
   return (
     <div className={styles.roomCategory}>
       <h3>Category</h3>
-      
         <Room/>
   
     </div>

@@ -9,12 +9,13 @@ import { Footer } from "./layouts/Footer";
 import Booking from "./pages/Booking";
 import { Profile } from "./pages/Profile";
 import { Checkout } from "./pages/Checkout";
+import { EditProfile } from "./pages/EditProfile.jsx";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup/Signup";
-import Detail from "./pages/Detail";
+import Detail from "./pages/Detail.jsx";
 import { Wishlist } from "./pages/Wishlist";
 import { NotFound } from "./pages/404/NotFound";
-
+import BookingHistory  from "./pages/BookingHistory";
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<Homepages />} />
             <Route path="/about-us" element={<Aboutus />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/editProfile" element={<EditProfile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Signup />} />
             <Route path="/booking/:roomId" element={<Booking />} />
@@ -32,13 +34,14 @@ function App() {
             <Route path="/rooms" element={<RoomPage />} />
             <Route path="/detail/:roomId" element={<Detail />} />
             <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/bookingHistory" element={<Homepages />} />
+            <Route path="/bookingHistory" element={<BookingHistory />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
       </div>
     </BrowserRouter>
+
 
   );
 }

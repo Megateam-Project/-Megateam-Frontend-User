@@ -112,7 +112,7 @@ const Signup = () => {
               required
               onChange={handleEmailChange}
             />
-            {validator.isEmail(email)}
+            {/* {validator.isEmail(email)} */}
           </div>
 
           <div className="mb-2">
