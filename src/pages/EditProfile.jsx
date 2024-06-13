@@ -159,7 +159,6 @@ export function EditProfile() {
             className="form-control"
             id="inputAvatar"
             name="avatar"
-            // value={editData.avatar}
             onChange={handleChange}
           />
         </div>

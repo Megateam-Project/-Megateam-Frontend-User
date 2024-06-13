@@ -154,7 +154,7 @@ function ControlledCarousel({ rooms }) {
                           style={{
                             display: "flex",
                             justifyContent: "space-between",
-                            alignItems: "center",
+alignItems: "center",
                             marginTop: "1rem",
                           }}
                         >
