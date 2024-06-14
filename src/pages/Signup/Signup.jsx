@@ -10,10 +10,8 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
-  const [create_by, setCreateBy] = useState("");
   const [password_confirmation, setPasswordConfirm] = useState("");
-  const [errors,setError] = useState(null);
+  // const [errors,setError] = useState(null);
   const navigate = useNavigate();
 
   const handleNameChange = (e) => {
@@ -31,12 +29,6 @@ const Signup = () => {
   const handlePasswordConfirmChange = (e) => {
     setPasswordConfirm(e.target.value);
   };
-  const handleRoleChange = (e) => {
-    setRole(e.target.value);
-  };
-  const handleCreateByChange = (e) => {
-    setCreateBy(e.target.value);
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== password_confirmation) {
@@ -50,18 +42,18 @@ const Signup = () => {
         phone,
         password,
         password_confirmation,
-        role,
-        create_by,
+        role: "User",
+        create_by: "User",
       });
-      alert("Register successful");
-      navigate("/login");
-      console.log(response);
-      // setError(response.data);
+      if (response.status === 200 || response.status === 201) {
+        message.success("Register successful");
+        navigate("/login");
+      } else {
+        message.error("Failed to register. Please try again.");
+      }
     } catch (error) {
-      console.error("Register failed", error);
-      message.error("Register failed");
-      setError(error.response.data);
-      console.log(errors.error[0]);
+      message.error("Register failed", error);
+      // setError(error.response.data);
     }
   };
   return (
@@ -164,45 +156,6 @@ const Signup = () => {
               onChange={handlePasswordConfirmChange}
             />
           </div>
-
-          <div className="mb-2">
-            <label htmlFor="role" className="form-label">
-              <b style={{ color: "#7C6A46" }}>Role</b>
-            </label>
-            <select
-              className="form-select border-0 border-bottom border-black-1 border-dark"
-              name="role"
-              id="role"
-              required
-              value={role}
-              onChange={handleRoleChange}
-              style={{ width: "100%" }}
-            >
-              <option value="">Select Role</option>
-              <option value="admin">Admin</option>
-              <option value="user">User</option>
-            </select>
-          </div>
-
-          <div className="mb-1">
-            <label htmlFor="create_by" className="form-label">
-              <b style={{ color: "#7C6A46" }}>Create By</b>
-            </label>
-            <select
-              className="form-select border-0 border-bottom border-black-1 border-dark"
-              name="create_by"
-              id="create_by"
-              required
-              value={create_by}
-              onChange={handleCreateByChange}
-              style={{ width: "100%" }}
-            >
-              <option value="">Select Creator</option>
-              <option value="admin">Admin</option>
-              <option value="user">User</option>
-            </select>
-          </div>
-
           <p className="text-center">
             Already have an account?{" "}
             <Link to="/Login" className="text-danger">

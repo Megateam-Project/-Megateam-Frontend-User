@@ -1,15 +1,12 @@
-import Ellipse from "../assets/Ellipse.png";
 import { Spinner, Alert, Row, Col, Card, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export function Wishlist() {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { userId } = useParams();
   const [users, setUser] = useState([]);
   useEffect(() => {
     const appCookieRaw = Cookies.get("token");
@@ -40,7 +37,7 @@ export function Wishlist() {
       }
     };
     getUserDetail();
-  }, [userId]);
+  }, []);
   
   if (loading) {
     return (

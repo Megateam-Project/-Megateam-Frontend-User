@@ -9,6 +9,7 @@ import nen from "../assets/nen.jpg";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -24,12 +25,14 @@ const Login = () => {
         email,
         password,
       });
+      console.log(response)
       const { token, user } = response.data.result;
       const tokenData = {token, userId: user.id};
       Cookies.set("token",  JSON.stringify(tokenData), { expires: 7 });
       message.success("WELCOME TO HOTEL LUXURY");
       window.location.href = "/";
     } catch (error) {
+      setError(error?.response?.data?.message);
       if (error.response) {
         message.error("Error login");
       } else if (error.request) {
@@ -64,6 +67,7 @@ const Login = () => {
               onChange={handleEmailChange}
               style={{ width: "400px", border: "none" }}
             />
+            
           </div>
         </div>
         <br />

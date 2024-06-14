@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode"; // Ensure correct import
-
+import { jwtDecode } from "jwt-decode";
+import { message } from "antd";
 export function EditProfile() {
   const [editData, setEditData] = useState({
     name: "",
@@ -13,34 +13,27 @@ export function EditProfile() {
   });
 
   const navigate = useNavigate();
-
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
         const tokenData = Cookies.get("token");
         if (!tokenData) throw new Error("Token not found");
-
         const token = JSON.parse(tokenData).token;
-
         const response = await axios.get("http://127.0.0.1:8000/api/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-
         setEditData({
           ...response.data,
-          avatar:response.data.avatar,
+          avatar: response.data.avatar,
         });
       } catch (error) {
         console.error("Failed to fetch profile data", error);
       }
     };
-
     fetchProfileData();
   }, []);
-
-
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "avatar" && files.length > 0) {
@@ -53,58 +46,45 @@ export function EditProfile() {
         ...prevData,
         [name]: value,
       }));
-    }}
-
-  console.log(editData);
-
+    }
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const tokenData = Cookies.get("token");
       if (!tokenData) throw new Error("Token not found");
-  
       const token = JSON.parse(tokenData).token;
-      const decodedToken = jwtDecode(token); // Decode the JWT token
-      const userId = decodedToken.sub; // Extract the user ID from the decoded token
-      console.log(token);
-      console.log(userId);
-  
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken.sub;
       const { name, phone, email, avatar } = editData;
-  
       const formData = new FormData();
       if (name) formData.append("name", name);
       if (phone) formData.append("phone", phone);
       if (email) formData.append("email", email);
       if (avatar) formData.append("avatar", avatar);
-  
-      // Add a method override to simulate PUT if needed
       formData.append("_method", "PUT");
-  
       for (let pair of formData.entries()) {
         console.log(`${pair[0]}: ${pair[1]}`);
       }
-  
       const response = await axios.post(
         `http://127.0.0.1:8000/api/users/${userId}`,
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            "Authorization": `Bearer ${token}` // Ensure the token is sent with the request
+            Authorization: `Bearer ${token}`,
           },
         }
       );
-  
+
       if (response.status === 200) {
-        console.log("Profile updated successfully", response.data);
+        message.success("Update successfull");
         navigate("/profile");
-      } 
+      }
     } catch (error) {
       console.error("Failed to update profile data", error);
-    } 
+    }
   };
-  
-
   return (
     <div
       className="mt-5 container justify-content-center"
@@ -116,7 +96,7 @@ export function EditProfile() {
       >
         <div className="mb-3">
           <label htmlFor="inputName" className="form-label">
-          <b style={{ color: "#7C6A46" }}>Name</b> 
+            <b style={{ color: "#7C6A46" }}>Name</b>
           </label>
           <input
             type="text"
@@ -130,7 +110,7 @@ export function EditProfile() {
         </div>
         <div className="mb-3">
           <label htmlFor="inputPhone" className="form-label">
-          <b style={{ color: "#7C6A46" }}>Phone</b> 
+            <b style={{ color: "#7C6A46" }}>Phone</b>
           </label>
           <input
             type="text"
@@ -144,7 +124,7 @@ export function EditProfile() {
         </div>
         <div className="mb-3">
           <label htmlFor="inputEmail" className="form-label">
-          <b style={{ color: "#7C6A46" }}>Email</b> 
+            <b style={{ color: "#7C6A46" }}>Email</b>
           </label>
           <input
             type="email"
@@ -158,7 +138,7 @@ export function EditProfile() {
         </div>
         <div className="mb-3">
           <label htmlFor="inputAvatar" className="form-label">
-          <b style={{ color: "#7C6A46" }}>Avatar</b> 
+            <b style={{ color: "#7C6A46" }}>Avatar</b>
           </label>
           <input
             type="file"
@@ -178,9 +158,9 @@ export function EditProfile() {
         <button
           type="submit"
           className="btn btn-primary mt-3 "
-          style={{ background: "#7C6A46", marginLeft: "300px"}}
+          style={{ background: "#7C6A46", marginLeft: "300px" }}
         >
-           Save 
+          Save
         </button>
       </form>
     </div>

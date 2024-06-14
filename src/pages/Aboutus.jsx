@@ -61,7 +61,7 @@ export function Aboutus() {
   const handleCreateFeedback = async (e) => {
     e.preventDefault();
     if (!isLoggedIn()) {
-      alert('You must login to submit feedback');
+      message.error('You must login to submit feedback');
       navigate('/login');
       return;
     }
@@ -72,15 +72,18 @@ export function Aboutus() {
         content,
       };
       const response = await axios.post("http://127.0.0.1:8000/api/feedbacks", feedbackData);
-      setRoomName("");
-      setContent("");
-      message.success("Create Successful");
-      navigate("/");
+      if (response.status === 200 || response.status === 201) {
+        setRoomName("");
+        setContent("");
+        message.success("Feedback submitted successfully");
+        navigate("/");
+      } else {
+        message.error("Failed to submit feedback. Please try again.");
+      }
     } catch (error) {
       console.error("Error submitting feedback:", error);
     }
   };
-
   return (
     <div className="row d-flex justify-content-around">
       <div className="col-11">
@@ -107,7 +110,7 @@ export function Aboutus() {
             </div>
             <div className="d-flex mt-5">
               <EnvironmentFilled className="pe-5 fs-4" />
-              99 Tô Hiến Thành, Sơn Trà Đà Nẵng
+              99 To Hien Thanh, Son Tra, Đa Nang
             </div>
             <div className="d-flex mt-5 mb-4">
               <TwitterCircleFilled className="pe-2 fs-4" />
@@ -216,7 +219,7 @@ export function Aboutus() {
         </div>
       </div>
       <div className="col-11">
-        <h3>VỊ TRÍ TUYỆT VỜI CỦA HOTEL LUXURY ĐÀ NẴNG</h3>
+        <h3>EXCELLENT LOCATION OF HOTEL LUXURY DA NANG</h3>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.1213077702782!2d108.2409344745998!3d16.059193639707534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142177ed575157d%3A0xa54585cda5d67ac7!2zOTkgVMO0IEhp4bq_biBUaMOgbmgsIFBoxrDhu5tjIE3hu7ksIFPGoW4gVHLDoCwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1713340764310!5m2!1svi!2s"
           width="100%"

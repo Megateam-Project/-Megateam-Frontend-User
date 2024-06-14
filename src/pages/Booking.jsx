@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import image_9 from "../assets/image_9.png";
 import Cookies from "js-cookie";
@@ -50,11 +50,10 @@ const Booking = () => {
       setError(err.message);
     }
   };
-  const navigate = useNavigate();
   const handleCreateBooking = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/bookings", {
+      const bookingResponse = await axios.post("http://127.0.0.1:8000/api/bookings", {
         user_id: user.id,
         room_id: roomId,
         payment_id: paymentMethod,
@@ -62,21 +61,28 @@ const Booking = () => {
         check_out_date: checkOutDate,
         create_by: "User",
       });
-      const {idBooking, room} = res.data;
-      message.success("Booking created successfully!");
-      const billResponse = await axios.post("http://127.0.0.1:8000/api/bills", {
+      const { room } = bookingResponse.data;
+      const { idBooking } = bookingResponse.data;
+      Cookies.set("idBooking",  JSON.stringify(idBooking), { expires: 2000 });
+      {/* eslint-disable-next-line */}
+      const response = await axios.post("http://127.0.0.1:8000/api/bills", {
         booking_id: idBooking,
-        total_price: room.price * 100,
+        total_price: room.price*100,
         date: checkInDate,
         create_by: "User",
       });
-      const idBills = billResponse.data.idBill;
-      Cookies.set("idBills",  JSON.stringify(idBills), { expires: 7 });
-      message.success("Bill created successfully!");
-      navigate("/checkout");
+      const paymentResponse = await axios.post("http://127.0.0.1:8000/api/user/payment", {
+        total: room?.price * 100,
+      });
+  
+      if (paymentResponse.data.code === "00") {
+        window.location.href = paymentResponse.data.data;
+      } else {
+        message.error("Payment processing failed.");
+      }
     } catch (err) {
-      console.error("Error creating booking:", err);
-      setError("Error creating booking: " + err.message);
+      console.error("Error creating booking or processing payment:", err);
+      message.error("An error occurred during booking creation or payment processing.");
     }
   };
   return (
