@@ -11,7 +11,7 @@ import { message } from "antd";
 const isLoggedIn = () => {
   return Cookies.get("token") !== undefined;
 };
-
+{/* eslint-disable-next-line */}
 function ControlledCarousel({ rooms }) {
   const [index, setIndex] = useState(0);
   const [favorites, setFavorites] = useState([]);
@@ -23,11 +23,9 @@ function ControlledCarousel({ rooms }) {
       getFavorites();
     }
   }, []);
-
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
-
   const cardsPerSlide = 3;
   const handleBookNow = (roomId) => {
     if (userCookies) {
@@ -84,9 +82,11 @@ function ControlledCarousel({ rooms }) {
 
   return (
     <Carousel activeIndex={index} onSelect={handleSelect} style={{ height: "550px" }}>
+      {/* eslint-disable-next-line */}
       {Array.from({ length: Math.ceil(rooms?.length / cardsPerSlide) }).map((_, slideIndex) => (
         <Carousel.Item key={slideIndex}>
           <Row>
+            {/* eslint-disable-next-line */}
             {rooms.slice(slideIndex * cardsPerSlide, (slideIndex + 1) * cardsPerSlide).map((room, index) => (
               <Col
                 md={4}

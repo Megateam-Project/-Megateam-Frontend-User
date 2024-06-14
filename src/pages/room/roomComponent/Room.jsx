@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "../style/Room.module.css";
 import { Link } from "react-router-dom";

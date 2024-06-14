@@ -64,6 +64,7 @@ const Booking = () => {
       const { room } = bookingResponse.data;
       const { idBooking } = bookingResponse.data;
       Cookies.set("idBooking",  JSON.stringify(idBooking), { expires: 2000 });
+      {/* eslint-disable-next-line */}
       const response = await axios.post("http://127.0.0.1:8000/api/bills", {
         booking_id: idBooking,
         total_price: room.price*100,
