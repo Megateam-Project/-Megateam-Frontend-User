@@ -61,7 +61,7 @@ export function Aboutus() {
   const handleCreateFeedback = async (e) => {
     e.preventDefault();
     if (!isLoggedIn()) {
-      alert('You must login to submit feedback');
+      message.error('You must login to submit feedback');
       navigate('/login');
       return;
     }
@@ -72,15 +72,18 @@ export function Aboutus() {
         content,
       };
       const response = await axios.post("http://127.0.0.1:8000/api/feedbacks", feedbackData);
-      setRoomName("");
-      setContent("");
-      message.success("Create Successful");
-      navigate("/");
+      if (response.status === 200 || response.status === 201) {
+        setRoomName("");
+        setContent("");
+        message.success("Feedback submitted successfully");
+        navigate("/");
+      } else {
+        message.error("Failed to submit feedback. Please try again.");
+      }
     } catch (error) {
       console.error("Error submitting feedback:", error);
     }
   };
-
   return (
     <div className="row d-flex justify-content-around">
       <div className="col-11">

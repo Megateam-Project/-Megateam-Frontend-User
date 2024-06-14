@@ -10,10 +10,8 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
-  const [create_by, setCreateBy] = useState("");
   const [password_confirmation, setPasswordConfirm] = useState("");
-  const [errors,setError] = useState(null);
+  // const [errors,setError] = useState(null);
   const navigate = useNavigate();
 
   const handleNameChange = (e) => {
@@ -47,15 +45,15 @@ const Signup = () => {
         role: "User",
         create_by: "User",
       });
-      alert("Register successful");
-      navigate("/login");
-      console.log(response);
-      // setError(response.data);
+      if (response.status === 200 || response.status === 201) {
+        message.success("Register successful");
+        navigate("/login");
+      } else {
+        message.error("Failed to register. Please try again.");
+      }
     } catch (error) {
-      console.error("Register failed", error);
-      message.error("Register failed");
-      setError(error.response.data);
-      console.log(errors.error[0]);
+      message.error("Register failed", error);
+      // setError(error.response.data);
     }
   };
   return (

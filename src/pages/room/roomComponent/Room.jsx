@@ -29,7 +29,7 @@ function Room() {
         <Link
           key={room.id}
           to={`/detail/${room.id}`}
-          className={styles["room-card"]}
+          
         >
 
           <div key={room.id} className={styles["room-card"]}>
@@ -43,18 +43,6 @@ function Room() {
                 <h2 className={styles["room-header-title"]}>
                   {room.name} <br /> Room: {room.number}
                 </h2>
-
-                <span
-                  className={styles.availability}
-                  style={{
-                    color: room.available ? "#4CAF50" : "#ff6b6b",
-                  }}
-                >
-                  Available: {room.available ? "Yes" : "No"}{" "}
-                  <i style={{ color: room.available ? "#4CAF50" : "#ff6b6b" }}>
-                    &#9829;
-                  </i>
-                </span>
               </div>
               <div className={styles["room-info"]}>
                 <div>

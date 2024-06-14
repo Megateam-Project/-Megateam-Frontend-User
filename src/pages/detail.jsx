@@ -5,15 +5,25 @@ import axios from "axios";
 import area from "../assets/area.png";
 import company from "../assets/company.png";
 import location from "../assets/location.png";
-import roomSuggest from "../assets/roomSuggest.png";
-import televison from "../assets/televison.png";
-import N_wifi from "../assets/N_wifi.png";
-import shower from "../assets/shower.png";
-import { Col, Row, Card } from "react-bootstrap";
-
+import ControlledCarousel from "./ControlledCarousel";
 const Detail = () => {
   const { roomId } = useParams();
   const [roomData, setRoomData] = useState(null);
+  const [rooms, setRooms] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getRooms = async () => {
+      try {
+        const res = await axios.get("http://127.0.0.1:8000/api/rooms");
+        setRooms(res.data);
+      } catch (error) {
+        console.error("Error fetching rooms data:", error);
+        setError(error.message);
+      } 
+    };
+    getRooms();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -233,185 +243,7 @@ const Detail = () => {
         </h3>
         <div className="room-interested">
           <div className="row01">
-            <Row gutter={8} style={{ margin: "50px 130px 30px 130px" }}>
-              <Col span={8}>
-                <Card
-                  title="The Family Suite"
-                  bordered={false}
-                  style={{
-                    width: 300,
-                    height: 430,
-                  }}
-                >
-                  <img src={roomSuggest} alt="The Family Suite" />
-                  <div className="card-body">
-                    <h5 className="card-title" style={{ color: "#7C6A46" }}>
-                      The Family Suite
-                    </h5>
-                    <p className="card-text" style={{ color: "#7C6A46" }}>
-                      <b> $250,000</b>
-                    </p>
-                  </div>
-                  <div className="card-footer">
-                    <div className="icon01">
-                      <img
-                        src={N_wifi}
-                        alt="Wifi"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                      <img
-                        src={televison}
-                        alt="Television"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                      <img
-                        src={shower}
-                        alt="Shower"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="d-grid justify-content-md-end "
-                    style={{ marginRight: "20px", marginBottom: "20px" }}
-                  >
-                    <button
-                      className="btn text-white "
-                      style={{
-                        backgroundColor: "#7c6a46",
-                        borderRadius: "2.5px",
-                        fontFamily: "Raleway, sans-serif",
-                        fontWeight: "600",
-                        fontSize: "13px",
-                        whiteSpace: "nowrap",
-                        padding: "10px 20px",
-                        margin: " 5px ",
-                      }}
-                    >
-                      Book now
-                    </button>
-                  </div>
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card
-                  title="The Family Suite"
-                  bordered={false}
-                  style={{
-                    width: 300,
-                    height: 430,
-                  }}
-                >
-                  <img src={roomSuggest} alt="The Family Suite" />
-                  <div className="card-body">
-                    <h5 className="card-title" style={{ color: "#7C6A46" }}>
-                      The Family Suite
-                    </h5>
-                    <p className="card-text" style={{ color: "#7C6A46" }}>
-                      <b> $250,000</b>
-                    </p>
-                  </div>
-                  <div className="card-footer">
-                    <div className="icon01">
-                      <img
-                        src={N_wifi}
-                        alt="Wifi"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                      <img
-                        src={televison}
-                        alt="Television"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                      <img
-                        src={shower}
-                        alt="Shower"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="d-grid justify-content-md-end "
-                    style={{ marginRight: "20px", marginBottom: "20px" }}
-                  >
-                    <button
-                      className="btn text-white "
-                      style={{
-                        backgroundColor: "#7c6a46",
-                        borderRadius: "2.5px",
-                        fontFamily: "Raleway, sans-serif",
-                        fontWeight: "600",
-                        fontSize: "13px",
-                        whiteSpace: "nowrap",
-                        padding: "10px 20px",
-                        margin: " 5px ",
-                      }}
-                    >
-                      Book now
-                    </button>
-                  </div>
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card
-                  title="The Family Suite"
-                  bordered={false}
-                  style={{
-                    width: 300,
-                    height: 430,
-                  }}
-                >
-                  <img src={roomSuggest} alt="The Family Suite" />
-                  <div className="card-body">
-                    <h5 className="card-title" style={{ color: "#7C6A46" }}>
-                      The Family Suite
-                    </h5>
-                    <p className="card-text" style={{ color: "#7C6A46" }}>
-                      <b> $250,000</b>
-                    </p>
-                  </div>
-                  <div className="card-footer">
-                    <div className="icon01">
-                      <img
-                        src={N_wifi}
-                        alt="Wifi"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                      <img
-                        src={televison}
-                        alt="Television"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                      <img
-                        src={shower}
-                        alt="Shower"
-                        style={{ marginTop: 20, marginRight: 20 }}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="d-grid justify-content-md-end "
-                    style={{ marginRight: "20px", marginBottom: "20px" }}
-                  >
-                    <button
-                      className="btn text-white "
-                      style={{
-                        backgroundColor: "#7c6a46",
-                        borderRadius: "2.5px",
-                        fontFamily: "Raleway, sans-serif",
-                        fontWeight: "600",
-                        fontSize: "13px",
-                        whiteSpace: "nowrap",
-                        padding: "10px 20px",
-                        margin: " 5px ",
-                      }}
-                    >
-                      Book now
-                    </button>
-                  </div>
-                </Card>
-              </Col>
-            </Row>
+          <ControlledCarousel rooms={rooms.slice(0, 21)} />
           </div>
         </div>
       </div>
